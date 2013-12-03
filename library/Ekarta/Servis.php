@@ -58,10 +58,52 @@ class Ekarta_Servis {
     
     /**
      * 
-     * @return Ekarta_ddlData
+     * @param int $id
+     * @return Ekarta_karta
+     */
+    public function pronadjiKartu($id){
+        return $this->karta->pronadjiKartu($id);
+    }
+
+    /**
+     * 
+     * @param int $id
+     * @return boolean
+     */
+    public function otkaziKartu($id){
+        
+        return true;
+    }
+    
+    /**
+     * 
+     * @return string Ekarta_ddlData
      */
     public function popusti(){
-        $popusti = new Ekarta_ddlData('0','studentski');
+        //$popusti = new Ekarta_ddlData('0','studentski');
+        $popusti = "studenski#penzionerski#invalidski";
         return $popusti;
     }
+    
+    /**
+     * 
+     * @return Ekarta_RedVoznje
+     */
+    public function getRedVoznje(){
+        return $this->redVoznje;
+    }
+    
+    /**
+     * 
+     * @param string $string
+     * @return boolean
+     */
+    public function proveriVoznju($string){
+        if("otkazana" == true)
+            return false;
+        return true;
+    }
+    
+    
+    
 }

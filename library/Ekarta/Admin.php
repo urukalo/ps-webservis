@@ -7,7 +7,7 @@
  */
 
 /**
- * Description of Admin
+ * OVO TREBA PREBACITI U ORM
  *
  * @author Miki
  */

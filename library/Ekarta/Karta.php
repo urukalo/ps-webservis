@@ -2,7 +2,7 @@
 
 
 /**
- * Klasa zaduzena za rad sa kartama
+ *  OVO TREBA PREBACITI U ORM !!!
  *
  * @author Miki
  */

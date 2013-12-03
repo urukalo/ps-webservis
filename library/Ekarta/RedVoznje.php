@@ -7,7 +7,7 @@
  */
 
 /**
- * Description of RedVoznje
+ * OVO TREBA PREBACITI U ORM
  *
  * @author Miki
  */
