@@ -91,4 +91,11 @@ class Ekarta_Karta {
     public function otkaziKartu($id){
         return true;
     }
+    /**
+     * 
+     * @return string
+     */
+    public function ToString(){
+        return $this->ToString();
+    }
 }

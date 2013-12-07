@@ -11,7 +11,7 @@
  *
  * @author Miki
  */
-class Ekarta_ddlData {
+class Ekarta_ddlData implements Serializable {
 
     //put your code here
     /**
@@ -34,6 +34,28 @@ class Ekarta_ddlData {
     public function __construct($key, $value) {
         $this->key = $key;
         $this->value = $value;
+    }
+
+    /**
+     * 
+     * @return string
+     */
+    public function serialize() {
+        return serialize(
+                array(
+                    "key" => $this->key,
+                    "value" => $this->value)
+        );
+    }
+
+    /**
+     * 
+     * @param string $serialized
+     */
+    public function unserialize($serialized) {
+        $tmp = unserialize($serialized);
+        $this->key = $tmp["key"];
+        $this->value = $tmp["value"];
     }
 
 }
