@@ -1,6 +1,6 @@
 <?php
 
-class Application_Model_Popusti
+class Application_Model_Popust
 {
     protected $_idPopust;
     protected $_naziv;

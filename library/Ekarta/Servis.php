@@ -16,32 +16,52 @@ class Ekarta_Servis {
     
     /**
      *
-     * @var Ekarta_karta
+     * @var Application_Model_Karta
      */
     public $karta;
     
     /**
      *
-     * @var Ekarta_RedVoznje
+     * @var Application_Model_Redvoznje
      */
     public $redVoznje;
     
     /**
      *
-     * @var Ekarta_Admin
+     * @var Application_Model_Stanica
      */
-    public $admin;
+    public $stanica;
+    
+    /**
+     *
+     * @var Application_Model_Popusti
+     */
+    public $popusti;
+    
+    /**
+     *
+     * @var Application_Model_Trasa
+     */
+    public $trasa;
+    
+    private $kartaMaper, $stanicaMaper, $redVoznjeMaper;
     
         
     public function Ekarta_Servis() {
-        $this->karta = new Ekarta_Karta();
-        $this->redVoznje = new Ekarta_RedVoznje();
-        $this->admin = new Ekarta_Admin();
+        $this->karta = new Application_Model_Karta();
+        $this->redVoznje = new Application_Model_Redvoznje();
+        $this->stanica = new Application_Model_Stanica();
+        $this->popusti = new Application_Model_Popust();
+        $this->trasa = new Application_Model_Trasa();
+        
+        $this->kartaMaper = new Application_Model_KartaMapper();
     }
+    
+ // ============= RAD SA KARTOM ==================   
     
     /**
      * 
-     * @return Ekarta_karta
+     * @return Application_Model_Karta
      */
     public function getKarta(){
         return $this->karta;
@@ -49,31 +69,41 @@ class Ekarta_Servis {
     
     /**
      * 
-     * @param Ekarta_karta $karta
-     * @return boolean
+     * @param Application_Model_Karta $row
      */
-    public function sacuvajKartu($karta){
-        return $this->karta->sacuvajKartu($karta);
+    public function sacuvajKartu($row){
+       //$object = new Application_Model_Karta();
+       $this->karta->setId($row->_idKarta)
+               ->setTrasa($row->_idTrasa)
+               ->setStanicaPolaska($row->_idStanicaPolaska)
+               ->setStanicaDolaska($row->_idStanicaDolaska)
+               ->setVremePolaska($row->_vremePolaska)
+               ->setCena($row->_cena)
+               ->setAktivnost($row->_aktivnost);
+      
+       
+       return $this->kartaMaper->save($this->karta);
+       
     }
     
     /**
      * 
      * @param int $id
-     * @return Ekarta_karta
+     * @return Application_Model_Karta $karta
      */
     public function pronadjiKartu($id){
-        return $this->karta->pronadjiKartu($id);
+        return $this->kartaMaper->dohvatiJedan($id);
     }
 
     /**
      * 
      * @param int $id
-     * @return boolean
      */
     public function otkaziKartu($id){
-        
-        return true;
+        $this->kartaMaper->delete($id);
     }
+
+// ============= RAD SA Popustima ==================   
     
     /**
      * 

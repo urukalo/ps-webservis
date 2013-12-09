@@ -49,14 +49,15 @@ class Application_Model_KartaMapper
         return $Items;
     }
     public function dohvatiJedan($id){
-        $resultSet=$this->getDbTable()->fetchAll("idKarta=$id");
-        $Item=array();
-        foreach ($resultSet as $row){
+        $resultSet=$this->getDbTable()->fetchRow("idKarta=$id");
+        //$Item=array();
+        //foreach ($resultSet as $row){
             $object=new Application_Model_Karta();
+            $row = $resultSet;
             $object->setId($row->idKarta)->setTrasa($row->idTrase)->setStanicaPolaska($row->idStanicaPolaska)->setStanicaDolaska($row->idStanicaDolaska)->setVremePolaska($row->vremePolaska)->setCena($row->cena)->setAktivnost($row->aktivnost);
-            $Item[]=$object;
-        }
-        return $Item;
+            //$Item[]=$object;
+       //}
+        return $object;
     }
     public function delete($id){
         $this->getDbTable()->delete("idKarta=$id");
