@@ -51,6 +51,7 @@ class Ekarta_Karta {
 //        $a->b = "penzioner";
         //$a = array("a" => "student", "b" => "penzioner");
         //$a = "student#penzioner";
+        
         $a[]=new Ekarta_ddlData("0", 'student');
         return $a;
     }

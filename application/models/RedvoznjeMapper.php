@@ -55,6 +55,10 @@ class Application_Model_RedvoznjeMapper
         }
         return $Item;
     }
+    public function dohvatiZaStanice(){
+        
+    }
+
     public function delete($id){
         $this->getDbTable()->delete("idRedVoznje=$id");
     }

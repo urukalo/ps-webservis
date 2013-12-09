@@ -13,4 +13,10 @@
  */
 class Ekarta_RedVoznje {
     //put your code here
+    
+    public function redVoznje($idPolazak,$idDolazak){
+        $redVoznje=new Application_Model_Redvoznje();
+        $redVoznjeMapper= new Application_Model_RedvoznjeMapper();
+        
+    }
 }
