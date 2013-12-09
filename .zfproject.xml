@@ -16,7 +16,31 @@
       </controllersDirectory>
       <formsDirectory enabled="false"/>
       <layoutsDirectory enabled="false"/>
-      <modelsDirectory/>
+      <modelsDirectory>
+        <dbTableDirectory>
+          <dbTableFile dbTableName="Karta"/>
+          <dbTableFile dbTableName="Otkazanavoznja"/>
+          <dbTableFile dbTableName="Popust"/>
+          <dbTableFile dbTableName="Redvoznje"/>
+          <dbTableFile dbTableName="Stanica"/>
+          <dbTableFile dbTableName="Trasa"/>
+          <dbTableFile dbTableName="Trasastanica"/>
+        </dbTableDirectory>
+        <modelFile modelName="Karta"/>
+        <modelFile modelName="Otkazanavoznja"/>
+        <modelFile modelName="Popust"/>
+        <modelFile modelName="Redvoznje"/>
+        <modelFile modelName="Stanica"/>
+        <modelFile modelName="Trasa"/>
+        <modelFile modelName="Trasastanica"/>
+        <modelFile modelName="TrasastanicaMapper"/>
+        <modelFile modelName="TrasaMapper"/>
+        <modelFile modelName="StanicaMapper"/>
+        <modelFile modelName="RedvoznjeMapper"/>
+        <modelFile modelName="PopustMapper"/>
+        <modelFile modelName="OtkazanavoznjaMapper"/>
+        <modelFile modelName="KartaMapper"/>
+      </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <servicesDirectory enabled="false"/>
       <viewsDirectory>
