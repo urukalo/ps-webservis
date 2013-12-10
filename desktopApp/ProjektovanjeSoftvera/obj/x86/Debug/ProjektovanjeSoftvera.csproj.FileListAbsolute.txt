@@ -1,0 +1,37 @@
+c:\users\boske\documents\visual studio 2010\Projects\ProjektovanjeSoftvera\ProjektovanjeSoftvera\bin\Debug\ProjektovanjeSoftvera.exe
+c:\users\boske\documents\visual studio 2010\Projects\ProjektovanjeSoftvera\ProjektovanjeSoftvera\bin\Debug\ProjektovanjeSoftvera.pdb
+c:\users\boske\documents\visual studio 2010\Projects\ProjektovanjeSoftvera\ProjektovanjeSoftvera\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\users\boske\documents\visual studio 2010\Projects\ProjektovanjeSoftvera\ProjektovanjeSoftvera\obj\x86\Debug\ProjektovanjeSoftvera.Form1.resources
+c:\users\boske\documents\visual studio 2010\Projects\ProjektovanjeSoftvera\ProjektovanjeSoftvera\obj\x86\Debug\ProjektovanjeSoftvera.Properties.Resources.resources
+c:\users\boske\documents\visual studio 2010\Projects\ProjektovanjeSoftvera\ProjektovanjeSoftvera\obj\x86\Debug\GenerateResource.read.1.tlog
+c:\users\boske\documents\visual studio 2010\Projects\ProjektovanjeSoftvera\ProjektovanjeSoftvera\obj\x86\Debug\GenerateResource.write.1.tlog
+c:\users\boske\documents\visual studio 2010\Projects\ProjektovanjeSoftvera\ProjektovanjeSoftvera\obj\x86\Debug\ProjektovanjeSoftvera.exe
+c:\users\boske\documents\visual studio 2010\Projects\ProjektovanjeSoftvera\ProjektovanjeSoftvera\obj\x86\Debug\ProjektovanjeSoftvera.pdb
+c:\users\boske\documents\visual studio 2010\Projects\ProjektovanjeSoftvera\ProjektovanjeSoftvera\obj\x86\Debug\ProjektovanjeSoftvera.LoginDijalog.resources
+C:\Users\Boske\Documents\Visual Studio 2010\Projects\ProjektovanjeSoftvera\ProjektovanjeSoftvera\obj\x86\Debug\ProjektovanjeSoftvera.TraseStanice.resources
+C:\Users\Boske\Documents\Visual Studio 2010\Projects\ProjektovanjeSoftvera\ProjektovanjeSoftvera\obj\x86\Debug\ProjektovanjeSoftvera.RedVoznje.resources
+E:\MARKO C\ICT\Projektovanje softvera\ProjektovanjeSoftvera\obj\x86\Debug\ProjektovanjeSoftvera.exe
+E:\MARKO C\ICT\Projektovanje softvera\ProjektovanjeSoftvera\obj\x86\Debug\ProjektovanjeSoftvera.pdb
+E:\MARKO C\ICT\Projektovanje softvera\Projekat\ProjektovanjeSoftvera\obj\x86\Debug\ProjektovanjeSoftvera.exe
+E:\MARKO C\ICT\Projektovanje softvera\Projekat\ProjektovanjeSoftvera\obj\x86\Debug\ProjektovanjeSoftvera.pdb
+E:\MARKO C\ICT\Projektovanje softvera\Projekat\ProjektovanjeSoftvera\bin\Debug\ProjektovanjeSoftvera.exe
+E:\MARKO C\ICT\Projektovanje softvera\Projekat\ProjektovanjeSoftvera\bin\Debug\ProjektovanjeSoftvera.pdb
+E:\MARKO C\ICT\Projektovanje softvera\Projekat\ProjektovanjeSoftvera\obj\x86\Debug\ResolveAssemblyReference.cache
+E:\MARKO C\ICT\Projektovanje softvera\Projekat\ProjektovanjeSoftvera\obj\x86\Debug\ProjektovanjeSoftvera.RedVoznje.resources
+E:\MARKO C\ICT\Projektovanje softvera\Projekat\ProjektovanjeSoftvera\obj\x86\Debug\ProjektovanjeSoftvera.TraseStanice.resources
+E:\MARKO C\ICT\Projektovanje softvera\Projekat\ProjektovanjeSoftvera\obj\x86\Debug\ProjektovanjeSoftvera.Form1.resources
+E:\MARKO C\ICT\Projektovanje softvera\Projekat\ProjektovanjeSoftvera\obj\x86\Debug\ProjektovanjeSoftvera.LoginDijalog.resources
+E:\MARKO C\ICT\Projektovanje softvera\Projekat\ProjektovanjeSoftvera\obj\x86\Debug\ProjektovanjeSoftvera.Properties.Resources.resources
+E:\MARKO C\ICT\Projektovanje softvera\Projekat\ProjektovanjeSoftvera\obj\x86\Debug\GenerateResource.read.1.tlog
+E:\MARKO C\ICT\Projektovanje softvera\Projekat\ProjektovanjeSoftvera\obj\x86\Debug\GenerateResource.write.1.tlog
+g:\PS\ProjektovanjeSoftvera\obj\x86\Debug\ProjektovanjeSoftvera.exe
+g:\PS\ProjektovanjeSoftvera\obj\x86\Debug\ProjektovanjeSoftvera.pdb
+g:\PS\ProjektovanjeSoftvera\bin\Debug\ProjektovanjeSoftvera.exe
+g:\PS\ProjektovanjeSoftvera\bin\Debug\ProjektovanjeSoftvera.pdb
+g:\PS\ProjektovanjeSoftvera\obj\x86\Debug\ProjektovanjeSoftvera.csprojResolveAssemblyReference.cache
+g:\PS\ProjektovanjeSoftvera\obj\x86\Debug\ProjektovanjeSoftvera.RedVoznje.resources
+g:\PS\ProjektovanjeSoftvera\obj\x86\Debug\ProjektovanjeSoftvera.TraseStanice.resources
+g:\PS\ProjektovanjeSoftvera\obj\x86\Debug\ProjektovanjeSoftvera.Form1.resources
+g:\PS\ProjektovanjeSoftvera\obj\x86\Debug\ProjektovanjeSoftvera.LoginDijalog.resources
+g:\PS\ProjektovanjeSoftvera\obj\x86\Debug\ProjektovanjeSoftvera.Properties.Resources.resources
+g:\PS\ProjektovanjeSoftvera\obj\x86\Debug\ProjektovanjeSoftvera.csproj.GenerateResource.Cache
