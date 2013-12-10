@@ -107,18 +107,16 @@ class Ekarta_Servis {
     
     /**
      * 
-     * @return Ekarta_ddlData
+     * @return string
      */
     public function popusti(){
-        $popusti = new Ekarta_ddlData('0','studentski');
-        //$popusti[] = new Ekarta_ddlData('1','penzionerski');
-        //$popusti = array("studenski", "penzionerski","invalidski");
+        $popusti = "studenski#penzionerski#invalidski";
         return $popusti;
     }
     
     /**
      * 
-     * @return Ekarta_RedVoznje
+     * @return Application_Model_Redvoznje
      */
     public function getRedVoznje(){
         return $this->redVoznje;

@@ -22,5 +22,15 @@ namespace ProjektovanjeSoftvera.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://ps")]
+        public string ProjektovanjeSoftvera_WebServis_Ekarta_ServisService {
+            get {
+                return ((string)(this["ProjektovanjeSoftvera_WebServis_Ekarta_ServisService"]));
+            }
+        }
     }
 }

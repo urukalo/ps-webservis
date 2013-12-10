@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ps" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns="http://schemas.xmlsoap.org/wsdl/" name="Ekarta_Servis" targetNamespace="http://ps" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://ps">
+      <xsd:element name="Ekarta_Servis">
+        <xsd:complexType />
+      </xsd:element>
+      <xsd:element name="getKarta">
+        <xsd:complexType />
+      </xsd:element>
+      <xsd:complexType name="Application_Model_Karta">
+        <xsd:all />
+      </xsd:complexType>
+      <xsd:element name="getKartaResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="getKartaResult" type="tns:Application_Model_Karta" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="sacuvajKartu">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="row" type="tns:Application_Model_Karta" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="pronadjiKartu">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="id" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="pronadjiKartuResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="pronadjiKartuResult" type="tns:Application_Model_Karta" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="otkaziKartu">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="id" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="popusti">
+        <xsd:complexType />
+      </xsd:element>
+      <xsd:complexType name="Ekarta_ddlData">
+        <xsd:all>
+          <xsd:element name="key" nillable="true" type="xsd:string" />
+          <xsd:element name="value" nillable="true" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:element name="popustiResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="popustiResult" type="tns:Ekarta_ddlData" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getRedVoznje">
+        <xsd:complexType />
+      </xsd:element>
+      <xsd:complexType name="Ekarta_RedVoznje">
+        <xsd:all />
+      </xsd:complexType>
+      <xsd:element name="getRedVoznjeResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="getRedVoznjeResult" type="tns:Ekarta_RedVoznje" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="proveriVoznju">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="string" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="proveriVoznjuResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="proveriVoznjuResult" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="Ekarta_ServisIn">
+    <wsdl:part name="parameters" element="tns:Ekarta_Servis" />
+  </wsdl:message>
+  <wsdl:message name="getKartaIn">
+    <wsdl:part name="parameters" element="tns:getKarta" />
+  </wsdl:message>
+  <wsdl:message name="getKartaOut">
+    <wsdl:part name="parameters" element="tns:getKartaResponse" />
+  </wsdl:message>
+  <wsdl:message name="sacuvajKartuIn">
+    <wsdl:part name="parameters" element="tns:sacuvajKartu" />
+  </wsdl:message>
+  <wsdl:message name="pronadjiKartuIn">
+    <wsdl:part name="parameters" element="tns:pronadjiKartu" />
+  </wsdl:message>
+  <wsdl:message name="pronadjiKartuOut">
+    <wsdl:part name="parameters" element="tns:pronadjiKartuResponse" />
+  </wsdl:message>
+  <wsdl:message name="otkaziKartuIn">
+    <wsdl:part name="parameters" element="tns:otkaziKartu" />
+  </wsdl:message>
+  <wsdl:message name="popustiIn">
+    <wsdl:part name="parameters" element="tns:popusti" />
+  </wsdl:message>
+  <wsdl:message name="popustiOut">
+    <wsdl:part name="parameters" element="tns:popustiResponse" />
+  </wsdl:message>
+  <wsdl:message name="getRedVoznjeIn">
+    <wsdl:part name="parameters" element="tns:getRedVoznje" />
+  </wsdl:message>
+  <wsdl:message name="getRedVoznjeOut">
+    <wsdl:part name="parameters" element="tns:getRedVoznjeResponse" />
+  </wsdl:message>
+  <wsdl:message name="proveriVoznjuIn">
+    <wsdl:part name="parameters" element="tns:proveriVoznju" />
+  </wsdl:message>
+  <wsdl:message name="proveriVoznjuOut">
+    <wsdl:part name="parameters" element="tns:proveriVoznjuResponse" />
+  </wsdl:message>
+  <wsdl:portType name="Ekarta_ServisPort">
+    <wsdl:operation name="Ekarta_Servis">
+      <documentation>Ekarta_Servis</documentation>
+      <wsdl:input message="tns:Ekarta_ServisIn" />
+    </wsdl:operation>
+    <wsdl:operation name="getKarta">
+      <wsdl:input message="tns:getKartaIn" />
+      <wsdl:output message="tns:getKartaOut" />
+    </wsdl:operation>
+    <wsdl:operation name="sacuvajKartu">
+      <wsdl:input message="tns:sacuvajKartuIn" />
+    </wsdl:operation>
+    <wsdl:operation name="pronadjiKartu">
+      <wsdl:input message="tns:pronadjiKartuIn" />
+      <wsdl:output message="tns:pronadjiKartuOut" />
+    </wsdl:operation>
+    <wsdl:operation name="otkaziKartu">
+      <wsdl:input message="tns:otkaziKartuIn" />
+    </wsdl:operation>
+    <wsdl:operation name="popusti">
+      <wsdl:input message="tns:popustiIn" />
+      <wsdl:output message="tns:popustiOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getRedVoznje">
+      <wsdl:input message="tns:getRedVoznjeIn" />
+      <wsdl:output message="tns:getRedVoznjeOut" />
+    </wsdl:operation>
+    <wsdl:operation name="proveriVoznju">
+      <wsdl:input message="tns:proveriVoznjuIn" />
+      <wsdl:output message="tns:proveriVoznjuOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Ekarta_ServisBinding" type="tns:Ekarta_ServisPort">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Ekarta_Servis">
+      <soap:operation soapAction="http://ps#Ekarta_Servis" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="getKarta">
+      <soap:operation soapAction="http://ps#getKarta" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sacuvajKartu">
+      <soap:operation soapAction="http://ps#sacuvajKartu" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="pronadjiKartu">
+      <soap:operation soapAction="http://ps#pronadjiKartu" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="otkaziKartu">
+      <soap:operation soapAction="http://ps#otkaziKartu" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="popusti">
+      <soap:operation soapAction="http://ps#popusti" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRedVoznje">
+      <soap:operation soapAction="http://ps#getRedVoznje" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="proveriVoznju">
+      <soap:operation soapAction="http://ps#proveriVoznju" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Ekarta_ServisService">
+    <wsdl:port name="Ekarta_ServisPort" binding="tns:Ekarta_ServisBinding">
+      <soap:address location="http://ps" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

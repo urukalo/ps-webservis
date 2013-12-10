@@ -35,3 +35,5 @@ g:\PS\ProjektovanjeSoftvera\obj\x86\Debug\ProjektovanjeSoftvera.Form1.resources
 g:\PS\ProjektovanjeSoftvera\obj\x86\Debug\ProjektovanjeSoftvera.LoginDijalog.resources
 g:\PS\ProjektovanjeSoftvera\obj\x86\Debug\ProjektovanjeSoftvera.Properties.Resources.resources
 g:\PS\ProjektovanjeSoftvera\obj\x86\Debug\ProjektovanjeSoftvera.csproj.GenerateResource.Cache
+g:\www\ps\desktopApp\ProjektovanjeSoftvera\obj\x86\Debug\ProjektovanjeSoftvera.exe
+g:\www\ps\desktopApp\ProjektovanjeSoftvera\obj\x86\Debug\ProjektovanjeSoftvera.pdb
