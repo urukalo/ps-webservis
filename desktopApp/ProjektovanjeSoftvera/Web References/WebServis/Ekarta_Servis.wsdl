@@ -21,7 +21,7 @@
       <xsd:element name="sacuvajKartu">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="row" type="tns:Application_Model_Karta" />
+            <xsd:element name="object" type="tns:Application_Model_Karta" />
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
@@ -49,29 +49,23 @@
       <xsd:element name="popusti">
         <xsd:complexType />
       </xsd:element>
-      <xsd:complexType name="Ekarta_ddlData">
-        <xsd:all>
-          <xsd:element name="key" nillable="true" type="xsd:string" />
-          <xsd:element name="value" nillable="true" type="xsd:string" />
-        </xsd:all>
-      </xsd:complexType>
       <xsd:element name="popustiResponse">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="popustiResult" type="tns:Ekarta_ddlData" />
+            <xsd:element name="popustiResult" type="xsd:string" />
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
       <xsd:element name="getRedVoznje">
         <xsd:complexType />
       </xsd:element>
-      <xsd:complexType name="Ekarta_RedVoznje">
+      <xsd:complexType name="Application_Model_Redvoznje">
         <xsd:all />
       </xsd:complexType>
       <xsd:element name="getRedVoznjeResponse">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="getRedVoznjeResult" type="tns:Ekarta_RedVoznje" />
+            <xsd:element name="getRedVoznjeResult" type="tns:Application_Model_Redvoznje" />
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>

@@ -41,6 +41,7 @@
             this.buttonIzbrisiTrasu = new System.Windows.Forms.Button();
             this.comboBoxIzbrisiTrasu = new System.Windows.Forms.ComboBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.buttonDodajTrasu = new System.Windows.Forms.Button();
             this.textBoxKrajnaStanica = new System.Windows.Forms.TextBox();
             this.textBoxPocetnaStanica = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -64,7 +65,6 @@
             this.labelKmOd = new System.Windows.Forms.Label();
             this.textBoxImeStanice = new System.Windows.Forms.TextBox();
             this.comboBoxDodajStanicu = new System.Windows.Forms.ComboBox();
-            this.buttonDodajTrasu = new System.Windows.Forms.Button();
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
@@ -207,6 +207,16 @@
             this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Dodaj trasu";
+            // 
+            // buttonDodajTrasu
+            // 
+            this.buttonDodajTrasu.Location = new System.Drawing.Point(269, 67);
+            this.buttonDodajTrasu.Name = "buttonDodajTrasu";
+            this.buttonDodajTrasu.Size = new System.Drawing.Size(75, 23);
+            this.buttonDodajTrasu.TabIndex = 4;
+            this.buttonDodajTrasu.Text = "Sačuvaj";
+            this.buttonDodajTrasu.UseVisualStyleBackColor = true;
+            this.buttonDodajTrasu.Click += new System.EventHandler(this.buttonDodajTrasu_Click);
             // 
             // textBoxKrajnaStanica
             // 
@@ -419,15 +429,6 @@
             this.comboBoxDodajStanicu.Name = "comboBoxDodajStanicu";
             this.comboBoxDodajStanicu.Size = new System.Drawing.Size(143, 21);
             this.comboBoxDodajStanicu.TabIndex = 4;
-            // 
-            // buttonDodajTrasu
-            // 
-            this.buttonDodajTrasu.Location = new System.Drawing.Point(269, 67);
-            this.buttonDodajTrasu.Name = "buttonDodajTrasu";
-            this.buttonDodajTrasu.Size = new System.Drawing.Size(75, 23);
-            this.buttonDodajTrasu.TabIndex = 4;
-            this.buttonDodajTrasu.Text = "Sačuvaj";
-            this.buttonDodajTrasu.UseVisualStyleBackColor = true;
             // 
             // TraseStanice
             // 

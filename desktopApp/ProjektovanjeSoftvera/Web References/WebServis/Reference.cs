@@ -163,23 +163,23 @@ namespace ProjektovanjeSoftvera.WebServis {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://ps#sacuvajKartu", RequestNamespace="http://ps", OneWay=true, Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void sacuvajKartu([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] Application_Model_Karta row) {
+        public void sacuvajKartu([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] Application_Model_Karta @object) {
             this.Invoke("sacuvajKartu", new object[] {
-                        row});
+                        @object});
         }
         
         /// <remarks/>
-        public void sacuvajKartuAsync(Application_Model_Karta row) {
-            this.sacuvajKartuAsync(row, null);
+        public void sacuvajKartuAsync(Application_Model_Karta @object) {
+            this.sacuvajKartuAsync(@object, null);
         }
         
         /// <remarks/>
-        public void sacuvajKartuAsync(Application_Model_Karta row, object userState) {
+        public void sacuvajKartuAsync(Application_Model_Karta @object, object userState) {
             if ((this.sacuvajKartuOperationCompleted == null)) {
                 this.sacuvajKartuOperationCompleted = new System.Threading.SendOrPostCallback(this.OnsacuvajKartuOperationCompleted);
             }
             this.InvokeAsync("sacuvajKartu", new object[] {
-                        row}, this.sacuvajKartuOperationCompleted, userState);
+                        @object}, this.sacuvajKartuOperationCompleted, userState);
         }
         
         private void OnsacuvajKartuOperationCompleted(object arg) {
@@ -250,9 +250,9 @@ namespace ProjektovanjeSoftvera.WebServis {
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://ps#popusti", RequestNamespace="http://ps", ResponseNamespace="http://ps", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public Ekarta_ddlData popusti() {
+        public string popusti() {
             object[] results = this.Invoke("popusti", new object[0]);
-            return ((Ekarta_ddlData)(results[0]));
+            return ((string)(results[0]));
         }
         
         /// <remarks/>
@@ -278,9 +278,9 @@ namespace ProjektovanjeSoftvera.WebServis {
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://ps#getRedVoznje", RequestNamespace="http://ps", ResponseNamespace="http://ps", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public Ekarta_RedVoznje getRedVoznje() {
+        public Application_Model_Redvoznje getRedVoznje() {
             object[] results = this.Invoke("getRedVoznje", new object[0]);
-            return ((Ekarta_RedVoznje)(results[0]));
+            return ((Application_Model_Redvoznje)(results[0]));
         }
         
         /// <remarks/>
@@ -367,42 +367,7 @@ namespace ProjektovanjeSoftvera.WebServis {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ps")]
-    public partial class Ekarta_RedVoznje {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ps")]
-    public partial class Ekarta_ddlData {
-        
-        private string keyField;
-        
-        private string valueField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true)]
-        public string key {
-            get {
-                return this.keyField;
-            }
-            set {
-                this.keyField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true)]
-        public string value {
-            get {
-                return this.valueField;
-            }
-            set {
-                this.valueField = value;
-            }
-        }
+    public partial class Application_Model_Redvoznje {
     }
     
     /// <remarks/>
@@ -487,10 +452,10 @@ namespace ProjektovanjeSoftvera.WebServis {
         }
         
         /// <remarks/>
-        public Ekarta_ddlData Result {
+        public string Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((Ekarta_ddlData)(this.results[0]));
+                return ((string)(this.results[0]));
             }
         }
     }
@@ -513,10 +478,10 @@ namespace ProjektovanjeSoftvera.WebServis {
         }
         
         /// <remarks/>
-        public Ekarta_RedVoznje Result {
+        public Application_Model_Redvoznje Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((Ekarta_RedVoznje)(this.results[0]));
+                return ((Application_Model_Redvoznje)(this.results[0]));
             }
         }
     }

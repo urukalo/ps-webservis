@@ -1,12 +1,15 @@
 <?php
 
-class IndexController extends Zend_Controller_Action {
+class AdminController extends Zend_Controller_Action
+{
 
-    public function init() {
+    public function init()
+    {
         /* Initialize action controller here */
     }
 
-    public function indexAction() {
+    public function indexAction()
+    {
         // action body
         $this->soapAction();
     }
@@ -16,9 +19,9 @@ class IndexController extends Zend_Controller_Action {
         $this->_helper->viewRenderer->setNoRender(true);
         //$this->_helper->layout()->disableLayout();
 
-        $server = new Zend_Soap_Server(null, array('uri' => 'http://ps'));
+        $server = new Zend_Soap_Server(null, array('uri' => 'http://ps/Admin'));
 
-        $server->setClass('Ekarta_Servis');
+        $server->setClass('Ekarta_Admin');
         $server->registerFaultException(array('Ekarta_Exception'));
 
         $server->handle();
@@ -33,11 +36,16 @@ class IndexController extends Zend_Controller_Action {
         $wsdl->setOperationBodyStyle(array('use' => 'literal'));
         $wsdl->setBindingStyle(array('style' => 'document'));
 
-        $wsdl->setClass('Ekarta_Servis');
+        $wsdl->setClass('Ekarta_Admin');
         
-        $wsdl->setUri('http://ps');
+        $wsdl->setUri('http://ps/Admin');
 
         $wsdl->handle();
     }
 
 }
+
+
+
+
+

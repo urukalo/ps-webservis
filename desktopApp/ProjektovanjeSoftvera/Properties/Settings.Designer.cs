@@ -32,5 +32,15 @@ namespace ProjektovanjeSoftvera.Properties {
                 return ((string)(this["ProjektovanjeSoftvera_WebServis_Ekarta_ServisService"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://ps/Admin")]
+        public string ProjektovanjeSoftvera_AdminWebServis_Ekarta_AdminService {
+            get {
+                return ((string)(this["ProjektovanjeSoftvera_AdminWebServis_Ekarta_AdminService"]));
+            }
+        }
     }
 }

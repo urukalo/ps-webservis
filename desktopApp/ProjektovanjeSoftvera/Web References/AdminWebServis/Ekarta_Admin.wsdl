@@ -1,0 +1,569 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ps/Admin" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns="http://schemas.xmlsoap.org/wsdl/" name="Ekarta_Admin" targetNamespace="http://ps/Admin" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://ps/Admin">
+      <xsd:element name="Ekarta_Admin">
+        <xsd:complexType />
+      </xsd:element>
+      <xsd:element name="setPopust">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="object" type="xsd:struct" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getPopust">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="id" nillable="true" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="Application_Model_Popust">
+        <xsd:all />
+      </xsd:complexType>
+      <xsd:element name="getPopustResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="getPopustResult" type="tns:Application_Model_Popust" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="unsetPopust">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="object" type="xsd:struct" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="setKarta">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="object" type="xsd:struct" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getKarta">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="id" nillable="true" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="Application_Model_Karta">
+        <xsd:all />
+      </xsd:complexType>
+      <xsd:element name="getKartaResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="getKartaResult" type="tns:Application_Model_Karta" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="unsetKarta">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="object" type="xsd:struct" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="deactivate">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="id" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="setStanica">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="object" type="xsd:struct" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getStanica">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="id" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="Application_Model_Stanica">
+        <xsd:all />
+      </xsd:complexType>
+      <xsd:element name="getStanicaResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="getStanicaResult" type="tns:Application_Model_Stanica" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="unsetStanica">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="object" type="xsd:struct" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="Application_Model_Trasa">
+        <xsd:all />
+      </xsd:complexType>
+      <xsd:element name="setTrasa">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="object" type="tns:Application_Model_Trasa" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getTrasa">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="id" nillable="true" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getTrasaResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="getTrasaResult" type="tns:Application_Model_Trasa" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="unsetTrasa">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="object" type="xsd:struct" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="setRedVoznje">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="object" type="xsd:struct" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getRedVoznje">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="id" nillable="true" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="Application_Model_Redvoznje">
+        <xsd:all />
+      </xsd:complexType>
+      <xsd:element name="getRedVoznjeResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="getRedVoznjeResult" type="tns:Application_Model_Redvoznje" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="unsetRedVoznje">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="object" type="xsd:struct" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="setOtkazanaVoznja">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="object" type="xsd:struct" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getOtkazanaVoznja">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="id" nillable="true" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="Application_Model_Otkazanavoznja">
+        <xsd:all />
+      </xsd:complexType>
+      <xsd:element name="getOtkazanaVoznjaResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="getOtkazanaVoznjaResult" type="tns:Application_Model_Otkazanavoznja" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="unsetOtkazanaVoznja">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="object" type="xsd:struct" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="setTrasaStanica">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="object" type="xsd:struct" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getTrasaStanica">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="id" nillable="true" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="Application_Model_Trasastanica">
+        <xsd:all />
+      </xsd:complexType>
+      <xsd:element name="getTrasaStanicaResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="getTrasaStanicaResult" type="tns:Application_Model_Trasastanica" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="unsetTrasaStanica">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="object" type="xsd:struct" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="Ekarta_AdminIn">
+    <wsdl:part name="parameters" element="tns:Ekarta_Admin" />
+  </wsdl:message>
+  <wsdl:message name="setPopustIn">
+    <wsdl:part name="parameters" element="tns:setPopust" />
+  </wsdl:message>
+  <wsdl:message name="getPopustIn">
+    <wsdl:part name="parameters" element="tns:getPopust" />
+  </wsdl:message>
+  <wsdl:message name="getPopustOut">
+    <wsdl:part name="parameters" element="tns:getPopustResponse" />
+  </wsdl:message>
+  <wsdl:message name="unsetPopustIn">
+    <wsdl:part name="parameters" element="tns:unsetPopust" />
+  </wsdl:message>
+  <wsdl:message name="setKartaIn">
+    <wsdl:part name="parameters" element="tns:setKarta" />
+  </wsdl:message>
+  <wsdl:message name="getKartaIn">
+    <wsdl:part name="parameters" element="tns:getKarta" />
+  </wsdl:message>
+  <wsdl:message name="getKartaOut">
+    <wsdl:part name="parameters" element="tns:getKartaResponse" />
+  </wsdl:message>
+  <wsdl:message name="unsetKartaIn">
+    <wsdl:part name="parameters" element="tns:unsetKarta" />
+  </wsdl:message>
+  <wsdl:message name="deactivateIn">
+    <wsdl:part name="parameters" element="tns:deactivate" />
+  </wsdl:message>
+  <wsdl:message name="setStanicaIn">
+    <wsdl:part name="parameters" element="tns:setStanica" />
+  </wsdl:message>
+  <wsdl:message name="getStanicaIn">
+    <wsdl:part name="parameters" element="tns:getStanica" />
+  </wsdl:message>
+  <wsdl:message name="getStanicaOut">
+    <wsdl:part name="parameters" element="tns:getStanicaResponse" />
+  </wsdl:message>
+  <wsdl:message name="unsetStanicaIn">
+    <wsdl:part name="parameters" element="tns:unsetStanica" />
+  </wsdl:message>
+  <wsdl:message name="setTrasaIn">
+    <wsdl:part name="parameters" element="tns:setTrasa" />
+  </wsdl:message>
+  <wsdl:message name="getTrasaIn">
+    <wsdl:part name="parameters" element="tns:getTrasa" />
+  </wsdl:message>
+  <wsdl:message name="getTrasaOut">
+    <wsdl:part name="parameters" element="tns:getTrasaResponse" />
+  </wsdl:message>
+  <wsdl:message name="unsetTrasaIn">
+    <wsdl:part name="parameters" element="tns:unsetTrasa" />
+  </wsdl:message>
+  <wsdl:message name="setRedVoznjeIn">
+    <wsdl:part name="parameters" element="tns:setRedVoznje" />
+  </wsdl:message>
+  <wsdl:message name="getRedVoznjeIn">
+    <wsdl:part name="parameters" element="tns:getRedVoznje" />
+  </wsdl:message>
+  <wsdl:message name="getRedVoznjeOut">
+    <wsdl:part name="parameters" element="tns:getRedVoznjeResponse" />
+  </wsdl:message>
+  <wsdl:message name="unsetRedVoznjeIn">
+    <wsdl:part name="parameters" element="tns:unsetRedVoznje" />
+  </wsdl:message>
+  <wsdl:message name="setOtkazanaVoznjaIn">
+    <wsdl:part name="parameters" element="tns:setOtkazanaVoznja" />
+  </wsdl:message>
+  <wsdl:message name="getOtkazanaVoznjaIn">
+    <wsdl:part name="parameters" element="tns:getOtkazanaVoznja" />
+  </wsdl:message>
+  <wsdl:message name="getOtkazanaVoznjaOut">
+    <wsdl:part name="parameters" element="tns:getOtkazanaVoznjaResponse" />
+  </wsdl:message>
+  <wsdl:message name="unsetOtkazanaVoznjaIn">
+    <wsdl:part name="parameters" element="tns:unsetOtkazanaVoznja" />
+  </wsdl:message>
+  <wsdl:message name="setTrasaStanicaIn">
+    <wsdl:part name="parameters" element="tns:setTrasaStanica" />
+  </wsdl:message>
+  <wsdl:message name="getTrasaStanicaIn">
+    <wsdl:part name="parameters" element="tns:getTrasaStanica" />
+  </wsdl:message>
+  <wsdl:message name="getTrasaStanicaOut">
+    <wsdl:part name="parameters" element="tns:getTrasaStanicaResponse" />
+  </wsdl:message>
+  <wsdl:message name="unsetTrasaStanicaIn">
+    <wsdl:part name="parameters" element="tns:unsetTrasaStanica" />
+  </wsdl:message>
+  <wsdl:portType name="Ekarta_AdminPort">
+    <wsdl:operation name="Ekarta_Admin">
+      <wsdl:input message="tns:Ekarta_AdminIn" />
+    </wsdl:operation>
+    <wsdl:operation name="setPopust">
+      <wsdl:input message="tns:setPopustIn" />
+    </wsdl:operation>
+    <wsdl:operation name="getPopust">
+      <wsdl:input message="tns:getPopustIn" />
+      <wsdl:output message="tns:getPopustOut" />
+    </wsdl:operation>
+    <wsdl:operation name="unsetPopust">
+      <wsdl:input message="tns:unsetPopustIn" />
+    </wsdl:operation>
+    <wsdl:operation name="setKarta">
+      <wsdl:input message="tns:setKartaIn" />
+    </wsdl:operation>
+    <wsdl:operation name="getKarta">
+      <wsdl:input message="tns:getKartaIn" />
+      <wsdl:output message="tns:getKartaOut" />
+    </wsdl:operation>
+    <wsdl:operation name="unsetKarta">
+      <wsdl:input message="tns:unsetKartaIn" />
+    </wsdl:operation>
+    <wsdl:operation name="deactivate">
+      <wsdl:input message="tns:deactivateIn" />
+    </wsdl:operation>
+    <wsdl:operation name="setStanica">
+      <wsdl:input message="tns:setStanicaIn" />
+    </wsdl:operation>
+    <wsdl:operation name="getStanica">
+      <wsdl:input message="tns:getStanicaIn" />
+      <wsdl:output message="tns:getStanicaOut" />
+    </wsdl:operation>
+    <wsdl:operation name="unsetStanica">
+      <wsdl:input message="tns:unsetStanicaIn" />
+    </wsdl:operation>
+    <wsdl:operation name="setTrasa">
+      <wsdl:input message="tns:setTrasaIn" />
+    </wsdl:operation>
+    <wsdl:operation name="getTrasa">
+      <wsdl:input message="tns:getTrasaIn" />
+      <wsdl:output message="tns:getTrasaOut" />
+    </wsdl:operation>
+    <wsdl:operation name="unsetTrasa">
+      <wsdl:input message="tns:unsetTrasaIn" />
+    </wsdl:operation>
+    <wsdl:operation name="setRedVoznje">
+      <wsdl:input message="tns:setRedVoznjeIn" />
+    </wsdl:operation>
+    <wsdl:operation name="getRedVoznje">
+      <wsdl:input message="tns:getRedVoznjeIn" />
+      <wsdl:output message="tns:getRedVoznjeOut" />
+    </wsdl:operation>
+    <wsdl:operation name="unsetRedVoznje">
+      <wsdl:input message="tns:unsetRedVoznjeIn" />
+    </wsdl:operation>
+    <wsdl:operation name="setOtkazanaVoznja">
+      <wsdl:input message="tns:setOtkazanaVoznjaIn" />
+    </wsdl:operation>
+    <wsdl:operation name="getOtkazanaVoznja">
+      <wsdl:input message="tns:getOtkazanaVoznjaIn" />
+      <wsdl:output message="tns:getOtkazanaVoznjaOut" />
+    </wsdl:operation>
+    <wsdl:operation name="unsetOtkazanaVoznja">
+      <wsdl:input message="tns:unsetOtkazanaVoznjaIn" />
+    </wsdl:operation>
+    <wsdl:operation name="setTrasaStanica">
+      <wsdl:input message="tns:setTrasaStanicaIn" />
+    </wsdl:operation>
+    <wsdl:operation name="getTrasaStanica">
+      <wsdl:input message="tns:getTrasaStanicaIn" />
+      <wsdl:output message="tns:getTrasaStanicaOut" />
+    </wsdl:operation>
+    <wsdl:operation name="unsetTrasaStanica">
+      <wsdl:input message="tns:unsetTrasaStanicaIn" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Ekarta_AdminBinding" type="tns:Ekarta_AdminPort">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Ekarta_Admin">
+      <soap:operation soapAction="http://ps/Admin#Ekarta_Admin" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="setPopust">
+      <soap:operation soapAction="http://ps/Admin#setPopust" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="getPopust">
+      <soap:operation soapAction="http://ps/Admin#getPopust" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="unsetPopust">
+      <soap:operation soapAction="http://ps/Admin#unsetPopust" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="setKarta">
+      <soap:operation soapAction="http://ps/Admin#setKarta" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="getKarta">
+      <soap:operation soapAction="http://ps/Admin#getKarta" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="unsetKarta">
+      <soap:operation soapAction="http://ps/Admin#unsetKarta" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="deactivate">
+      <soap:operation soapAction="http://ps/Admin#deactivate" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="setStanica">
+      <soap:operation soapAction="http://ps/Admin#setStanica" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="getStanica">
+      <soap:operation soapAction="http://ps/Admin#getStanica" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="unsetStanica">
+      <soap:operation soapAction="http://ps/Admin#unsetStanica" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="setTrasa">
+      <soap:operation soapAction="http://ps/Admin#setTrasa" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="getTrasa">
+      <soap:operation soapAction="http://ps/Admin#getTrasa" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="unsetTrasa">
+      <soap:operation soapAction="http://ps/Admin#unsetTrasa" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="setRedVoznje">
+      <soap:operation soapAction="http://ps/Admin#setRedVoznje" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="getRedVoznje">
+      <soap:operation soapAction="http://ps/Admin#getRedVoznje" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="unsetRedVoznje">
+      <soap:operation soapAction="http://ps/Admin#unsetRedVoznje" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="setOtkazanaVoznja">
+      <soap:operation soapAction="http://ps/Admin#setOtkazanaVoznja" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="getOtkazanaVoznja">
+      <soap:operation soapAction="http://ps/Admin#getOtkazanaVoznja" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="unsetOtkazanaVoznja">
+      <soap:operation soapAction="http://ps/Admin#unsetOtkazanaVoznja" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="setTrasaStanica">
+      <soap:operation soapAction="http://ps/Admin#setTrasaStanica" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="getTrasaStanica">
+      <soap:operation soapAction="http://ps/Admin#getTrasaStanica" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="unsetTrasaStanica">
+      <soap:operation soapAction="http://ps/Admin#unsetTrasaStanica" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Ekarta_AdminService">
+    <wsdl:port name="Ekarta_AdminPort" binding="tns:Ekarta_AdminBinding">
+      <soap:address location="http://ps/Admin" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

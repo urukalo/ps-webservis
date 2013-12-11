@@ -6,7 +6,7 @@ class Application_Model_TrasaStanica
     protected $_idTrasa;
     protected $_idStanica;
     protected $_kmOd;
-    protected $kmDo;
+    protected $_kmDo;
     
     public function getId() {
         return $this->_idTrasaStanica;
