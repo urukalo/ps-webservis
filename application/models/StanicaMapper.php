@@ -38,7 +38,7 @@ class Application_Model_StanicaMapper
         $Items=array();
         foreach ($resultSet as $row){
             $object=new Application_Model_Stanica();
-            $object->setId($row->idStanica)->setNaziv($row->naziv);
+            $object->setId($row->idStanica)->setNaziv($row->ime);
             $Items[]=$object;
         }
         return $Items;

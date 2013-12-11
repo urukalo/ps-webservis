@@ -56,6 +56,17 @@ class Application_Model_TrasastanicaMapper
         }
         return $Item;
     }
+    
+    public function dohvatiSveNaTrasi($id){
+        $resultSet=$this->getDbTable()->fetchAll("idTrasa=$id");
+        $Item=array();
+        foreach ($resultSet as $row){
+            $object=new Application_Model_Trasastanica();
+            $object->setId($row->idTrasaStanica)->setTrasa($row->idTrase)->setStanica($row->idStanica)->setKmOd($row->kmOd)->setKmDo($row->kmDo);
+            $Item[]=$object;
+        }
+        return $Item;
+    }
     public function delete($id){
         $this->getDbTable()->delete("idTrasaStanica=$id");
     }

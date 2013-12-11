@@ -25,7 +25,7 @@ class Application_Model_KartaMapper {
     public function save(Application_Model_Karta $object) {
         $data = array(
             'idKarta' => $object->getId(),
-            'idTrase' => $object->getTrasa(),
+            'idTrasa' => $object->getTrasa(),
             'idStanicaPolaska' => $object->getStanicaPolaska(),
             'idStanicaDolaska' => $object->getStanicaDolaska(),
             'vremePolaska' => $object->getVremePolaska(),
@@ -36,8 +36,10 @@ class Application_Model_KartaMapper {
         if (null === ($idKarta = $object->getId())) {
             unset($data['idKarta']);
             $this->getDbTable()->insert($data);
+            return "insert";
         } else {
             $this->getDbTable()->update($data, array('idKarta=?' => $idKarta));
+            return "update";
         }
     }
 

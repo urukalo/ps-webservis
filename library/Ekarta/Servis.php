@@ -58,7 +58,7 @@ class Ekarta_Servis {
     // ============= RAD SA KARTOM ==================   
 
     /**
-     * 
+     * Vraca objekat karte
      * @return Application_Model_Karta
      */
     public function getKarta() {
@@ -82,17 +82,16 @@ class Ekarta_Servis {
                 ->setNaznakaPopust($object->naznakaPopusta)
                 ->setAktivnost($object->aktivnost);
         $mapper = new Application_Model_KartaMapper();
-        
+
         try {
-            $mapper->save($this->_karta);
+            return $mapper->save($this->_karta);
         } catch (Exception $exc) {
-            throw new Ekarta_Exception("Nije uspelo cuvanje karte: ". $exc->getMessage());
+            throw new Ekarta_Exception("Nije uspelo cuvanje karte: " . $exc->getMessage());
         }
-        
     }
 
     /**
-     * 
+     * Pronalazi kartu za dati idKarte i vraca objekat iste
      * @param int $id
      * @return Application_Model_Karta $karta
      */
@@ -104,21 +103,28 @@ class Ekarta_Servis {
     }
 
     /**
-     * 
+     * Proglasava kartu neaktivnom
      * @param int $id
      */
     public function otkaziKartu($id) {
-        $this->kartaMaper->delete($id);
+        $this->kartaMaper->deaktiviraj($id);
     }
 
 // ============= RAD SA Popustima ==================   
 
     /**
-     * 
-     * @return string
+     * vraca niz sa svim popustima
+     * @return Application_Model_Popust[]
      */
     public function popusti() {
-        $popusti = "studenski#penzionerski#invalidski";
+        $maper = new Application_Model_PopustMapper($this->popusti);
+        try {
+            $popusti = $maper->dohvatiSve();
+        } catch (Exception $exc) {
+            throw new Ekarta_Exception("Ne mogu da pokupim listu popusta" . $exc->getMessage());
+        }
+        
+        //$popusti = "studenski#penzionerski#invalidski";
         return $popusti;
     }
 
@@ -139,6 +145,34 @@ class Ekarta_Servis {
         if ("otkazana" == true)
             return false;
         return true;
+    }
+
+    /**
+     * 
+     * @return Application_Model_Stanica[]
+     */
+    public function stanicaUlazna() {
+        $maper = new Application_Model_StanicaMapper($this->stanica);
+        try {
+            $sveStanice = $maper->dohvatiSve();
+        } catch (Exception $exc) {
+            throw new Ekarta_Exception("Ne mogu da pokupim listu stanica" . $exc->getMessage());
+        }
+
+        return $sveStanice;
+    }
+    
+    /**
+     * 
+     * @return Application_Model_Stanica[]
+     */
+    public function stanicaIzlazna($idTrasa){
+        $maper = new Application_Model_StanicaMapper($this->stanica);
+        // kako da pozovem sve stanice preko vezivne tabele? 
+        
+        
+       $stanice = $this->stanicaUlazna(); //privremeno  
+        return $stanice;
     }
 
 }
