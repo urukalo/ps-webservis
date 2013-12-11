@@ -59,6 +59,11 @@ class Application_Model_KartaMapper
        //}
         return $object;
     }
+    public function deaktiviraj($id) {
+        $statement="UPDATE karta SET aktivnost=0 WHERE idKarta=$id";
+        $db=  Zend_Db_Table::getDefaultAdapter();
+        $resultSet=$db->query($statement);
+    }
     public function delete($id){
         $this->getDbTable()->delete("idKarta=$id");
     }
