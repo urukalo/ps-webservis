@@ -32,7 +32,7 @@ class Ekarta_Admin {
 
     /**
      * 
-     * @param object $object
+     * @param Application_Model_Popust $object
      */
     public function setPopust($object) {
         $this->_popust->setId($object->idPopust);
@@ -41,7 +41,6 @@ class Ekarta_Admin {
         $mapper = new Application_Model_PopustMapper();
         $mapper->save($popust);
     }
-
     /**
      * 
      * @param int $id
@@ -54,25 +53,22 @@ class Ekarta_Admin {
         }
         return $mapper->dohvatiJedan($id);
     }
-
     /**
      * 
-     * @param object $object
+     * @param Application_Model_Popust $object
      */
     public function unsetPopust($object) {
         $mapper = new Application_Model_PopustMapper();
-        $mapper->delete($object->id);
+        $mapper->delete($object->idPopust);
     }
 
     #---------------------------- Karta ----------------------------#
 
     /**
      * 
-     * @param object $object
+     * @param Application_Model_Karta $object
      */
     public function setKarta($object) {
-        //$this->_karta = new Application_Model_Karta();
-        #---- Stavio sam u tri reda samo zbog preglednosti u NetBeans-u ----#
         $this->_karta->setId($object->idKarta)
                 ->setTrasa($object->idTrasa)
                 ->setStanicaPolaska($object->idStanicaPolaska)
@@ -101,11 +97,11 @@ class Ekarta_Admin {
 
     /**
      * 
-     * @param object $object
+     * @param Application_Model_Karta $object
      */
     public function unsetKarta($object) {
         $mapper = new Application_Model_KartaMapper();
-        $mapper->delete($object->id);
+        $mapper->delete($object->idKarta);
     }
 
     /**
@@ -121,7 +117,7 @@ class Ekarta_Admin {
 
     /**
      * 
-     * @param object $object
+     * @param Application_Model_Stanica $object
      */
     public function setStanica($object) {
         $this->_stanica->setId($object->idStanica);
@@ -145,11 +141,11 @@ class Ekarta_Admin {
 
     /**
      * 
-     * @param object $object
+     * @param Application_Model_Stanica $object
      */
     public function unsetStanica($object) {
         $mapper = new Application_Model_StanicaMapper();
-        $mapper->delete($object->id);
+        $mapper->delete($object->idStanica);
     }
 
     #---------------------------- Trasa ----------------------------#
@@ -166,7 +162,6 @@ class Ekarta_Admin {
         $mapper = new Application_Model_TrasaMapper();
         $mapper->save($this->_trasa);
     }
-
     /**
      * 
      * @param int $id
@@ -179,21 +174,20 @@ class Ekarta_Admin {
         }
         return $mapper->dohvatiJedan($id);
     }
-
     /**
      * 
-     * @param object $object
+     * @param Application_Model_Trasa $object
      */
     public function unsetTrasa($object) {
         $mapper = new Application_Model_TrasaMapper();
-        $mapper->delete($object->id);
+        $mapper->delete($object->idTrasa);
     }
 
     #---------------------------- Red voznje ----------------------------#
 
     /**
      * 
-     * @param object $object
+     * @param Application_Model_Redvoznje $object
      */
     public function setRedVoznje($object) {
         $this->_redVoznje->setId($object->idRedVoznje);
@@ -203,7 +197,6 @@ class Ekarta_Admin {
         $mapper = new Application_Model_RedvoznjeMapper();
         $mapper->save($this->_redVoznje);
     }
-
     /**
      * 
      * @param int $id
@@ -216,21 +209,20 @@ class Ekarta_Admin {
         }
         return $mapper->dohvatiJedan($id);
     }
-
     /**
      * 
-     * @param object $object
+     * @param Application_Model_Redvoznje $object
      */
     public function unsetRedVoznje($object) {
         $mapper = new Application_Model_RedvoznjeMapper();
-        $mapper->delete($object->id);
+        $mapper->delete($object->idRedVoznje);
     }
 
     #---------------------------- Otkazana voznja ----------------------------#
 
     /**
      * 
-     * @param object $object
+     * @param Application_Model_Otkazanavoznja $object
      */
     public function setOtkazanaVoznja($object) {
         $this->_otkazanaVoznja->setId($object->idOtkazanaVoznja);
@@ -240,7 +232,6 @@ class Ekarta_Admin {
         $mapper = new Application_Model_OtkazanavoznjaMapper();
         $mapper->save($this->_otkazanaVoznja);
     }
-
     /**
      * 
      * @param int $id
@@ -253,21 +244,20 @@ class Ekarta_Admin {
         }
         return $mapper->dohvatiJedan($id);
     }
-
     /**
      * 
-     * @param object $object
+     * @param Application_Model_Otkazanavoznja $object
      */
     public function unsetOtkazanaVoznja($object) {
         $mapper = new Application_Model_OtkazanavoznjaMapper();
-        $mapper->delete($object->id);
+        $mapper->delete($object->idOtkazanaVoznja);
     }
 
     #---------------------------- Trasa stanica ----------------------------#
 
     /**
      * 
-     * @param object $object
+     * @param Application_Model_Trasastanica $object
      */
     public function setTrasaStanica($object) {
         $this->_trasaStanica->setId($object->idTrasastanica);
@@ -278,7 +268,6 @@ class Ekarta_Admin {
         $mapper = new Application_Model_TrasastanicaMapper();
         $mapper->save($this->_trasaStanica);
     }
-
     /**
      * 
      * @param int $id
@@ -291,14 +280,13 @@ class Ekarta_Admin {
         }
         return $mapper->dohvatiJedan($id);
     }
-
     /**
      * 
-     * @param object $object
+     * @param Application_Model_Trasastanica $object
      */
     public function unsetTrasaStanica($object) {
         $mapper = new Application_Model_TrasastanicaMapper();
-        $mapper->delete($object->id);
+        $mapper->delete($object->idTrasaStanica);
     }
 
 }
