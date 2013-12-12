@@ -56,5 +56,29 @@ class Application_Model_StanicaMapper
     public function delete($id){
         $this->getDbTable()->delete("idStanica=$id");
     }
+    public function dohvatiPocetne($idTrasa) {
+        $statement = "SELECT * FROM stanica s INNER JOIN trasastanica ts ON s.idStanica=ts.idStanica WHERE idTrasa=$idTrasa AND ts.kmOd=0;";
+        $db = Zend_Db_Table::getDefaultAdapter();
+        $resultSet = $db->query($statement);
+        $Items=array();
+        foreach ($resultSet as $row){
+            $object=new Application_Model_Stanica();
+            $object->setId($row->idStanica)->setNaziv($row->ime);
+            $Items[]=$object;
+        }
+        return $Items;
+    }
+    public function dohvatiKrajnje($idTrasa) {
+        $statement = "SELECT * FROM stanica s INNER JOIN trasastanica ts ON s.idStanica=ts.idStanica WHERE idTrasa=$idTrasa AND ts.kmDo=0;";
+        $db = Zend_Db_Table::getDefaultAdapter();
+        $resultSet = $db->query($statement);
+        $Items=array();
+        foreach ($resultSet as $row){
+            $object=new Application_Model_Stanica();
+            $object->setId($row->idStanica)->setNaziv($row->ime);
+            $Items[]=$object;
+        }
+        return $Items;
+    }
 }
 
