@@ -117,7 +117,7 @@ class Ekarta_Servis {
      * @return Application_Model_Popust[]
      */
     public function popusti() {
-        $maper = new Application_Model_PopustMapper($this->popusti);
+        $maper = new Application_Model_PopustMapper();
         try {
             $popusti = $maper->dohvatiSve();
         } catch (Exception $exc) {
@@ -142,6 +142,8 @@ class Ekarta_Servis {
      * @return boolean
      */
     public function proveriVoznju($string) {
+        //ajde samo da definisemo koje funkcije imamo i sta tacno rade,
+        // ali to cemo na vezbama danas
         if ("otkazana" == true)
             return false;
         return true;
@@ -152,8 +154,11 @@ class Ekarta_Servis {
      * @return Application_Model_Stanica[]
      */
     public function stanicaUlazna() {
-        $maper = new Application_Model_StanicaMapper($this->stanica);
+        $maper = new Application_Model_StanicaMapper();
         try {
+            //ako shvatam funkciju treba da se izlistaju samo pocetne stanice, tako da sam napravio f-ju u maperu
+            // $idTrasa dolazi kroz funkciju
+            //$sveStanice = $maper->dohvatiPocetne($idTrasa);
             $sveStanice = $maper->dohvatiSve();
         } catch (Exception $exc) {
             throw new Ekarta_Exception("Ne mogu da pokupim listu stanica" . $exc->getMessage());
@@ -166,9 +171,13 @@ class Ekarta_Servis {
      * 
      * @return Application_Model_Stanica[]
      */
-    public function stanicaIzlazna($idTrasa){
-        $maper = new Application_Model_StanicaMapper($this->stanica);
+    public function stanicaIzlazna(){
+        $maper = new Application_Model_StanicaMapper();
         // kako da pozovem sve stanice preko vezivne tabele? 
+        // Nisam bas siguran da bi trebali ovako da radimo, 
+        // jer mislim da je bolje izdvajanje trasa prvo pa onda stanica koje pripadaju toj trasi
+        // $idTrasa dolazi kroz funkciju
+        //$stanice = $maper->dohvatiKrajnje($idTrasa);
         
         
        $stanice = $this->stanicaUlazna(); //privremeno  
