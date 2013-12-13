@@ -38,3 +38,16 @@ g:\PS\ProjektovanjeSoftvera\obj\x86\Debug\ProjektovanjeSoftvera.csproj.GenerateR
 g:\www\ps\desktopApp\ProjektovanjeSoftvera\obj\x86\Debug\ProjektovanjeSoftvera.exe
 g:\www\ps\desktopApp\ProjektovanjeSoftvera\obj\x86\Debug\ProjektovanjeSoftvera.pdb
 g:\www\ps\desktopApp\ProjektovanjeSoftvera\bin\Debug\ProjektovanjeSoftvera.exe.config
+C:\xampp\htdocs\ps-webservis\desktopApp\ProjektovanjeSoftvera\bin\Debug\ProjektovanjeSoftvera.exe.config
+C:\xampp\htdocs\ps-webservis\desktopApp\ProjektovanjeSoftvera\obj\x86\Debug\ProjektovanjeSoftvera.exe
+C:\xampp\htdocs\ps-webservis\desktopApp\ProjektovanjeSoftvera\obj\x86\Debug\ProjektovanjeSoftvera.pdb
+C:\xampp\htdocs\ps-webservis\desktopApp\ProjektovanjeSoftvera\bin\Debug\ProjektovanjeSoftvera.exe
+C:\xampp\htdocs\ps-webservis\desktopApp\ProjektovanjeSoftvera\bin\Debug\ProjektovanjeSoftvera.pdb
+C:\xampp\htdocs\ps-webservis\desktopApp\ProjektovanjeSoftvera\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\xampp\htdocs\ps-webservis\desktopApp\ProjektovanjeSoftvera\obj\x86\Debug\ProjektovanjeSoftvera.RedVoznje.resources
+C:\xampp\htdocs\ps-webservis\desktopApp\ProjektovanjeSoftvera\obj\x86\Debug\ProjektovanjeSoftvera.TraseStanice.resources
+C:\xampp\htdocs\ps-webservis\desktopApp\ProjektovanjeSoftvera\obj\x86\Debug\ProjektovanjeSoftvera.Form1.resources
+C:\xampp\htdocs\ps-webservis\desktopApp\ProjektovanjeSoftvera\obj\x86\Debug\ProjektovanjeSoftvera.LoginDijalog.resources
+C:\xampp\htdocs\ps-webservis\desktopApp\ProjektovanjeSoftvera\obj\x86\Debug\ProjektovanjeSoftvera.Properties.Resources.resources
+C:\xampp\htdocs\ps-webservis\desktopApp\ProjektovanjeSoftvera\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\xampp\htdocs\ps-webservis\desktopApp\ProjektovanjeSoftvera\obj\x86\Debug\GenerateResource.write.1.tlog

@@ -58,13 +58,13 @@ namespace ProjektovanjeSoftvera
         private void traseIStaniceToolStripMenuItem_Click(object sender, EventArgs e)
         {
             TraseStanice tis = new TraseStanice();
-            tis.Show();
+            tis.ShowDialog();
         }
 
         private void redVoznjeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             RedVoznje redVoznje = new RedVoznje();
-            redVoznje.Show();
+            redVoznje.ShowDialog();
         }
 
         private void administracijaToolStripMenuItem1_Click(object sender, EventArgs e)
