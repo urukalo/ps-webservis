@@ -58,7 +58,15 @@ class Application_Model_RedvoznjeMapper
     public function dohvatiZaStanice(){
         
     }
-
+    public function proveriDaLiPostoji($idTrase,$dan,$vreme) {
+        $statement = "SELECT * FROM redvoznje WHERE idTrase=$idTrase AND dan=$dan AND vreme='$vreme';";
+        $db = Zend_Db_Table::getDefaultAdapter();
+        $resultSet = $db->query($statement);
+        if(count($resultSet)==1){
+            return true;
+        }
+        return false;
+    }
     public function delete($id){
         $this->getDbTable()->delete("idRedVoznje=$id");
     }

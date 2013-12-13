@@ -28,9 +28,10 @@ class Application_Model_StanicaMapper
         
         if(null===($idStanica=$object->getId())){
             unset($data['idStanica']);
-            $this->getDbTable()->insert($data);
+            return $this->getDbTable()->insert($data);
         }else{
             $this->getDbTable()->update($data,array('idStanica=?'=>$idStanica));
+            return $idStanica;
         }
     }
     public function dohvatiSve(){
