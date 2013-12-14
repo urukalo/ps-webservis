@@ -855,6 +855,11 @@ namespace ProjektovanjeSoftvera.AdminWebServis {
             }
             return false;
         }
+
+        internal void setStanica(Stanice stanica)
+        {
+            throw new NotImplementedException();
+        }
     }
     
     /// <remarks/>

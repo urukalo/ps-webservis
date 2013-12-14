@@ -7,9 +7,8 @@ namespace ProjektovanjeSoftvera
 {
     class Stanice
     {
-        private string nazivS;
-        private int idT;
-        private string nazivT;
+        private int idTrasa;
+        private string nazivStanice;
         private int kmOd;
         private int kmDo;
 
@@ -25,22 +24,16 @@ namespace ProjektovanjeSoftvera
             set { kmOd = value; }
         }
 
-        public string NazivT
+        public int IdTrasa
         {
-            get { return nazivT; }
-            set { nazivT = value; }
+            get { return idTrasa; }
+            set { idTrasa = value; }
         }
 
-        public int IdT
+        public string NazivStanice
         {
-            get { return idT; }
-            set { idT = value; }
-        }
-
-        public string NazivS
-        {
-            get { return nazivS; }
-            set { nazivS = value; }
+            get { return nazivStanice; }
+            set { nazivStanice = value; }
         }
     }
 }

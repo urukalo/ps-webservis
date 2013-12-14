@@ -35,21 +35,21 @@
             System.Windows.Forms.Label label5;
             System.Windows.Forms.Label label9;
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboBoxKrajnjaStanica = new System.Windows.Forms.ComboBox();
+            this.comboBoxPocetnaStanica = new System.Windows.Forms.ComboBox();
+            this.comboBoxIzaberiTrasu = new System.Windows.Forms.ComboBox();
             this.buttonIzbrisiTrasu = new System.Windows.Forms.Button();
-            this.comboBoxIzbrisiTrasu = new System.Windows.Forms.ComboBox();
             this.buttonSacuvajTrasu = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.textBoxKmDo = new System.Windows.Forms.TextBox();
             this.buttonSacuvajStanicu = new System.Windows.Forms.Button();
-            this.comboBoxStanice = new System.Windows.Forms.ComboBox();
             this.buttonIzbrisiStanicu = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxKmOd = new System.Windows.Forms.TextBox();
+            this.comboBoxStanice = new System.Windows.Forms.ComboBox();
             this.labelKmDo = new System.Windows.Forms.Label();
             this.labelKmOd = new System.Windows.Forms.Label();
             this.textBoxImeStanice = new System.Windows.Forms.TextBox();
-            this.comboBoxDodajStanicu = new System.Windows.Forms.ComboBox();
-            this.comboBoxPocetnaStanica = new System.Windows.Forms.ComboBox();
-            this.comboBoxKrajnjaStanica = new System.Windows.Forms.ComboBox();
+            this.comboBoxTrase = new System.Windows.Forms.ComboBox();
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
@@ -119,7 +119,7 @@
             this.groupBox1.Controls.Add(this.comboBoxKrajnjaStanica);
             this.groupBox1.Controls.Add(this.comboBoxPocetnaStanica);
             this.groupBox1.Controls.Add(label1);
-            this.groupBox1.Controls.Add(this.comboBoxIzbrisiTrasu);
+            this.groupBox1.Controls.Add(this.comboBoxIzaberiTrasu);
             this.groupBox1.Controls.Add(label2);
             this.groupBox1.Controls.Add(this.buttonIzbrisiTrasu);
             this.groupBox1.Controls.Add(this.buttonSacuvajTrasu);
@@ -131,6 +131,30 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Trase";
             // 
+            // comboBoxKrajnjaStanica
+            // 
+            this.comboBoxKrajnjaStanica.FormattingEnabled = true;
+            this.comboBoxKrajnjaStanica.Location = new System.Drawing.Point(132, 116);
+            this.comboBoxKrajnjaStanica.Name = "comboBoxKrajnjaStanica";
+            this.comboBoxKrajnjaStanica.Size = new System.Drawing.Size(143, 21);
+            this.comboBoxKrajnjaStanica.TabIndex = 7;
+            // 
+            // comboBoxPocetnaStanica
+            // 
+            this.comboBoxPocetnaStanica.FormattingEnabled = true;
+            this.comboBoxPocetnaStanica.Location = new System.Drawing.Point(132, 86);
+            this.comboBoxPocetnaStanica.Name = "comboBoxPocetnaStanica";
+            this.comboBoxPocetnaStanica.Size = new System.Drawing.Size(143, 21);
+            this.comboBoxPocetnaStanica.TabIndex = 6;
+            // 
+            // comboBoxIzaberiTrasu
+            // 
+            this.comboBoxIzaberiTrasu.FormattingEnabled = true;
+            this.comboBoxIzaberiTrasu.Location = new System.Drawing.Point(132, 33);
+            this.comboBoxIzaberiTrasu.Name = "comboBoxIzaberiTrasu";
+            this.comboBoxIzaberiTrasu.Size = new System.Drawing.Size(143, 21);
+            this.comboBoxIzaberiTrasu.TabIndex = 4;
+            // 
             // buttonIzbrisiTrasu
             // 
             this.buttonIzbrisiTrasu.Location = new System.Drawing.Point(132, 146);
@@ -140,14 +164,6 @@
             this.buttonIzbrisiTrasu.Text = "Izbriši trasu";
             this.buttonIzbrisiTrasu.UseVisualStyleBackColor = true;
             // 
-            // comboBoxIzbrisiTrasu
-            // 
-            this.comboBoxIzbrisiTrasu.FormattingEnabled = true;
-            this.comboBoxIzbrisiTrasu.Location = new System.Drawing.Point(132, 33);
-            this.comboBoxIzbrisiTrasu.Name = "comboBoxIzbrisiTrasu";
-            this.comboBoxIzbrisiTrasu.Size = new System.Drawing.Size(143, 21);
-            this.comboBoxIzbrisiTrasu.TabIndex = 4;
-            // 
             // buttonSacuvajTrasu
             // 
             this.buttonSacuvajTrasu.Location = new System.Drawing.Point(9, 146);
@@ -156,14 +172,13 @@
             this.buttonSacuvajTrasu.TabIndex = 4;
             this.buttonSacuvajTrasu.Text = "Sačuvaj";
             this.buttonSacuvajTrasu.UseVisualStyleBackColor = true;
-            this.buttonSacuvajTrasu.Click += new System.EventHandler(this.buttonDodajTrasu_Click);
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.textBox2);
+            this.groupBox2.Controls.Add(this.textBoxKmDo);
             this.groupBox2.Controls.Add(this.buttonSacuvajStanicu);
             this.groupBox2.Controls.Add(this.buttonIzbrisiStanicu);
-            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.textBoxKmOd);
             this.groupBox2.Controls.Add(this.comboBoxStanice);
             this.groupBox2.Controls.Add(label9);
             this.groupBox2.Controls.Add(this.labelKmDo);
@@ -171,13 +186,20 @@
             this.groupBox2.Controls.Add(this.labelKmOd);
             this.groupBox2.Controls.Add(label3);
             this.groupBox2.Controls.Add(this.textBoxImeStanice);
-            this.groupBox2.Controls.Add(this.comboBoxDodajStanicu);
+            this.groupBox2.Controls.Add(this.comboBoxTrase);
             this.groupBox2.Location = new System.Drawing.Point(12, 12);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(288, 271);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Stanice";
+            // 
+            // textBoxKmDo
+            // 
+            this.textBoxKmDo.Location = new System.Drawing.Point(132, 177);
+            this.textBoxKmDo.Name = "textBoxKmDo";
+            this.textBoxKmDo.Size = new System.Drawing.Size(143, 20);
+            this.textBoxKmDo.TabIndex = 11;
             // 
             // buttonSacuvajStanicu
             // 
@@ -187,14 +209,7 @@
             this.buttonSacuvajStanicu.TabIndex = 5;
             this.buttonSacuvajStanicu.Text = "Sačuvaj";
             this.buttonSacuvajStanicu.UseVisualStyleBackColor = true;
-            // 
-            // comboBoxStanice
-            // 
-            this.comboBoxStanice.FormattingEnabled = true;
-            this.comboBoxStanice.Location = new System.Drawing.Point(132, 27);
-            this.comboBoxStanice.Name = "comboBoxStanice";
-            this.comboBoxStanice.Size = new System.Drawing.Size(143, 21);
-            this.comboBoxStanice.TabIndex = 4;
+            this.buttonSacuvajStanicu.Click += new System.EventHandler(this.buttonSacuvajStanicu_Click);
             // 
             // buttonIzbrisiStanicu
             // 
@@ -205,19 +220,20 @@
             this.buttonIzbrisiStanicu.Text = "Izbriši stanicu";
             this.buttonIzbrisiStanicu.UseVisualStyleBackColor = true;
             // 
-            // textBox2
+            // textBoxKmOd
             // 
-            this.textBox2.Location = new System.Drawing.Point(132, 177);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(143, 20);
-            this.textBox2.TabIndex = 11;
+            this.textBoxKmOd.Location = new System.Drawing.Point(132, 142);
+            this.textBoxKmOd.Name = "textBoxKmOd";
+            this.textBoxKmOd.Size = new System.Drawing.Size(143, 20);
+            this.textBoxKmOd.TabIndex = 10;
             // 
-            // textBox1
+            // comboBoxStanice
             // 
-            this.textBox1.Location = new System.Drawing.Point(132, 142);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(143, 20);
-            this.textBox1.TabIndex = 10;
+            this.comboBoxStanice.FormattingEnabled = true;
+            this.comboBoxStanice.Location = new System.Drawing.Point(132, 27);
+            this.comboBoxStanice.Name = "comboBoxStanice";
+            this.comboBoxStanice.Size = new System.Drawing.Size(143, 21);
+            this.comboBoxStanice.TabIndex = 4;
             // 
             // labelKmDo
             // 
@@ -244,29 +260,13 @@
             this.textBoxImeStanice.Size = new System.Drawing.Size(143, 20);
             this.textBoxImeStanice.TabIndex = 7;
             // 
-            // comboBoxDodajStanicu
+            // comboBoxTrase
             // 
-            this.comboBoxDodajStanicu.FormattingEnabled = true;
-            this.comboBoxDodajStanicu.Location = new System.Drawing.Point(132, 107);
-            this.comboBoxDodajStanicu.Name = "comboBoxDodajStanicu";
-            this.comboBoxDodajStanicu.Size = new System.Drawing.Size(143, 21);
-            this.comboBoxDodajStanicu.TabIndex = 4;
-            // 
-            // comboBoxPocetnaStanica
-            // 
-            this.comboBoxPocetnaStanica.FormattingEnabled = true;
-            this.comboBoxPocetnaStanica.Location = new System.Drawing.Point(132, 86);
-            this.comboBoxPocetnaStanica.Name = "comboBoxPocetnaStanica";
-            this.comboBoxPocetnaStanica.Size = new System.Drawing.Size(143, 21);
-            this.comboBoxPocetnaStanica.TabIndex = 6;
-            // 
-            // comboBoxKrajnjaStanica
-            // 
-            this.comboBoxKrajnjaStanica.FormattingEnabled = true;
-            this.comboBoxKrajnjaStanica.Location = new System.Drawing.Point(132, 116);
-            this.comboBoxKrajnjaStanica.Name = "comboBoxKrajnjaStanica";
-            this.comboBoxKrajnjaStanica.Size = new System.Drawing.Size(143, 21);
-            this.comboBoxKrajnjaStanica.TabIndex = 7;
+            this.comboBoxTrase.FormattingEnabled = true;
+            this.comboBoxTrase.Location = new System.Drawing.Point(132, 107);
+            this.comboBoxTrase.Name = "comboBoxTrase";
+            this.comboBoxTrase.Size = new System.Drawing.Size(143, 21);
+            this.comboBoxTrase.TabIndex = 4;
             // 
             // TraseStanice
             // 
@@ -291,14 +291,14 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button buttonIzbrisiTrasu;
-        private System.Windows.Forms.ComboBox comboBoxIzbrisiTrasu;
+        private System.Windows.Forms.ComboBox comboBoxIzaberiTrasu;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxKmDo;
+        private System.Windows.Forms.TextBox textBoxKmOd;
         private System.Windows.Forms.Label labelKmDo;
         private System.Windows.Forms.Label labelKmOd;
         private System.Windows.Forms.TextBox textBoxImeStanice;
-        private System.Windows.Forms.ComboBox comboBoxDodajStanicu;
+        private System.Windows.Forms.ComboBox comboBoxTrase;
         private System.Windows.Forms.Button buttonIzbrisiStanicu;
         private System.Windows.Forms.Button buttonSacuvajStanicu;
         private System.Windows.Forms.ComboBox comboBoxStanice;
