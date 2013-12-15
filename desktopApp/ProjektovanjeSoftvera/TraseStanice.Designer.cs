@@ -34,6 +34,7 @@
             System.Windows.Forms.Label label3;
             System.Windows.Forms.Label label5;
             System.Windows.Forms.Label label9;
+            System.Windows.Forms.Label label6;
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.comboBoxKrajnjaStanica = new System.Windows.Forms.ComboBox();
             this.comboBoxPocetnaStanica = new System.Windows.Forms.ComboBox();
@@ -50,12 +51,14 @@
             this.labelKmOd = new System.Windows.Forms.Label();
             this.textBoxImeStanice = new System.Windows.Forms.TextBox();
             this.comboBoxTrase = new System.Windows.Forms.ComboBox();
+            this.textBoxUkupnoKm = new System.Windows.Forms.TextBox();
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
             label5 = new System.Windows.Forms.Label();
             label9 = new System.Windows.Forms.Label();
+            label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -72,7 +75,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(6, 115);
+            label2.Location = new System.Drawing.Point(6, 119);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(77, 13);
             label2.TabIndex = 2;
@@ -116,6 +119,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.textBoxUkupnoKm);
+            this.groupBox1.Controls.Add(label6);
             this.groupBox1.Controls.Add(this.comboBoxKrajnjaStanica);
             this.groupBox1.Controls.Add(this.comboBoxPocetnaStanica);
             this.groupBox1.Controls.Add(label1);
@@ -126,7 +131,7 @@
             this.groupBox1.Controls.Add(label4);
             this.groupBox1.Location = new System.Drawing.Point(12, 289);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(288, 194);
+            this.groupBox1.Size = new System.Drawing.Size(288, 234);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Trase";
@@ -142,7 +147,7 @@
             // comboBoxPocetnaStanica
             // 
             this.comboBoxPocetnaStanica.FormattingEnabled = true;
-            this.comboBoxPocetnaStanica.Location = new System.Drawing.Point(132, 86);
+            this.comboBoxPocetnaStanica.Location = new System.Drawing.Point(132, 82);
             this.comboBoxPocetnaStanica.Name = "comboBoxPocetnaStanica";
             this.comboBoxPocetnaStanica.Size = new System.Drawing.Size(143, 21);
             this.comboBoxPocetnaStanica.TabIndex = 6;
@@ -154,24 +159,27 @@
             this.comboBoxIzaberiTrasu.Name = "comboBoxIzaberiTrasu";
             this.comboBoxIzaberiTrasu.Size = new System.Drawing.Size(143, 21);
             this.comboBoxIzaberiTrasu.TabIndex = 4;
+            this.comboBoxIzaberiTrasu.SelectedIndexChanged += new System.EventHandler(this.comboBoxIzaberiTrasu_SelectedIndexChanged);
             // 
             // buttonIzbrisiTrasu
             // 
-            this.buttonIzbrisiTrasu.Location = new System.Drawing.Point(132, 146);
+            this.buttonIzbrisiTrasu.Location = new System.Drawing.Point(132, 192);
             this.buttonIzbrisiTrasu.Name = "buttonIzbrisiTrasu";
             this.buttonIzbrisiTrasu.Size = new System.Drawing.Size(75, 23);
             this.buttonIzbrisiTrasu.TabIndex = 5;
             this.buttonIzbrisiTrasu.Text = "Izbriši trasu";
             this.buttonIzbrisiTrasu.UseVisualStyleBackColor = true;
+            this.buttonIzbrisiTrasu.Click += new System.EventHandler(this.buttonIzbrisiTrasu_Click);
             // 
             // buttonSacuvajTrasu
             // 
-            this.buttonSacuvajTrasu.Location = new System.Drawing.Point(9, 146);
+            this.buttonSacuvajTrasu.Location = new System.Drawing.Point(9, 192);
             this.buttonSacuvajTrasu.Name = "buttonSacuvajTrasu";
             this.buttonSacuvajTrasu.Size = new System.Drawing.Size(75, 23);
             this.buttonSacuvajTrasu.TabIndex = 4;
             this.buttonSacuvajTrasu.Text = "Sačuvaj";
             this.buttonSacuvajTrasu.UseVisualStyleBackColor = true;
+            this.buttonSacuvajTrasu.Click += new System.EventHandler(this.buttonSacuvajTrasu_Click);
             // 
             // groupBox2
             // 
@@ -219,6 +227,7 @@
             this.buttonIzbrisiStanicu.TabIndex = 5;
             this.buttonIzbrisiStanicu.Text = "Izbriši stanicu";
             this.buttonIzbrisiStanicu.UseVisualStyleBackColor = true;
+            this.buttonIzbrisiStanicu.Click += new System.EventHandler(this.buttonIzbrisiStanicu_Click);
             // 
             // textBoxKmOd
             // 
@@ -234,6 +243,7 @@
             this.comboBoxStanice.Name = "comboBoxStanice";
             this.comboBoxStanice.Size = new System.Drawing.Size(143, 21);
             this.comboBoxStanice.TabIndex = 4;
+            this.comboBoxStanice.SelectedIndexChanged += new System.EventHandler(this.comboBoxStanice_SelectedIndexChanged);
             // 
             // labelKmDo
             // 
@@ -268,11 +278,27 @@
             this.comboBoxTrase.Size = new System.Drawing.Size(143, 21);
             this.comboBoxTrase.TabIndex = 4;
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new System.Drawing.Point(6, 149);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(99, 13);
+            label6.TabIndex = 8;
+            label6.Text = "Ukupno kilometara:";
+            // 
+            // textBoxUkupnoKm
+            // 
+            this.textBoxUkupnoKm.Location = new System.Drawing.Point(132, 146);
+            this.textBoxUkupnoKm.Name = "textBoxUkupnoKm";
+            this.textBoxUkupnoKm.Size = new System.Drawing.Size(143, 20);
+            this.textBoxUkupnoKm.TabIndex = 9;
+            // 
             // TraseStanice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(314, 498);
+            this.ClientSize = new System.Drawing.Size(314, 535);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -305,5 +331,6 @@
         private System.Windows.Forms.Button buttonSacuvajTrasu;
         private System.Windows.Forms.ComboBox comboBoxKrajnjaStanica;
         private System.Windows.Forms.ComboBox comboBoxPocetnaStanica;
+        private System.Windows.Forms.TextBox textBoxUkupnoKm;
     }
 }
