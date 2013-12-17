@@ -20,13 +20,17 @@ namespace ProjektovanjeSoftvera
 
         private void buttonDodajvoznju_Click(object sender, EventArgs e)
         {
-            if (this.comboBoxTrasa.SelectedText != "Izaberite..." && this.comboBoxDan.SelectedText != "Izaberite..." && this.textBoxSat.Text != "" && this.textBoxMinut.Text != "")
+            if (this.comboBoxTrasa.SelectedIndex != 0 && this.comboBoxDan.SelectedIndex != 0 && this.textBoxSat.Text != "" && this.textBoxMinut.Text != "")
             {
                 int idTrasa = Int32.Parse(this.comboBoxTrasa.SelectedIndex.ToString());
                 int dan = Int32.Parse(this.comboBoxDan.SelectedIndex.ToString());
                 string sat = this.textBoxSat.Text;
                 string minut = this.textBoxMinut.Text;
                 string zaSlanje = idTrasa + "_" + dan + "_" + sat + "_" +minut;
+                if (this.comboBoxTrasaIzmeni.SelectedIndex != 0)
+                {
+                    zaSlanje += "_" + this.comboBoxTrasaIzmeni.SelectedValue.ToString();
+                }
                 //veza sa servisom i slanje stringa
             }
             else
@@ -46,6 +50,7 @@ namespace ProjektovanjeSoftvera
             }
             else
             {
+
                 //veza sa servisom i podesavanje polja
             }
         }
