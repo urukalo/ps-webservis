@@ -32,7 +32,7 @@ class AdminController extends Zend_Controller_Action
         $this->_helper->viewRenderer->setNoRender(true);
         //$this->_helper->layout()->disableLayout();
         $wsdl = new Zend_Soap_AutoDiscover('Zend_Soap_Wsdl_Strategy_ArrayOfTypeComplex');
-        // $wsdl = new Zend_Soap_AutoDiscover(new Zend_Soap_Wsdl_Strategy_ArrayOfTypeComplex());
+        //$wsdl = new Zend_Soap_AutoDiscover(new Zend_Soap_Wsdl_Strategy_ArrayOfTypeComplex());
         $wsdl->setOperationBodyStyle(array('use' => 'literal'));
         $wsdl->setBindingStyle(array('style' => 'document'));
 
