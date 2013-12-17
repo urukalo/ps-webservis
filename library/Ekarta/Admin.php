@@ -32,12 +32,13 @@ class Ekarta_Admin {
 
     /**
      * 
-     * @param Application_Model_Popust $object
+     * @param string $object
      */
     public function setPopust($object) {
-        $this->_popust->setId($object->idPopust);
-        $this->_popust->setNaziv($object->naziv);
-        $this->_popust->setProcenat($object->procenat);
+        $array= explode('_', $object);
+        $this->_popust->setId();
+        $this->_popust->setNaziv();
+        $this->_popust->setProcenat();
         $mapper = new Application_Model_PopustMapper();
         $mapper->save($this->_popust);
     }
@@ -117,15 +118,16 @@ class Ekarta_Admin {
 
     /**
      * 
-     * @param Application_Model_Stanica $object
+     * @param string $object
      */
     public function setStanica($object) {
-        $this->_stanica->setId($object->idStanica);
-        $this->_stanica->setNaziv($object->naziv);
+        $array= explode('_', $object);
+        //$this->_stanica->setId($object->idStanica);
+        $this->_stanica->setNaziv($array[0]);
         $mapper = new Application_Model_StanicaMapper();
         $lastId=$mapper->save($this->_stanica);
         $object->idStanica=$lastId;
-        $this->setTrasaStanica($object);
+        //$this->setTrasaStanica($array);
     }
 
     /**
@@ -155,9 +157,10 @@ class Ekarta_Admin {
 
     /**
      * 
-     * @param Application_Model_Trasa $object
+     * @param string $object
      */
     public function setTrasa($object) {
+        $array= explode("_", $object);
         $this->_trasa->setId($object->idTrasa);
         $this->_trasa->setStanicaPolaska($object->stanicaPolaska);
         $this->_trasa->setStanicaDolaska($object->stanicaDolaska);
@@ -171,7 +174,7 @@ class Ekarta_Admin {
      * @return Application_Model_Trasa[]
      */
     public function getTrasa($id = 0) {
-        $trasaMapper = new Application_Model_TrasaMapper();
+        $mapper = new Application_Model_TrasaMapper();
         if ($id === 0) {
             return $mapper->dohvatiSve();
         }
@@ -190,13 +193,17 @@ class Ekarta_Admin {
 
     /**
      * 
-     * @param Application_Model_Redvoznje $object
+     * @param string $object
      */
     public function setRedVoznje($object) {
-        $this->_redVoznje->setId($object->idRedVoznje);
-        $this->_redVoznje->setTrasa($object->idTrasa);
-        $this->_redVoznje->setDan($object->dan);
-        $this->_redVoznje->setVremePolaska($object->vremePolaska);
+        $array= explode("_", $object);
+        
+        $this->_redVoznje->setTrasa($array[0]);
+        $this->_redVoznje->setDan($array[1]);
+        $this->_redVoznje->setVremePolaska($array[2].":".$array[3]);
+        if(!empty($array[4])){
+            $this->_redVoznje->setId($array[4]);
+        }
         $mapper = new Application_Model_RedvoznjeMapper();
         $mapper->save($this->_redVoznje);
     }
@@ -236,9 +243,10 @@ class Ekarta_Admin {
 
     /**
      * 
-     * @param Application_Model_Otkazanavoznja $object
+     * @param string $object
      */
     public function setOtkazanaVoznja($object) {
+        $array= explode("_", $object);
         $this->_otkazanaVoznja->setId($object->idOtkazanaVoznja);
         $this->_otkazanaVoznja->setTrasa($object->idTrasa);
         $this->_otkazanaVoznja->setDatum($object->datum);
@@ -270,6 +278,7 @@ class Ekarta_Admin {
     #---------------------------- Trasa stanica ----------------------------#
 
     private function setTrasaStanica($object) {
+        $array= explode("_", $object);
         $this->_trasaStanica->setId($object->idTrasastanica);
         $this->_trasaStanica->setTrasa($object->idTrasa);
         $this->_trasaStanica->setStanica($object->idStanica);
