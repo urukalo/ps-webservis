@@ -18,31 +18,7 @@ class Ekarta_Servis {
      *
      * @var Application_Model_Karta
      */
-    public $karta;
-
-    /**
-     *
-     * @var Application_Model_Redvoznje
-     */
-    public $redVoznje;
-
-    /**
-     *
-     * @var Application_Model_Stanica
-     */
-    public $stanica;
-
-    /**
-     *
-     * @var Application_Model_Popusti
-     */
-    public $popusti;
-
-    /**
-     *
-     * @var Application_Model_Trasa
-     */
-    public $trasa;
+    private $karta, $redVoznje, $stanica, $popusti, $trasa;
     private $kartaMaper, $stanicaMaper, $redVoznjeMaper;
 
     public function Ekarta_Servis() {
@@ -71,7 +47,7 @@ class Ekarta_Servis {
      */
     public function sacuvajKartu($object) {
         $this->_karta = new Application_Model_Karta();
-        #---- Stavio sam u tri reda samo zbog preglednosti u NetBeans-u ----#
+
         $this->_karta->setId($object->idKarta)
                 ->setTrasa($object->idTrasa)
                 ->setStanicaPolaska($object->idStanicaPolaska)
@@ -123,7 +99,7 @@ class Ekarta_Servis {
         } catch (Exception $exc) {
             throw new Ekarta_Exception("Ne mogu da pokupim listu popusta" . $exc->getMessage());
         }
-        
+
         //$popusti = "studenski#penzionerski#invalidski";
         return $popusti;
     }
@@ -166,22 +142,24 @@ class Ekarta_Servis {
 
         return $sveStanice;
     }
-    
+
     /**
-     * 
+     * @param int $ulaznaId
      * @return Application_Model_Stanica[]
      */
-    public function stanicaIzlazna(){
+    public function stanicaIzlazna($ulaznaId) {
         $maper = new Application_Model_StanicaMapper();
-        // kako da pozovem sve stanice preko vezivne tabele? 
-        // Nisam bas siguran da bi trebali ovako da radimo, 
-        // jer mislim da je bolje izdvajanje trasa prvo pa onda stanica koje pripadaju toj trasi
-        // $idTrasa dolazi kroz funkciju
-        //$stanice = $maper->dohvatiKrajnje($idTrasa);
-        
-        
-       $stanice = $this->stanicaUlazna(); //privremeno  
+        $trasastanicaMaper = new Application_Model_TrasastanicaMapper();
+        $idTrasa = $trasastanicaMaper->dohvatiTrasu($ulaznaId);
+        $stanice = $trasastanicaMaper->dohvatiSveNaTrasi($idTrasa);
+
+
+        $stanice = $this->stanicaUlazna(); //privremeno  
         return $stanice;
     }
 
+    public function pronadjiRutu(){
+        
+        
+    }
 }

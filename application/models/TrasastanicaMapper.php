@@ -67,6 +67,11 @@ class Application_Model_TrasastanicaMapper
         }
         return $Item;
     }
+     public function dohvatiIdTrase($idStanice){
+        $resultSet=$this->getDbTable()->fetchAll("idStanice=$idStanice");
+        
+        return $resultSet[0]->idTrase;
+    }
     public function delete($id){
         $this->getDbTable()->delete("idTrasaStanica=$id");
     }
