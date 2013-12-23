@@ -158,8 +158,15 @@ class Ekarta_Servis {
         return $stanice;
     }
 
-    public function pronadjiRutu(){
+    /**
+     * Vraca niz ruta za odabrane stanice i datum
+     * @param type $idUlazna
+     * @param type $idIzlazna
+     * @param type $datum
+     * @return Application_Model_Redvoznje[]
+     */
+    public function pronadjiRutu($idUlazna, $idIzlazna, $datum){
         
-        
+        return array(new Application_Model_Redvoznje());
     }
 }
