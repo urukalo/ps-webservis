@@ -154,7 +154,7 @@ class Ekarta_Servis {
         $stanice = $trasastanicaMaper->dohvatiSveNaTrasi($idTrasa);
 
 
-        $stanice = $this->stanicaUlazna(); //privremeno  
+        //$stanice = $this->stanicaUlazna(); //privremeno  
         return $stanice;
     }
 
