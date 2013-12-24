@@ -122,25 +122,28 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Web References\AdminWebServis\Application_Model_Karta.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\AdminWebServis\Application_Model_Otkazanavoznja.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\AdminWebServis\Application_Model_Popust.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
     <None Include="Web References\AdminWebServis\Application_Model_Redvoznje.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Web References\AdminWebServis\Application_Model_Stanica.datasource">
+    <None Include="Web References\AdminWebServis\ArrayOfApplication_Model_Karta.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Web References\AdminWebServis\Application_Model_Trasa.datasource">
+    <None Include="Web References\AdminWebServis\ArrayOfApplication_Model_Otkazanavoznja.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Web References\AdminWebServis\Application_Model_Trasastanica.datasource">
+    <None Include="Web References\AdminWebServis\ArrayOfApplication_Model_Popust.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AdminWebServis\ArrayOfApplication_Model_Redvoznje.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AdminWebServis\ArrayOfApplication_Model_Stanica.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AdminWebServis\ArrayOfApplication_Model_Trasa.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AdminWebServis\ArrayOfApplication_Model_Trasastanica.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\AdminWebServis\Ekarta_Admin.wsdl" />

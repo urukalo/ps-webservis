@@ -211,7 +211,7 @@ class Ekarta_Admin {
      * 
      * @return Application_Model_Redvoznje[]
      */
-    public function getRedVoznje() {
+    public function getRedVoznje($id) {
         $mapper = new Application_Model_RedvoznjeMapper();
         return $mapper->dohvatiSve();
     }
