@@ -7,10 +7,10 @@ namespace ProjektovanjeSoftvera
 {
     class RedVoznjeClass
     {
-        private int idT;
-        private string nazivT;
-        private int idD;
-        private string nazivD;
+        private int idTrase;
+        private string nazivTrase;
+        private int idDan;
+        private string nazivDan;
         private int sat;
         private int minut;
 
@@ -26,28 +26,28 @@ namespace ProjektovanjeSoftvera
             set { sat = value; }
         }
 
-        public string NazivD
+        public string NazivDan
         {
-            get { return nazivD; }
-            set { nazivD = value; }
+            get { return nazivDan; }
+            set { nazivDan = value; }
         }
 
-        public int IdD
+        public int IdDan
         {
-            get { return idD; }
-            set { idD = value; }
+            get { return idDan; }
+            set { idDan = value; }
         }
 
-        public string NazivT
+        public string NazivTrasa
         {
-            get { return nazivT; }
-            set { nazivT = value; }
+            get { return nazivTrase; }
+            set { nazivTrase = value; }
         }
 
-        public int IdT
+        public int IdTrasa
         {
-            get { return idT; }
-            set { idT = value; }
+            get { return idTrase; }
+            set { idTrase = value; }
         }
     }
 }

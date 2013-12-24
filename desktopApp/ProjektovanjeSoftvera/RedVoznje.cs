@@ -14,6 +14,12 @@ namespace ProjektovanjeSoftvera
         public RedVoznje()
         {
             InitializeComponent();
+
+            AdminWebServis.Ekarta_AdminService admin = new AdminWebServis.Ekarta_AdminService();
+            AdminWebServis.Application_Model_Redvoznje[] red= new AdminWebServis.Application_Model_Redvoznje[15];
+            red = admin.getRedVoznje();
+            
+
         }
 
         #region Dodaj voznju

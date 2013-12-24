@@ -209,15 +209,20 @@ class Ekarta_Admin {
     }
     /**
      * 
-     * @param int $id
      * @return Application_Model_Redvoznje[]
      */
-    public function getRedVoznje($id = 0) {
+    public function getRedVoznje() {
         $mapper = new Application_Model_RedvoznjeMapper();
-        if ($id === 0) {
-            return $mapper->dohvatiSve();
-        }
-        return array($mapper->dohvatiJedan($id));
+        return $mapper->dohvatiSve();
+    }
+    /**
+     * 
+     * @param int $id
+     * @return Application_Model_Redvoznje
+     */
+    public function getJedanRedVoznje($id) {
+        $mapper = new Application_Model_RedvoznjeMapper();
+        return $mapper->dohvatiJedan($id);
     }
     /**
      * 
