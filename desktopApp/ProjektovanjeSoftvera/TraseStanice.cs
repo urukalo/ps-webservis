@@ -20,9 +20,7 @@ namespace ProjektovanjeSoftvera
 
         private void buttonSacuvajStanicu_Click(object sender, EventArgs e)
         {
-            ProjektovanjeSoftvera.AdminWebServis.Ekarta_AdminService admin = new AdminWebServis.Ekarta_AdminService();
             
-            Stanice stanica = new Stanice();
             string imeStanice = this.textBoxImeStanice.Text;
             try
             {

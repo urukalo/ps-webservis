@@ -1,12 +1,5 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ProjektovanjeSoftvera.Properties" GeneratedClassName="Settings">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)">
   <Profiles />
-  <Settings>
-    <Setting Name="ProjektovanjeSoftvera_WebServis_Ekarta_ServisService" Type="(Web Service URL)" Scope="Application">
-      <Value Profile="(Default)">http://ps</Value>
-    </Setting>
-    <Setting Name="ProjektovanjeSoftvera_AdminWebServis_Ekarta_AdminService" Type="(Web Service URL)" Scope="Application">
-      <Value Profile="(Default)">http://ps/Admin</Value>
-    </Setting>
-  </Settings>
+  <Settings />
 </SettingsFile>

@@ -59,6 +59,11 @@
       <DependentUpon>RedVoznje.cs</DependentUpon>
     </Compile>
     <Compile Include="RedVoznjeClass.cs" />
+    <Compile Include="Service References\AdminService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Stanice.cs" />
     <Compile Include="Trase.cs" />
     <Compile Include="TraseStanice.cs">
@@ -81,16 +86,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Web References\AdminWebServis\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.map</DependentUpon>
-    </Compile>
-    <Compile Include="Web References\WebServis\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.map</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="RedVoznje.resx">
       <DependentUpon>RedVoznje.cs</DependentUpon>
     </EmbeddedResource>
@@ -122,76 +117,25 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Web References\AdminWebServis\Application_Model_Redvoznje.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\AdminWebServis\ArrayOfApplication_Model_Karta.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\AdminWebServis\ArrayOfApplication_Model_Otkazanavoznja.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\AdminWebServis\ArrayOfApplication_Model_Popust.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\AdminWebServis\ArrayOfApplication_Model_Redvoznje.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\AdminWebServis\ArrayOfApplication_Model_Stanica.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\AdminWebServis\ArrayOfApplication_Model_Trasa.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\AdminWebServis\ArrayOfApplication_Model_Trasastanica.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\AdminWebServis\Ekarta_Admin.wsdl" />
-    <None Include="Web References\AdminWebServis\Reference.map">
-      <Generator>MSDiscoCodeGenerator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Web References\WebServis\Application_Model_Karta.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\WebServis\Application_Model_Redvoznje.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\WebServis\Ekarta_Servis.wsdl" />
-    <None Include="Web References\WebServis\Reference.map">
-      <Generator>MSDiscoCodeGenerator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
+    <None Include="Service References\AdminService\Ekarta_Admin.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferences Include="Web References\" />
+    <WCFMetadataStorage Include="Service References\AdminService\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://ps/Admin/wsdl">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\AdminWebServis\</RelPath>
-      <UpdateFromURL>http://ps/Admin/wsdl</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>ProjektovanjeSoftvera_AdminWebServis_Ekarta_AdminService</CachedSettingsPropName>
-    </WebReferenceUrl>
-    <WebReferenceUrl Include="http://ps/Index/wsdl">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\WebServis\</RelPath>
-      <UpdateFromURL>http://ps/Index/wsdl</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>ProjektovanjeSoftvera_WebServis_Ekarta_ServisService</CachedSettingsPropName>
-    </WebReferenceUrl>
+    <None Include="Service References\AdminService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AdminService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AdminService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

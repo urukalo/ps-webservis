@@ -14,11 +14,7 @@ namespace ProjektovanjeSoftvera
         public RedVoznje()
         {
             InitializeComponent();
-
-            AdminWebServis.Ekarta_AdminService admin = new AdminWebServis.Ekarta_AdminService();
-            AdminWebServis.ArrayOfApplication_Model_Redvoznje red = new AdminWebServis.ArrayOfApplication_Model_Redvoznje();
-            red = admin.getRedVoznje(1);
-            this.comboBoxTrasaIzmeni.Items.Add(red);
+           
         }
 
         #region Dodaj voznju
