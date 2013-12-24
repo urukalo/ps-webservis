@@ -51,3 +51,6 @@ C:\xampp\htdocs\ps-webservis\desktopApp\ProjektovanjeSoftvera\obj\x86\Debug\Proj
 C:\xampp\htdocs\ps-webservis\desktopApp\ProjektovanjeSoftvera\obj\x86\Debug\ProjektovanjeSoftvera.Properties.Resources.resources
 C:\xampp\htdocs\ps-webservis\desktopApp\ProjektovanjeSoftvera\obj\x86\Debug\GenerateResource.read.1.tlog
 C:\xampp\htdocs\ps-webservis\desktopApp\ProjektovanjeSoftvera\obj\x86\Debug\GenerateResource.write.1.tlog
+G:\www\ps-webservis\desktopApp\ProjektovanjeSoftvera\bin\Debug\ProjektovanjeSoftvera.exe.config
+G:\www\ps-webservis\desktopApp\ProjektovanjeSoftvera\obj\x86\Debug\ProjektovanjeSoftvera.exe
+G:\www\ps-webservis\desktopApp\ProjektovanjeSoftvera\obj\x86\Debug\ProjektovanjeSoftvera.pdb
