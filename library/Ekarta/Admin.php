@@ -274,7 +274,6 @@ class Ekarta_Admin {
     }
     /**
      * 
-     * @param int $id
      * @return Application_Model_Otkazanavoznja[]
      */
     public function getOtkazaneVoznje() {
