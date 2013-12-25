@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="5b75cca0-386b-47f6-bd34-096408e7d4fd" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="4b6f05b6-188b-402d-8fc6-32b924d39a5e" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <EnableDataBinding>true</EnableDataBinding>
@@ -21,7 +21,7 @@
     <MetadataSource Address="http://ps/admin/wsdl/" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Ekarta_Admin.wsdl" MetadataType="Wsdl" ID="1b649ff1-1b21-4bb8-b31a-9f1c1680f834" SourceId="1" SourceUrl="http://ps/admin/wsdl/" />
+    <MetadataFile FileName="Ekarta_Admin.wsdl" MetadataType="Wsdl" ID="bb6c31aa-5607-4e21-858d-ed9f136cde4f" SourceId="1" SourceUrl="http://ps/admin/wsdl/" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

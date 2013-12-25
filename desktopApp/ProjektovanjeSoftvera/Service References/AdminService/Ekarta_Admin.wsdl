@@ -53,9 +53,40 @@
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
+      <xsd:element name="getStanice">
+        <xsd:complexType />
+      </xsd:element>
+      <xsd:complexType name="ArrayOfApplication_Model_Stanica">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soap-enc:Array">
+            <xsd:attribute wsdl:arrayType="tns:Application_Model_Stanica[]" ref="soap-enc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
       <xsd:complexType name="Application_Model_Stanica">
         <xsd:all />
       </xsd:complexType>
+      <xsd:element name="getStaniceResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="getStaniceResult" type="tns:ArrayOfApplication_Model_Stanica" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getStanicu">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="id" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getStanicuResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="getStanicuResult" type="tns:Application_Model_Stanica" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
       <xsd:element name="unsetStanica">
         <xsd:complexType>
           <xsd:sequence>
@@ -70,9 +101,40 @@
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
+      <xsd:element name="getTrase">
+        <xsd:complexType />
+      </xsd:element>
+      <xsd:complexType name="ArrayOfApplication_Model_Trasa">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soap-enc:Array">
+            <xsd:attribute wsdl:arrayType="tns:Application_Model_Trasa[]" ref="soap-enc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
       <xsd:complexType name="Application_Model_Trasa">
         <xsd:all />
       </xsd:complexType>
+      <xsd:element name="getTraseResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="getTraseResult" type="tns:ArrayOfApplication_Model_Trasa" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getTrasu">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="id" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getTrasuResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="getTrasuResult" type="tns:Application_Model_Trasa" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
       <xsd:element name="unsetTrasa">
         <xsd:complexType>
           <xsd:sequence>
@@ -87,6 +149,26 @@
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
+      <xsd:element name="getRedVoznje">
+        <xsd:complexType />
+      </xsd:element>
+      <xsd:complexType name="ArrayOfApplication_Model_Redvoznje">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soap-enc:Array">
+            <xsd:attribute wsdl:arrayType="tns:Application_Model_Redvoznje[]" ref="soap-enc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="Application_Model_Redvoznje">
+        <xsd:all />
+      </xsd:complexType>
+      <xsd:element name="getRedVoznjeResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="getRedVoznjeResult" type="tns:ArrayOfApplication_Model_Redvoznje" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
       <xsd:element name="getJedanRedVoznje">
         <xsd:complexType>
           <xsd:sequence>
@@ -94,9 +176,6 @@
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
-      <xsd:complexType name="Application_Model_Redvoznje">
-        <xsd:all />
-      </xsd:complexType>
       <xsd:element name="getJedanRedVoznjeResponse">
         <xsd:complexType>
           <xsd:sequence>
@@ -134,9 +213,36 @@
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
+      <xsd:element name="getOtkazaneVoznje">
+        <xsd:complexType />
+      </xsd:element>
+      <xsd:complexType name="ArrayOfApplication_Model_Otkazanavoznja">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soap-enc:Array">
+            <xsd:attribute wsdl:arrayType="tns:Application_Model_Otkazanavoznja[]" ref="soap-enc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
       <xsd:complexType name="Application_Model_Otkazanavoznja">
         <xsd:all />
       </xsd:complexType>
+      <xsd:element name="getOtkazaneVoznjeResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="getOtkazaneVoznjeResult" type="tns:ArrayOfApplication_Model_Otkazanavoznja" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getOtkazanaVoznja">
+        <xsd:complexType />
+      </xsd:element>
+      <xsd:element name="getOtkazanaVoznjaResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="getOtkazanaVoznjaResult" type="tns:Application_Model_Otkazanavoznja" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
       <xsd:element name="unsetOtkazanaVoznja">
         <xsd:complexType>
           <xsd:sequence>
@@ -144,9 +250,40 @@
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
+      <xsd:element name="getTrasaStanice">
+        <xsd:complexType />
+      </xsd:element>
+      <xsd:complexType name="ArrayOfApplication_Model_Trasastanica">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soap-enc:Array">
+            <xsd:attribute wsdl:arrayType="tns:Application_Model_Trasastanica[]" ref="soap-enc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
       <xsd:complexType name="Application_Model_Trasastanica">
         <xsd:all />
       </xsd:complexType>
+      <xsd:element name="getTrasaStaniceResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="getTrasaStaniceResult" type="tns:ArrayOfApplication_Model_Trasastanica" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getTrasaStanica">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="id" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getTrasaStanicaResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="getTrasaStanicaResult" type="tns:Application_Model_Trasastanica" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
       <xsd:element name="unsetTrasaStanica">
         <xsd:complexType>
           <xsd:sequence>
@@ -177,17 +314,47 @@
   <wsdl:message name="setStanicaIn">
     <wsdl:part name="parameters" element="tns:setStanica" />
   </wsdl:message>
+  <wsdl:message name="getStaniceIn">
+    <wsdl:part name="parameters" element="tns:getStanice" />
+  </wsdl:message>
+  <wsdl:message name="getStaniceOut">
+    <wsdl:part name="parameters" element="tns:getStaniceResponse" />
+  </wsdl:message>
+  <wsdl:message name="getStanicuIn">
+    <wsdl:part name="parameters" element="tns:getStanicu" />
+  </wsdl:message>
+  <wsdl:message name="getStanicuOut">
+    <wsdl:part name="parameters" element="tns:getStanicuResponse" />
+  </wsdl:message>
   <wsdl:message name="unsetStanicaIn">
     <wsdl:part name="parameters" element="tns:unsetStanica" />
   </wsdl:message>
   <wsdl:message name="setTrasaIn">
     <wsdl:part name="parameters" element="tns:setTrasa" />
   </wsdl:message>
+  <wsdl:message name="getTraseIn">
+    <wsdl:part name="parameters" element="tns:getTrase" />
+  </wsdl:message>
+  <wsdl:message name="getTraseOut">
+    <wsdl:part name="parameters" element="tns:getTraseResponse" />
+  </wsdl:message>
+  <wsdl:message name="getTrasuIn">
+    <wsdl:part name="parameters" element="tns:getTrasu" />
+  </wsdl:message>
+  <wsdl:message name="getTrasuOut">
+    <wsdl:part name="parameters" element="tns:getTrasuResponse" />
+  </wsdl:message>
   <wsdl:message name="unsetTrasaIn">
     <wsdl:part name="parameters" element="tns:unsetTrasa" />
   </wsdl:message>
   <wsdl:message name="setRedVoznjeIn">
     <wsdl:part name="parameters" element="tns:setRedVoznje" />
+  </wsdl:message>
+  <wsdl:message name="getRedVoznjeIn">
+    <wsdl:part name="parameters" element="tns:getRedVoznje" />
+  </wsdl:message>
+  <wsdl:message name="getRedVoznjeOut">
+    <wsdl:part name="parameters" element="tns:getRedVoznjeResponse" />
   </wsdl:message>
   <wsdl:message name="getJedanRedVoznjeIn">
     <wsdl:part name="parameters" element="tns:getJedanRedVoznje" />
@@ -207,8 +374,32 @@
   <wsdl:message name="setOtkazanaVoznjaIn">
     <wsdl:part name="parameters" element="tns:setOtkazanaVoznja" />
   </wsdl:message>
+  <wsdl:message name="getOtkazaneVoznjeIn">
+    <wsdl:part name="parameters" element="tns:getOtkazaneVoznje" />
+  </wsdl:message>
+  <wsdl:message name="getOtkazaneVoznjeOut">
+    <wsdl:part name="parameters" element="tns:getOtkazaneVoznjeResponse" />
+  </wsdl:message>
+  <wsdl:message name="getOtkazanaVoznjaIn">
+    <wsdl:part name="parameters" element="tns:getOtkazanaVoznja" />
+  </wsdl:message>
+  <wsdl:message name="getOtkazanaVoznjaOut">
+    <wsdl:part name="parameters" element="tns:getOtkazanaVoznjaResponse" />
+  </wsdl:message>
   <wsdl:message name="unsetOtkazanaVoznjaIn">
     <wsdl:part name="parameters" element="tns:unsetOtkazanaVoznja" />
+  </wsdl:message>
+  <wsdl:message name="getTrasaStaniceIn">
+    <wsdl:part name="parameters" element="tns:getTrasaStanice" />
+  </wsdl:message>
+  <wsdl:message name="getTrasaStaniceOut">
+    <wsdl:part name="parameters" element="tns:getTrasaStaniceResponse" />
+  </wsdl:message>
+  <wsdl:message name="getTrasaStanicaIn">
+    <wsdl:part name="parameters" element="tns:getTrasaStanica" />
+  </wsdl:message>
+  <wsdl:message name="getTrasaStanicaOut">
+    <wsdl:part name="parameters" element="tns:getTrasaStanicaResponse" />
   </wsdl:message>
   <wsdl:message name="unsetTrasaStanicaIn">
     <wsdl:part name="parameters" element="tns:unsetTrasaStanica" />
@@ -235,17 +426,38 @@
     <wsdl:operation name="setStanica">
       <wsdl:input message="tns:setStanicaIn" />
     </wsdl:operation>
+    <wsdl:operation name="getStanice">
+      <documentation>Dohvata sve stanice</documentation>
+      <wsdl:input message="tns:getStaniceIn" />
+      <wsdl:output message="tns:getStaniceOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getStanicu">
+      <wsdl:input message="tns:getStanicuIn" />
+      <wsdl:output message="tns:getStanicuOut" />
+    </wsdl:operation>
     <wsdl:operation name="unsetStanica">
       <wsdl:input message="tns:unsetStanicaIn" />
     </wsdl:operation>
     <wsdl:operation name="setTrasa">
       <wsdl:input message="tns:setTrasaIn" />
     </wsdl:operation>
+    <wsdl:operation name="getTrase">
+      <wsdl:input message="tns:getTraseIn" />
+      <wsdl:output message="tns:getTraseOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getTrasu">
+      <wsdl:input message="tns:getTrasuIn" />
+      <wsdl:output message="tns:getTrasuOut" />
+    </wsdl:operation>
     <wsdl:operation name="unsetTrasa">
       <wsdl:input message="tns:unsetTrasaIn" />
     </wsdl:operation>
     <wsdl:operation name="setRedVoznje">
       <wsdl:input message="tns:setRedVoznjeIn" />
+    </wsdl:operation>
+    <wsdl:operation name="getRedVoznje">
+      <wsdl:input message="tns:getRedVoznjeIn" />
+      <wsdl:output message="tns:getRedVoznjeOut" />
     </wsdl:operation>
     <wsdl:operation name="getJedanRedVoznje">
       <wsdl:input message="tns:getJedanRedVoznjeIn" />
@@ -261,8 +473,24 @@
     <wsdl:operation name="setOtkazanaVoznja">
       <wsdl:input message="tns:setOtkazanaVoznjaIn" />
     </wsdl:operation>
+    <wsdl:operation name="getOtkazaneVoznje">
+      <wsdl:input message="tns:getOtkazaneVoznjeIn" />
+      <wsdl:output message="tns:getOtkazaneVoznjeOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getOtkazanaVoznja">
+      <wsdl:input message="tns:getOtkazanaVoznjaIn" />
+      <wsdl:output message="tns:getOtkazanaVoznjaOut" />
+    </wsdl:operation>
     <wsdl:operation name="unsetOtkazanaVoznja">
       <wsdl:input message="tns:unsetOtkazanaVoznjaIn" />
+    </wsdl:operation>
+    <wsdl:operation name="getTrasaStanice">
+      <wsdl:input message="tns:getTrasaStaniceIn" />
+      <wsdl:output message="tns:getTrasaStaniceOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getTrasaStanica">
+      <wsdl:input message="tns:getTrasaStanicaIn" />
+      <wsdl:output message="tns:getTrasaStanicaOut" />
     </wsdl:operation>
     <wsdl:operation name="unsetTrasaStanica">
       <wsdl:input message="tns:unsetTrasaStanicaIn" />
@@ -312,6 +540,24 @@
         <soap:body use="literal" />
       </wsdl:input>
     </wsdl:operation>
+    <wsdl:operation name="getStanice">
+      <soap:operation soapAction="http://ps/Admin#getStanice" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStanicu">
+      <soap:operation soapAction="http://ps/Admin#getStanicu" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="unsetStanica">
       <soap:operation soapAction="http://ps/Admin#unsetStanica" />
       <wsdl:input>
@@ -324,6 +570,24 @@
         <soap:body use="literal" />
       </wsdl:input>
     </wsdl:operation>
+    <wsdl:operation name="getTrase">
+      <soap:operation soapAction="http://ps/Admin#getTrase" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTrasu">
+      <soap:operation soapAction="http://ps/Admin#getTrasu" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="unsetTrasa">
       <soap:operation soapAction="http://ps/Admin#unsetTrasa" />
       <wsdl:input>
@@ -335,6 +599,15 @@
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="getRedVoznje">
+      <soap:operation soapAction="http://ps/Admin#getRedVoznje" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="getJedanRedVoznje">
       <soap:operation soapAction="http://ps/Admin#getJedanRedVoznje" />
@@ -366,11 +639,47 @@
         <soap:body use="literal" />
       </wsdl:input>
     </wsdl:operation>
+    <wsdl:operation name="getOtkazaneVoznje">
+      <soap:operation soapAction="http://ps/Admin#getOtkazaneVoznje" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOtkazanaVoznja">
+      <soap:operation soapAction="http://ps/Admin#getOtkazanaVoznja" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="unsetOtkazanaVoznja">
       <soap:operation soapAction="http://ps/Admin#unsetOtkazanaVoznja" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="getTrasaStanice">
+      <soap:operation soapAction="http://ps/Admin#getTrasaStanice" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTrasaStanica">
+      <soap:operation soapAction="http://ps/Admin#getTrasaStanica" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="unsetTrasaStanica">
       <soap:operation soapAction="http://ps/Admin#unsetTrasaStanica" />

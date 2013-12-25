@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using ProjektovanjeSoftvera.EkartaService;
+using ProjektovanjeSoftvera.AdminService;
 
 namespace ProjektovanjeSoftvera
 {
