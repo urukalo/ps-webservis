@@ -136,7 +136,7 @@ class Ekarta_Admin {
      */
     public function getStanice() {
         $mapper = new Application_Model_StanicaMapper();
-        return $mapper->dohvatiSve();
+        return json_encode($mapper->dohvatiSve());
     }
     /**
      * 
@@ -145,7 +145,7 @@ class Ekarta_Admin {
      */
     public function getStanicu($id) {
         $mapper = new Application_Model_StanicaMapper();
-        return array($mapper->dohvatiJedan($id));
+        return json_encode($mapper->dohvatiJedan($id));
     }
     
     /**
@@ -179,7 +179,7 @@ class Ekarta_Admin {
      */
     public function getTrase() {
         $mapper = new Application_Model_TrasaMapper();
-        return $mapper->dohvatiSve();
+        return json_encode($mapper->dohvatiSve());
     }
     
     /**
@@ -189,7 +189,7 @@ class Ekarta_Admin {
      */
     public function getTrasu($id) {
         $mapper = new Application_Model_TrasaMapper();
-        return array($mapper->dohvatiJedan($id));
+        return json_encode($mapper->dohvatiJedan($id));
     }
     
     /**
@@ -226,7 +226,7 @@ class Ekarta_Admin {
      */
     public function getRedVoznje() {
         $mapper = new Application_Model_RedvoznjeMapper();
-        return $mapper->dohvatiSve();
+        return json_encode($mapper->dohvatiSve());
     }
     /**
      * 
@@ -235,7 +235,7 @@ class Ekarta_Admin {
      */
     public function getJedanRedVoznje($id) {
         $mapper = new Application_Model_RedvoznjeMapper();
-        return $mapper->dohvatiJedan($id);
+        return json_encode($mapper->dohvatiJedan($id));
     }
     /**
      * 
@@ -274,11 +274,12 @@ class Ekarta_Admin {
     }
     /**
      * 
+     * @param int $id  
      * @return Application_Model_Otkazanavoznja[]
      */
-    public function getOtkazaneVoznje() {
+    public function getOtkazaneVoznje($id) {
         $mapper = new Application_Model_OtkazanavoznjaMapper();
-        return $mapper->dohvatiSve();
+        return json_encode($mapper->dohvatiSve());
     }
     /**
      * 
@@ -286,7 +287,7 @@ class Ekarta_Admin {
      */
     public function getOtkazanaVoznja() {
         $mapper = new Application_Model_OtkazanavoznjaMapper();
-        return array($mapper->dohvatiJedan($id));
+        return json_encode($mapper->dohvatiJedan($id));
     }
     /**
      * 
@@ -319,7 +320,7 @@ class Ekarta_Admin {
      */
     public function getTrasaStanice() {
         $mapper = new Application_Model_TrasastanicaMapper();
-        return $mapper->dohvatiSve();
+        return json_encode($mapper->dohvatiSve());
     }
     
     /**
@@ -329,7 +330,7 @@ class Ekarta_Admin {
      */
     public function getTrasaStanica($id) {
         $mapper = new Application_Model_TrasastanicaMapper();
-        return array($mapper->dohvatiJedan($id));
+        return json_encode($mapper->dohvatiJedan($id));
     }
     /**
      * 

@@ -2,60 +2,12 @@
 <wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ps/Admin" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns="http://schemas.xmlsoap.org/wsdl/" name="Ekarta_Admin" targetNamespace="http://ps/Admin" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <xsd:schema targetNamespace="http://ps/Admin">
-      <xsd:element name="Ekarta_Admin">
-        <xsd:complexType />
-      </xsd:element>
-      <xsd:element name="setPopust">
-        <xsd:complexType>
-          <xsd:sequence>
-            <xsd:element name="object" type="xsd:string" />
-          </xsd:sequence>
-        </xsd:complexType>
-      </xsd:element>
       <xsd:complexType name="Application_Model_Popust">
         <xsd:all />
       </xsd:complexType>
-      <xsd:element name="unsetPopust">
-        <xsd:complexType>
-          <xsd:sequence>
-            <xsd:element name="object" type="tns:Application_Model_Popust" />
-          </xsd:sequence>
-        </xsd:complexType>
-      </xsd:element>
       <xsd:complexType name="Application_Model_Karta">
         <xsd:all />
       </xsd:complexType>
-      <xsd:element name="setKarta">
-        <xsd:complexType>
-          <xsd:sequence>
-            <xsd:element name="object" type="tns:Application_Model_Karta" />
-          </xsd:sequence>
-        </xsd:complexType>
-      </xsd:element>
-      <xsd:element name="unsetKarta">
-        <xsd:complexType>
-          <xsd:sequence>
-            <xsd:element name="object" type="tns:Application_Model_Karta" />
-          </xsd:sequence>
-        </xsd:complexType>
-      </xsd:element>
-      <xsd:element name="deactivate">
-        <xsd:complexType>
-          <xsd:sequence>
-            <xsd:element name="id" type="xsd:int" />
-          </xsd:sequence>
-        </xsd:complexType>
-      </xsd:element>
-      <xsd:element name="setStanica">
-        <xsd:complexType>
-          <xsd:sequence>
-            <xsd:element name="object" type="xsd:string" />
-          </xsd:sequence>
-        </xsd:complexType>
-      </xsd:element>
-      <xsd:element name="getStanice">
-        <xsd:complexType />
-      </xsd:element>
       <xsd:complexType name="ArrayOfApplication_Model_Stanica">
         <xsd:complexContent mixed="false">
           <xsd:restriction base="soap-enc:Array">
@@ -66,44 +18,6 @@
       <xsd:complexType name="Application_Model_Stanica">
         <xsd:all />
       </xsd:complexType>
-      <xsd:element name="getStaniceResponse">
-        <xsd:complexType>
-          <xsd:sequence>
-            <xsd:element name="getStaniceResult" type="tns:ArrayOfApplication_Model_Stanica" />
-          </xsd:sequence>
-        </xsd:complexType>
-      </xsd:element>
-      <xsd:element name="getStanicu">
-        <xsd:complexType>
-          <xsd:sequence>
-            <xsd:element name="id" type="xsd:int" />
-          </xsd:sequence>
-        </xsd:complexType>
-      </xsd:element>
-      <xsd:element name="getStanicuResponse">
-        <xsd:complexType>
-          <xsd:sequence>
-            <xsd:element name="getStanicuResult" type="tns:Application_Model_Stanica" />
-          </xsd:sequence>
-        </xsd:complexType>
-      </xsd:element>
-      <xsd:element name="unsetStanica">
-        <xsd:complexType>
-          <xsd:sequence>
-            <xsd:element name="object" type="tns:Application_Model_Stanica" />
-          </xsd:sequence>
-        </xsd:complexType>
-      </xsd:element>
-      <xsd:element name="setTrasa">
-        <xsd:complexType>
-          <xsd:sequence>
-            <xsd:element name="object" type="xsd:string" />
-          </xsd:sequence>
-        </xsd:complexType>
-      </xsd:element>
-      <xsd:element name="getTrase">
-        <xsd:complexType />
-      </xsd:element>
       <xsd:complexType name="ArrayOfApplication_Model_Trasa">
         <xsd:complexContent mixed="false">
           <xsd:restriction base="soap-enc:Array">
@@ -114,44 +28,6 @@
       <xsd:complexType name="Application_Model_Trasa">
         <xsd:all />
       </xsd:complexType>
-      <xsd:element name="getTraseResponse">
-        <xsd:complexType>
-          <xsd:sequence>
-            <xsd:element name="getTraseResult" type="tns:ArrayOfApplication_Model_Trasa" />
-          </xsd:sequence>
-        </xsd:complexType>
-      </xsd:element>
-      <xsd:element name="getTrasu">
-        <xsd:complexType>
-          <xsd:sequence>
-            <xsd:element name="id" type="xsd:int" />
-          </xsd:sequence>
-        </xsd:complexType>
-      </xsd:element>
-      <xsd:element name="getTrasuResponse">
-        <xsd:complexType>
-          <xsd:sequence>
-            <xsd:element name="getTrasuResult" type="tns:Application_Model_Trasa" />
-          </xsd:sequence>
-        </xsd:complexType>
-      </xsd:element>
-      <xsd:element name="unsetTrasa">
-        <xsd:complexType>
-          <xsd:sequence>
-            <xsd:element name="object" type="tns:Application_Model_Trasa" />
-          </xsd:sequence>
-        </xsd:complexType>
-      </xsd:element>
-      <xsd:element name="setRedVoznje">
-        <xsd:complexType>
-          <xsd:sequence>
-            <xsd:element name="object" type="xsd:string" />
-          </xsd:sequence>
-        </xsd:complexType>
-      </xsd:element>
-      <xsd:element name="getRedVoznje">
-        <xsd:complexType />
-      </xsd:element>
       <xsd:complexType name="ArrayOfApplication_Model_Redvoznje">
         <xsd:complexContent mixed="false">
           <xsd:restriction base="soap-enc:Array">
@@ -162,60 +38,6 @@
       <xsd:complexType name="Application_Model_Redvoznje">
         <xsd:all />
       </xsd:complexType>
-      <xsd:element name="getRedVoznjeResponse">
-        <xsd:complexType>
-          <xsd:sequence>
-            <xsd:element name="getRedVoznjeResult" type="tns:ArrayOfApplication_Model_Redvoznje" />
-          </xsd:sequence>
-        </xsd:complexType>
-      </xsd:element>
-      <xsd:element name="getJedanRedVoznje">
-        <xsd:complexType>
-          <xsd:sequence>
-            <xsd:element name="id" type="xsd:int" />
-          </xsd:sequence>
-        </xsd:complexType>
-      </xsd:element>
-      <xsd:element name="getJedanRedVoznjeResponse">
-        <xsd:complexType>
-          <xsd:sequence>
-            <xsd:element name="getJedanRedVoznjeResult" type="tns:Application_Model_Redvoznje" />
-          </xsd:sequence>
-        </xsd:complexType>
-      </xsd:element>
-      <xsd:element name="proveraDaLiPostoji">
-        <xsd:complexType>
-          <xsd:sequence>
-            <xsd:element name="idTrasa" type="xsd:int" />
-            <xsd:element name="dan" type="xsd:int" />
-            <xsd:element name="vreme" type="xsd:string" />
-          </xsd:sequence>
-        </xsd:complexType>
-      </xsd:element>
-      <xsd:element name="proveraDaLiPostojiResponse">
-        <xsd:complexType>
-          <xsd:sequence>
-            <xsd:element name="proveraDaLiPostojiResult" type="xsd:boolean" />
-          </xsd:sequence>
-        </xsd:complexType>
-      </xsd:element>
-      <xsd:element name="unsetRedVoznje">
-        <xsd:complexType>
-          <xsd:sequence>
-            <xsd:element name="object" type="tns:Application_Model_Redvoznje" />
-          </xsd:sequence>
-        </xsd:complexType>
-      </xsd:element>
-      <xsd:element name="setOtkazanaVoznja">
-        <xsd:complexType>
-          <xsd:sequence>
-            <xsd:element name="object" type="xsd:string" />
-          </xsd:sequence>
-        </xsd:complexType>
-      </xsd:element>
-      <xsd:element name="getOtkazaneVoznje">
-        <xsd:complexType />
-      </xsd:element>
       <xsd:complexType name="ArrayOfApplication_Model_Otkazanavoznja">
         <xsd:complexContent mixed="false">
           <xsd:restriction base="soap-enc:Array">
@@ -226,33 +48,6 @@
       <xsd:complexType name="Application_Model_Otkazanavoznja">
         <xsd:all />
       </xsd:complexType>
-      <xsd:element name="getOtkazaneVoznjeResponse">
-        <xsd:complexType>
-          <xsd:sequence>
-            <xsd:element name="getOtkazaneVoznjeResult" type="tns:ArrayOfApplication_Model_Otkazanavoznja" />
-          </xsd:sequence>
-        </xsd:complexType>
-      </xsd:element>
-      <xsd:element name="getOtkazanaVoznja">
-        <xsd:complexType />
-      </xsd:element>
-      <xsd:element name="getOtkazanaVoznjaResponse">
-        <xsd:complexType>
-          <xsd:sequence>
-            <xsd:element name="getOtkazanaVoznjaResult" type="tns:Application_Model_Otkazanavoznja" />
-          </xsd:sequence>
-        </xsd:complexType>
-      </xsd:element>
-      <xsd:element name="unsetOtkazanaVoznja">
-        <xsd:complexType>
-          <xsd:sequence>
-            <xsd:element name="object" type="tns:Application_Model_Otkazanavoznja" />
-          </xsd:sequence>
-        </xsd:complexType>
-      </xsd:element>
-      <xsd:element name="getTrasaStanice">
-        <xsd:complexType />
-      </xsd:element>
       <xsd:complexType name="ArrayOfApplication_Model_Trasastanica">
         <xsd:complexContent mixed="false">
           <xsd:restriction base="soap-enc:Array">
@@ -263,146 +58,106 @@
       <xsd:complexType name="Application_Model_Trasastanica">
         <xsd:all />
       </xsd:complexType>
-      <xsd:element name="getTrasaStaniceResponse">
-        <xsd:complexType>
-          <xsd:sequence>
-            <xsd:element name="getTrasaStaniceResult" type="tns:ArrayOfApplication_Model_Trasastanica" />
-          </xsd:sequence>
-        </xsd:complexType>
-      </xsd:element>
-      <xsd:element name="getTrasaStanica">
-        <xsd:complexType>
-          <xsd:sequence>
-            <xsd:element name="id" type="xsd:int" />
-          </xsd:sequence>
-        </xsd:complexType>
-      </xsd:element>
-      <xsd:element name="getTrasaStanicaResponse">
-        <xsd:complexType>
-          <xsd:sequence>
-            <xsd:element name="getTrasaStanicaResult" type="tns:Application_Model_Trasastanica" />
-          </xsd:sequence>
-        </xsd:complexType>
-      </xsd:element>
-      <xsd:element name="unsetTrasaStanica">
-        <xsd:complexType>
-          <xsd:sequence>
-            <xsd:element name="object" type="tns:Application_Model_Trasastanica" />
-          </xsd:sequence>
-        </xsd:complexType>
-      </xsd:element>
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="Ekarta_AdminIn">
-    <wsdl:part name="parameters" element="tns:Ekarta_Admin" />
-  </wsdl:message>
+  <wsdl:message name="Ekarta_AdminIn" />
   <wsdl:message name="setPopustIn">
-    <wsdl:part name="parameters" element="tns:setPopust" />
+    <wsdl:part name="object" type="xsd:string" />
   </wsdl:message>
   <wsdl:message name="unsetPopustIn">
-    <wsdl:part name="parameters" element="tns:unsetPopust" />
+    <wsdl:part name="object" type="tns:Application_Model_Popust" />
   </wsdl:message>
   <wsdl:message name="setKartaIn">
-    <wsdl:part name="parameters" element="tns:setKarta" />
+    <wsdl:part name="object" type="tns:Application_Model_Karta" />
   </wsdl:message>
   <wsdl:message name="unsetKartaIn">
-    <wsdl:part name="parameters" element="tns:unsetKarta" />
+    <wsdl:part name="object" type="tns:Application_Model_Karta" />
   </wsdl:message>
   <wsdl:message name="deactivateIn">
-    <wsdl:part name="parameters" element="tns:deactivate" />
+    <wsdl:part name="id" type="xsd:int" />
   </wsdl:message>
   <wsdl:message name="setStanicaIn">
-    <wsdl:part name="parameters" element="tns:setStanica" />
+    <wsdl:part name="object" type="xsd:string" />
   </wsdl:message>
-  <wsdl:message name="getStaniceIn">
-    <wsdl:part name="parameters" element="tns:getStanice" />
-  </wsdl:message>
+  <wsdl:message name="getStaniceIn" />
   <wsdl:message name="getStaniceOut">
-    <wsdl:part name="parameters" element="tns:getStaniceResponse" />
+    <wsdl:part name="return" type="tns:ArrayOfApplication_Model_Stanica" />
   </wsdl:message>
   <wsdl:message name="getStanicuIn">
-    <wsdl:part name="parameters" element="tns:getStanicu" />
+    <wsdl:part name="id" type="xsd:int" />
   </wsdl:message>
   <wsdl:message name="getStanicuOut">
-    <wsdl:part name="parameters" element="tns:getStanicuResponse" />
+    <wsdl:part name="return" type="tns:Application_Model_Stanica" />
   </wsdl:message>
   <wsdl:message name="unsetStanicaIn">
-    <wsdl:part name="parameters" element="tns:unsetStanica" />
+    <wsdl:part name="object" type="tns:Application_Model_Stanica" />
   </wsdl:message>
   <wsdl:message name="setTrasaIn">
-    <wsdl:part name="parameters" element="tns:setTrasa" />
+    <wsdl:part name="object" type="xsd:string" />
   </wsdl:message>
-  <wsdl:message name="getTraseIn">
-    <wsdl:part name="parameters" element="tns:getTrase" />
-  </wsdl:message>
+  <wsdl:message name="getTraseIn" />
   <wsdl:message name="getTraseOut">
-    <wsdl:part name="parameters" element="tns:getTraseResponse" />
+    <wsdl:part name="return" type="tns:ArrayOfApplication_Model_Trasa" />
   </wsdl:message>
   <wsdl:message name="getTrasuIn">
-    <wsdl:part name="parameters" element="tns:getTrasu" />
+    <wsdl:part name="id" type="xsd:int" />
   </wsdl:message>
   <wsdl:message name="getTrasuOut">
-    <wsdl:part name="parameters" element="tns:getTrasuResponse" />
+    <wsdl:part name="return" type="tns:Application_Model_Trasa" />
   </wsdl:message>
   <wsdl:message name="unsetTrasaIn">
-    <wsdl:part name="parameters" element="tns:unsetTrasa" />
+    <wsdl:part name="object" type="tns:Application_Model_Trasa" />
   </wsdl:message>
   <wsdl:message name="setRedVoznjeIn">
-    <wsdl:part name="parameters" element="tns:setRedVoznje" />
+    <wsdl:part name="object" type="xsd:string" />
   </wsdl:message>
-  <wsdl:message name="getRedVoznjeIn">
-    <wsdl:part name="parameters" element="tns:getRedVoznje" />
-  </wsdl:message>
+  <wsdl:message name="getRedVoznjeIn" />
   <wsdl:message name="getRedVoznjeOut">
-    <wsdl:part name="parameters" element="tns:getRedVoznjeResponse" />
+    <wsdl:part name="return" type="tns:ArrayOfApplication_Model_Redvoznje" />
   </wsdl:message>
   <wsdl:message name="getJedanRedVoznjeIn">
-    <wsdl:part name="parameters" element="tns:getJedanRedVoznje" />
+    <wsdl:part name="id" type="xsd:int" />
   </wsdl:message>
   <wsdl:message name="getJedanRedVoznjeOut">
-    <wsdl:part name="parameters" element="tns:getJedanRedVoznjeResponse" />
+    <wsdl:part name="return" type="tns:Application_Model_Redvoznje" />
   </wsdl:message>
   <wsdl:message name="proveraDaLiPostojiIn">
-    <wsdl:part name="parameters" element="tns:proveraDaLiPostoji" />
+    <wsdl:part name="idTrasa" type="xsd:int" />
+    <wsdl:part name="dan" type="xsd:int" />
+    <wsdl:part name="vreme" type="xsd:string" />
   </wsdl:message>
   <wsdl:message name="proveraDaLiPostojiOut">
-    <wsdl:part name="parameters" element="tns:proveraDaLiPostojiResponse" />
+    <wsdl:part name="return" type="xsd:boolean" />
   </wsdl:message>
   <wsdl:message name="unsetRedVoznjeIn">
-    <wsdl:part name="parameters" element="tns:unsetRedVoznje" />
+    <wsdl:part name="object" type="tns:Application_Model_Redvoznje" />
   </wsdl:message>
   <wsdl:message name="setOtkazanaVoznjaIn">
-    <wsdl:part name="parameters" element="tns:setOtkazanaVoznja" />
+    <wsdl:part name="object" type="xsd:string" />
   </wsdl:message>
-  <wsdl:message name="getOtkazaneVoznjeIn">
-    <wsdl:part name="parameters" element="tns:getOtkazaneVoznje" />
-  </wsdl:message>
+  <wsdl:message name="getOtkazaneVoznjeIn" />
   <wsdl:message name="getOtkazaneVoznjeOut">
-    <wsdl:part name="parameters" element="tns:getOtkazaneVoznjeResponse" />
+    <wsdl:part name="return" type="tns:ArrayOfApplication_Model_Otkazanavoznja" />
   </wsdl:message>
-  <wsdl:message name="getOtkazanaVoznjaIn">
-    <wsdl:part name="parameters" element="tns:getOtkazanaVoznja" />
-  </wsdl:message>
+  <wsdl:message name="getOtkazanaVoznjaIn" />
   <wsdl:message name="getOtkazanaVoznjaOut">
-    <wsdl:part name="parameters" element="tns:getOtkazanaVoznjaResponse" />
+    <wsdl:part name="return" type="tns:Application_Model_Otkazanavoznja" />
   </wsdl:message>
   <wsdl:message name="unsetOtkazanaVoznjaIn">
-    <wsdl:part name="parameters" element="tns:unsetOtkazanaVoznja" />
+    <wsdl:part name="object" type="tns:Application_Model_Otkazanavoznja" />
   </wsdl:message>
-  <wsdl:message name="getTrasaStaniceIn">
-    <wsdl:part name="parameters" element="tns:getTrasaStanice" />
-  </wsdl:message>
+  <wsdl:message name="getTrasaStaniceIn" />
   <wsdl:message name="getTrasaStaniceOut">
-    <wsdl:part name="parameters" element="tns:getTrasaStaniceResponse" />
+    <wsdl:part name="return" type="tns:ArrayOfApplication_Model_Trasastanica" />
   </wsdl:message>
   <wsdl:message name="getTrasaStanicaIn">
-    <wsdl:part name="parameters" element="tns:getTrasaStanica" />
+    <wsdl:part name="id" type="xsd:int" />
   </wsdl:message>
   <wsdl:message name="getTrasaStanicaOut">
-    <wsdl:part name="parameters" element="tns:getTrasaStanicaResponse" />
+    <wsdl:part name="return" type="tns:Application_Model_Trasastanica" />
   </wsdl:message>
   <wsdl:message name="unsetTrasaStanicaIn">
-    <wsdl:part name="parameters" element="tns:unsetTrasaStanica" />
+    <wsdl:part name="object" type="tns:Application_Model_Trasastanica" />
   </wsdl:message>
   <wsdl:portType name="Ekarta_AdminPort">
     <wsdl:operation name="Ekarta_Admin">
@@ -497,194 +252,194 @@
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="Ekarta_AdminBinding" type="tns:Ekarta_AdminPort">
-    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
     <wsdl:operation name="Ekarta_Admin">
       <soap:operation soapAction="http://ps/Admin#Ekarta_Admin" />
       <wsdl:input>
-        <soap:body use="literal" />
+        <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
       </wsdl:input>
     </wsdl:operation>
     <wsdl:operation name="setPopust">
       <soap:operation soapAction="http://ps/Admin#setPopust" />
       <wsdl:input>
-        <soap:body use="literal" />
+        <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
       </wsdl:input>
     </wsdl:operation>
     <wsdl:operation name="unsetPopust">
       <soap:operation soapAction="http://ps/Admin#unsetPopust" />
       <wsdl:input>
-        <soap:body use="literal" />
+        <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
       </wsdl:input>
     </wsdl:operation>
     <wsdl:operation name="setKarta">
       <soap:operation soapAction="http://ps/Admin#setKarta" />
       <wsdl:input>
-        <soap:body use="literal" />
+        <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
       </wsdl:input>
     </wsdl:operation>
     <wsdl:operation name="unsetKarta">
       <soap:operation soapAction="http://ps/Admin#unsetKarta" />
       <wsdl:input>
-        <soap:body use="literal" />
+        <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
       </wsdl:input>
     </wsdl:operation>
     <wsdl:operation name="deactivate">
       <soap:operation soapAction="http://ps/Admin#deactivate" />
       <wsdl:input>
-        <soap:body use="literal" />
+        <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
       </wsdl:input>
     </wsdl:operation>
     <wsdl:operation name="setStanica">
       <soap:operation soapAction="http://ps/Admin#setStanica" />
       <wsdl:input>
-        <soap:body use="literal" />
+        <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
       </wsdl:input>
     </wsdl:operation>
     <wsdl:operation name="getStanice">
       <soap:operation soapAction="http://ps/Admin#getStanice" />
       <wsdl:input>
-        <soap:body use="literal" />
+        <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
       </wsdl:input>
       <wsdl:output>
-        <soap:body use="literal" />
+        <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="getStanicu">
       <soap:operation soapAction="http://ps/Admin#getStanicu" />
       <wsdl:input>
-        <soap:body use="literal" />
+        <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
       </wsdl:input>
       <wsdl:output>
-        <soap:body use="literal" />
+        <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="unsetStanica">
       <soap:operation soapAction="http://ps/Admin#unsetStanica" />
       <wsdl:input>
-        <soap:body use="literal" />
+        <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
       </wsdl:input>
     </wsdl:operation>
     <wsdl:operation name="setTrasa">
       <soap:operation soapAction="http://ps/Admin#setTrasa" />
       <wsdl:input>
-        <soap:body use="literal" />
+        <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
       </wsdl:input>
     </wsdl:operation>
     <wsdl:operation name="getTrase">
       <soap:operation soapAction="http://ps/Admin#getTrase" />
       <wsdl:input>
-        <soap:body use="literal" />
+        <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
       </wsdl:input>
       <wsdl:output>
-        <soap:body use="literal" />
+        <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="getTrasu">
       <soap:operation soapAction="http://ps/Admin#getTrasu" />
       <wsdl:input>
-        <soap:body use="literal" />
+        <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
       </wsdl:input>
       <wsdl:output>
-        <soap:body use="literal" />
+        <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="unsetTrasa">
       <soap:operation soapAction="http://ps/Admin#unsetTrasa" />
       <wsdl:input>
-        <soap:body use="literal" />
+        <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
       </wsdl:input>
     </wsdl:operation>
     <wsdl:operation name="setRedVoznje">
       <soap:operation soapAction="http://ps/Admin#setRedVoznje" />
       <wsdl:input>
-        <soap:body use="literal" />
+        <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
       </wsdl:input>
     </wsdl:operation>
     <wsdl:operation name="getRedVoznje">
       <soap:operation soapAction="http://ps/Admin#getRedVoznje" />
       <wsdl:input>
-        <soap:body use="literal" />
+        <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
       </wsdl:input>
       <wsdl:output>
-        <soap:body use="literal" />
+        <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="getJedanRedVoznje">
       <soap:operation soapAction="http://ps/Admin#getJedanRedVoznje" />
       <wsdl:input>
-        <soap:body use="literal" />
+        <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
       </wsdl:input>
       <wsdl:output>
-        <soap:body use="literal" />
+        <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="proveraDaLiPostoji">
       <soap:operation soapAction="http://ps/Admin#proveraDaLiPostoji" />
       <wsdl:input>
-        <soap:body use="literal" />
+        <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
       </wsdl:input>
       <wsdl:output>
-        <soap:body use="literal" />
+        <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="unsetRedVoznje">
       <soap:operation soapAction="http://ps/Admin#unsetRedVoznje" />
       <wsdl:input>
-        <soap:body use="literal" />
+        <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
       </wsdl:input>
     </wsdl:operation>
     <wsdl:operation name="setOtkazanaVoznja">
       <soap:operation soapAction="http://ps/Admin#setOtkazanaVoznja" />
       <wsdl:input>
-        <soap:body use="literal" />
+        <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
       </wsdl:input>
     </wsdl:operation>
     <wsdl:operation name="getOtkazaneVoznje">
       <soap:operation soapAction="http://ps/Admin#getOtkazaneVoznje" />
       <wsdl:input>
-        <soap:body use="literal" />
+        <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
       </wsdl:input>
       <wsdl:output>
-        <soap:body use="literal" />
+        <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="getOtkazanaVoznja">
       <soap:operation soapAction="http://ps/Admin#getOtkazanaVoznja" />
       <wsdl:input>
-        <soap:body use="literal" />
+        <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
       </wsdl:input>
       <wsdl:output>
-        <soap:body use="literal" />
+        <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="unsetOtkazanaVoznja">
       <soap:operation soapAction="http://ps/Admin#unsetOtkazanaVoznja" />
       <wsdl:input>
-        <soap:body use="literal" />
+        <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
       </wsdl:input>
     </wsdl:operation>
     <wsdl:operation name="getTrasaStanice">
       <soap:operation soapAction="http://ps/Admin#getTrasaStanice" />
       <wsdl:input>
-        <soap:body use="literal" />
+        <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
       </wsdl:input>
       <wsdl:output>
-        <soap:body use="literal" />
+        <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="getTrasaStanica">
       <soap:operation soapAction="http://ps/Admin#getTrasaStanica" />
       <wsdl:input>
-        <soap:body use="literal" />
+        <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
       </wsdl:input>
       <wsdl:output>
-        <soap:body use="literal" />
+        <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="unsetTrasaStanica">
       <soap:operation soapAction="http://ps/Admin#unsetTrasaStanica" />
       <wsdl:input>
-        <soap:body use="literal" />
+        <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
       </wsdl:input>
     </wsdl:operation>
   </wsdl:binding>

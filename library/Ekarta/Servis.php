@@ -141,7 +141,7 @@ class Ekarta_Servis {
             throw new Ekarta_Exception("Ne mogu da pokupim listu stanica" . $exc->getMessage());
         }
 
-        return "AJDEEEE RADI @#$#@!!!!!!! ";json_encode($sveStanice);
+        return json_encode($sveStanice);
     }
 
     /**

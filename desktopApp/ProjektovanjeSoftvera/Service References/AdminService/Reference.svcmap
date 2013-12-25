@@ -18,10 +18,10 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://ps/admin/wsdl/" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://ps/Admin/wsdl/" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Ekarta_Admin.wsdl" MetadataType="Wsdl" ID="bb6c31aa-5607-4e21-858d-ed9f136cde4f" SourceId="1" SourceUrl="http://ps/admin/wsdl/" />
+    <MetadataFile FileName="Ekarta_Admin1.wsdl" MetadataType="Wsdl" ID="332d39d7-f4c0-4414-bf02-0392c4846077" SourceId="1" SourceUrl="http://ps/Admin/wsdl/" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

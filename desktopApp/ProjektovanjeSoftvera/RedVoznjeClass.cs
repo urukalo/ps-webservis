@@ -5,6 +5,7 @@ using System.Text;
 
 namespace ProjektovanjeSoftvera
 {
+    [Serializable]
     class RedVoznjeClass
     {
         private int idTrase;

@@ -6,6 +6,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Runtime.Serialization.Json;
+
 
 namespace ProjektovanjeSoftvera
 {
@@ -14,7 +16,7 @@ namespace ProjektovanjeSoftvera
         public RedVoznje()
         {
             InitializeComponent();
-            AdminService.Ekarta_AdminPortClient admin= new AdminService.Ekarta_AdminPortClient();
+            AdminService.Ekarta_AdminPortClient veza = new AdminService.Ekarta_AdminPortClient();
             ProjektovanjeSoftvera.AdminService.Application_Model_Redvoznje redoviVoznje = new ProjektovanjeSoftvera.AdminService.Application_Model_Redvoznje();
             this.comboBoxTrasaIzmeni.Items.Add("nesto");
         }
@@ -60,10 +62,9 @@ namespace ProjektovanjeSoftvera
             }
             else
             {
-
-                EkartaService.Ekarta_Servis veza = new AdminService.Ekarta_Servis();
-                
-                RedVoznjeClass redVoznje = new RedVoznjeClass();
+                int selectedId = Int32.Parse(this.comboBoxTrasaIzmeni.SelectedIndex.ToString());
+                AdminService.Ekarta_AdminPortClient veza = new AdminService.Ekarta_AdminPortClient();
+               
             }
         }
 

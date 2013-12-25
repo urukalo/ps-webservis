@@ -9,6 +9,8 @@ using System.Text;
 using System.Windows.Forms;
 using ProjektovanjeSoftvera.EkartaService;
 using ProjektovanjeSoftvera.AdminService;
+using System.Runtime.Serialization.Json;
+using System.IO;
 
 namespace ProjektovanjeSoftvera
 {
@@ -32,7 +34,10 @@ namespace ProjektovanjeSoftvera
             stanicaUlaznaResponse odgovor;// = new stanicaUlaznaResponse();
            
            odgovor = servis.stanicaUlazna(zahtev);
-           MessageBox.Show(odgovor.@return+"aaa");
+           DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(RedVoznjeClass));
+           MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(odgovor.@return));
+           RedVoznjeClass obj = (RedVoznjeClass)ser.ReadObject(ms);
+           MessageBox.Show(obj.IdTrasa.ToString());
           // comboBoxDolaznaStanica.DataSource = odgovor.@return;
             //ComboBox ddl = new ComboBox();
 

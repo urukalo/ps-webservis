@@ -8,8 +8,7 @@ class AdminController extends Zend_Controller_Action
         /* Initialize action controller here */
     }
 
-    public function indexAction()
-    {
+    public function indexAction(){
         // action body
         $this->soapAction();
     }
@@ -19,7 +18,7 @@ class AdminController extends Zend_Controller_Action
         $this->_helper->viewRenderer->setNoRender(true);
         //$this->_helper->layout()->disableLayout();
 
-        $server = new Zend_Soap_Server(null, array('uri' => 'http://ps/Admin'));
+        $server = new Zend_Soap_Server(null, array('uri' => 'http://ps/admin'));
 
         $server->setClass('Ekarta_Admin');
         $server->registerFaultException(array('Ekarta_Exception'));
@@ -33,8 +32,8 @@ class AdminController extends Zend_Controller_Action
         //$this->_helper->layout()->disableLayout();
         $wsdl = new Zend_Soap_AutoDiscover('Zend_Soap_Wsdl_Strategy_ArrayOfTypeComplex');
         //$wsdl = new Zend_Soap_AutoDiscover(new Zend_Soap_Wsdl_Strategy_ArrayOfTypeComplex());
-        $wsdl->setOperationBodyStyle(array('use' => 'literal'));
-        $wsdl->setBindingStyle(array('style' => 'document'));
+//        $wsdl->setOperationBodyStyle(array('use' => 'literal'));
+//        $wsdl->setBindingStyle(array('style' => 'document'));
 
         $wsdl->setClass('Ekarta_Admin');
         

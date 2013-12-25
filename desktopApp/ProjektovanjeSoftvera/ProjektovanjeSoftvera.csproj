@@ -38,6 +38,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
@@ -122,7 +123,19 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Service References\AdminService\Ekarta_Admin.wsdl" />
+    <None Include="Service References\AdminService\Ekarta_Admin1.wsdl" />
+    <None Include="Service References\AdminService\ProjektovanjeSoftvera.AdminService.Application_Model_Otkazanavoznja.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdminService\ProjektovanjeSoftvera.AdminService.Application_Model_Stanica.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdminService\ProjektovanjeSoftvera.AdminService.Application_Model_Trasa.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AdminService\ProjektovanjeSoftvera.AdminService.Application_Model_Trasastanica.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\EkartaService\Ekarta_Servis.wsdl" />
   </ItemGroup>
   <ItemGroup>
