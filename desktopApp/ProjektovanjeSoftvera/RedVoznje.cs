@@ -14,7 +14,9 @@ namespace ProjektovanjeSoftvera
         public RedVoznje()
         {
             InitializeComponent();
-           
+            AdminService.Ekarta_AdminPortClient admin= new AdminService.Ekarta_AdminPortClient();
+            ProjektovanjeSoftvera.AdminService.Application_Model_Redvoznje redoviVoznje = new ProjektovanjeSoftvera.AdminService.Application_Model_Redvoznje();
+            this.comboBoxTrasaIzmeni.Items.Add("nesto");
         }
 
         #region Dodaj voznju
@@ -27,12 +29,19 @@ namespace ProjektovanjeSoftvera
                 int dan = Int32.Parse(this.comboBoxDan.SelectedIndex.ToString());
                 string sat = this.textBoxSat.Text;
                 string minut = this.textBoxMinut.Text;
-                string zaSlanje = idTrasa + "_" + dan + "_" + sat + "_" +minut;
-                if (this.comboBoxTrasaIzmeni.SelectedIndex != 0)
+                string zaSlanje = "1" + "_" + dan + "_" + sat + "_" +minut;
+                //if (this.comboBoxTrasaIzmeni.SelectedIndex != 0)
+                //{
+                //    zaSlanje += "_" + this.comboBoxTrasaIzmeni.SelectedValue.ToString();
+                //}
+                try
                 {
-                    zaSlanje += "_" + this.comboBoxTrasaIzmeni.SelectedValue.ToString();
+                    AdminService.Ekarta_AdminPortClient veza = new AdminService.Ekarta_AdminPortClient();
+                    veza.setRedVoznje(zaSlanje);
                 }
-                //veza sa servisom i slanje stringa
+                catch(Exception ex){
+                    MessageBox.Show(ex.Message);
+                }
             }
             else
             {
@@ -52,7 +61,9 @@ namespace ProjektovanjeSoftvera
             else
             {
 
-                //veza sa servisom i podesavanje polja
+                EkartaService.Ekarta_Servis veza = new AdminService.Ekarta_Servis();
+                
+                RedVoznjeClass redVoznje = new RedVoznjeClass();
             }
         }
 

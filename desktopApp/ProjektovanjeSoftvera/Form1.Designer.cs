@@ -39,13 +39,14 @@
             System.Windows.Forms.Label label7;
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.comboBoxVrstaPopust = new System.Windows.Forms.ComboBox();
-            this.ekartaKartaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ekartaKartaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.checkBoxPopust = new System.Windows.Forms.CheckBox();
             this.comboBoxVremePolaska = new System.Windows.Forms.ComboBox();
             this.comboBoxDolaznaStanica = new System.Windows.Forms.ComboBox();
             this.dateTimePickerDatumPutovanja = new System.Windows.Forms.DateTimePicker();
             this.comboBoxPolaznaStanica = new System.Windows.Forms.ComboBox();
             this.comboBoxTrasa = new System.Windows.Forms.ComboBox();
+            this.ekartaKartaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.textBoxPopust = new System.Windows.Forms.TextBox();
             this.textBoxKontaktTelefon = new System.Windows.Forms.TextBox();
@@ -59,7 +60,6 @@
             this.traseIStaniceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.redVoznjeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pronadjiKartuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ekartaKartaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
@@ -69,10 +69,10 @@
             label8 = new System.Windows.Forms.Label();
             label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ekartaKartaBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ekartaKartaBindingSource)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ekartaKartaBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -177,10 +177,6 @@
             this.comboBoxVrstaPopust.Size = new System.Drawing.Size(121, 21);
             this.comboBoxVrstaPopust.TabIndex = 11;
             this.comboBoxVrstaPopust.Visible = false;
-            // 
-            // ekartaKartaBindingSource
-            // 
-            //this.ekartaKartaBindingSource.DataSource = typeof(ProjektovanjeSoftvera.WebServis.Ekarta_karta);
             // 
             // checkBoxPopust
             // 
@@ -345,10 +341,6 @@
             this.pronadjiKartuToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.pronadjiKartuToolStripMenuItem.Text = "Pronadji kartu";
             // 
-            // ekartaKartaBindingSource1
-            // 
-           // this.ekartaKartaBindingSource1.DataSource = typeof(ProjektovanjeSoftvera.WebServis.Ekarta_karta);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -360,16 +352,15 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
             this.Name = "Form1";
-            this.Text = "000000000000000000000000000000000000000000000000000000000000000000000000000000000" +
-    "00000000000000000000000000000000000000000000000000000000000000000";
+            this.Text = "Kupovina karata";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ekartaKartaBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ekartaKartaBindingSource)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ekartaKartaBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -40,20 +40,20 @@
             System.Windows.Forms.Label label10;
             System.Windows.Forms.Label label11;
             System.Windows.Forms.Label label12;
+            this.buttonIzbrisiRedVoznje = new System.Windows.Forms.Button();
             this.buttonDodajvoznju = new System.Windows.Forms.Button();
             this.textBoxMinut = new System.Windows.Forms.TextBox();
             this.textBoxSat = new System.Windows.Forms.TextBox();
             this.comboBoxDan = new System.Windows.Forms.ComboBox();
             this.comboBoxTrasaIzmeni = new System.Windows.Forms.ComboBox();
             this.comboBoxTrasa = new System.Windows.Forms.ComboBox();
+            this.buttonIzbrisiOtkazanaVoznja = new System.Windows.Forms.Button();
             this.comboBoxOtkazaneVoznje = new System.Windows.Forms.ComboBox();
             this.dateTimePickerDatum = new System.Windows.Forms.DateTimePicker();
             this.buttonSacuvajOtkazaneVoznje = new System.Windows.Forms.Button();
             this.textBoxMinutOtkazi = new System.Windows.Forms.TextBox();
             this.textBoxSatOtkazi = new System.Windows.Forms.TextBox();
             this.comboBoxTrasaOtkazi = new System.Windows.Forms.ComboBox();
-            this.buttonIzbrisiRedVoznje = new System.Windows.Forms.Button();
-            this.buttonIzbrisiOtkazanaVoznja = new System.Windows.Forms.Button();
             groupBox5 = new System.Windows.Forms.GroupBox();
             label3 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
@@ -90,6 +90,16 @@
             groupBox5.TabIndex = 2;
             groupBox5.TabStop = false;
             groupBox5.Text = "Dodaj vožnju";
+            // 
+            // buttonIzbrisiRedVoznje
+            // 
+            this.buttonIzbrisiRedVoznje.Location = new System.Drawing.Point(99, 181);
+            this.buttonIzbrisiRedVoznje.Name = "buttonIzbrisiRedVoznje";
+            this.buttonIzbrisiRedVoznje.Size = new System.Drawing.Size(75, 23);
+            this.buttonIzbrisiRedVoznje.TabIndex = 15;
+            this.buttonIzbrisiRedVoznje.Text = "Izbriši";
+            this.buttonIzbrisiRedVoznje.UseVisualStyleBackColor = true;
+            this.buttonIzbrisiRedVoznje.Click += new System.EventHandler(this.buttonIzbrisiRedVoznje_Click);
             // 
             // buttonDodajvoznju
             // 
@@ -138,6 +148,7 @@
             // 
             this.comboBoxDan.FormattingEnabled = true;
             this.comboBoxDan.Items.AddRange(new object[] {
+            "Izaberite...",
             "Radni dani",
             "Subota",
             "Nedelja"});
@@ -159,8 +170,6 @@
             // comboBoxTrasaIzmeni
             // 
             this.comboBoxTrasaIzmeni.FormattingEnabled = true;
-            this.comboBoxTrasaIzmeni.Items.AddRange(new object[] {
-            "nesto nesto u 8 15"});
             this.comboBoxTrasaIzmeni.Location = new System.Drawing.Point(99, 27);
             this.comboBoxTrasaIzmeni.Name = "comboBoxTrasaIzmeni";
             this.comboBoxTrasaIzmeni.Size = new System.Drawing.Size(223, 21);
@@ -215,6 +224,16 @@
             groupBox2.TabIndex = 4;
             groupBox2.TabStop = false;
             groupBox2.Text = "Otkaži vožnju";
+            // 
+            // buttonIzbrisiOtkazanaVoznja
+            // 
+            this.buttonIzbrisiOtkazanaVoznja.Location = new System.Drawing.Point(99, 195);
+            this.buttonIzbrisiOtkazanaVoznja.Name = "buttonIzbrisiOtkazanaVoznja";
+            this.buttonIzbrisiOtkazanaVoznja.Size = new System.Drawing.Size(75, 23);
+            this.buttonIzbrisiOtkazanaVoznja.TabIndex = 17;
+            this.buttonIzbrisiOtkazanaVoznja.Text = "Izbriši";
+            this.buttonIzbrisiOtkazanaVoznja.UseVisualStyleBackColor = true;
+            this.buttonIzbrisiOtkazanaVoznja.Click += new System.EventHandler(this.buttonIzbrisiOtkazanaVoznja_Click);
             // 
             // comboBoxOtkazaneVoznje
             // 
@@ -310,26 +329,6 @@
             label12.Size = new System.Drawing.Size(76, 13);
             label12.TabIndex = 1;
             label12.Text = "Izaberite trasu:";
-            // 
-            // buttonIzbrisiRedVoznje
-            // 
-            this.buttonIzbrisiRedVoznje.Location = new System.Drawing.Point(99, 181);
-            this.buttonIzbrisiRedVoznje.Name = "buttonIzbrisiRedVoznje";
-            this.buttonIzbrisiRedVoznje.Size = new System.Drawing.Size(75, 23);
-            this.buttonIzbrisiRedVoznje.TabIndex = 15;
-            this.buttonIzbrisiRedVoznje.Text = "Izbriši";
-            this.buttonIzbrisiRedVoznje.UseVisualStyleBackColor = true;
-            this.buttonIzbrisiRedVoznje.Click += new System.EventHandler(this.buttonIzbrisiRedVoznje_Click);
-            // 
-            // buttonIzbrisiOtkazanaVoznja
-            // 
-            this.buttonIzbrisiOtkazanaVoznja.Location = new System.Drawing.Point(99, 195);
-            this.buttonIzbrisiOtkazanaVoznja.Name = "buttonIzbrisiOtkazanaVoznja";
-            this.buttonIzbrisiOtkazanaVoznja.Size = new System.Drawing.Size(75, 23);
-            this.buttonIzbrisiOtkazanaVoznja.TabIndex = 17;
-            this.buttonIzbrisiOtkazanaVoznja.Text = "Izbriši";
-            this.buttonIzbrisiOtkazanaVoznja.UseVisualStyleBackColor = true;
-            this.buttonIzbrisiOtkazanaVoznja.Click += new System.EventHandler(this.buttonIzbrisiOtkazanaVoznja_Click);
             // 
             // RedVoznje
             // 
