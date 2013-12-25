@@ -55,6 +55,18 @@ class Application_Model_RedvoznjeMapper
         }
         return $Item;
     }
+     public function dajVoznjeNaTrasi($idTrase, $dan){
+        $resultSet=$this->getDbTable()->fetchAll("idTrase=$idTrase AND dan = $dan");
+        $Item=array();
+        foreach ($resultSet as $row){
+            $object=new Application_Model_Redvoznje();
+            $object->setId($row->idRedVoznje)->setTrasa($row->idTrase)->setDan($row->dan)->setVreme($row->vreme);
+            $Item[]=$object;
+        }
+        return $Item;
+    }
+    
+    
     public function dohvatiZaStanice(){
         
     }

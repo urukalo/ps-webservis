@@ -54,3 +54,12 @@ C:\xampp\htdocs\ps-webservis\desktopApp\ProjektovanjeSoftvera\obj\x86\Debug\Gene
 G:\www\ps-webservis\desktopApp\ProjektovanjeSoftvera\bin\Debug\ProjektovanjeSoftvera.exe.config
 G:\www\ps-webservis\desktopApp\ProjektovanjeSoftvera\obj\x86\Debug\ProjektovanjeSoftvera.exe
 G:\www\ps-webservis\desktopApp\ProjektovanjeSoftvera\obj\x86\Debug\ProjektovanjeSoftvera.pdb
+G:\www\ps-webservis\desktopApp\ProjektovanjeSoftvera\bin\Debug\ProjektovanjeSoftvera.exe
+G:\www\ps-webservis\desktopApp\ProjektovanjeSoftvera\bin\Debug\ProjektovanjeSoftvera.pdb
+G:\www\ps-webservis\desktopApp\ProjektovanjeSoftvera\obj\x86\Debug\ProjektovanjeSoftvera.csprojResolveAssemblyReference.cache
+G:\www\ps-webservis\desktopApp\ProjektovanjeSoftvera\obj\x86\Debug\ProjektovanjeSoftvera.RedVoznje.resources
+G:\www\ps-webservis\desktopApp\ProjektovanjeSoftvera\obj\x86\Debug\ProjektovanjeSoftvera.TraseStanice.resources
+G:\www\ps-webservis\desktopApp\ProjektovanjeSoftvera\obj\x86\Debug\ProjektovanjeSoftvera.Form1.resources
+G:\www\ps-webservis\desktopApp\ProjektovanjeSoftvera\obj\x86\Debug\ProjektovanjeSoftvera.LoginDijalog.resources
+G:\www\ps-webservis\desktopApp\ProjektovanjeSoftvera\obj\x86\Debug\ProjektovanjeSoftvera.Properties.Resources.resources
+G:\www\ps-webservis\desktopApp\ProjektovanjeSoftvera\obj\x86\Debug\ProjektovanjeSoftvera.csproj.GenerateResource.Cache

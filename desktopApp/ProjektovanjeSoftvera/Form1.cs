@@ -7,15 +7,15 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-//using ProjektovanjeSoftvera.WebServis;
+using ProjektovanjeSoftvera.EkartaService;
 
 namespace ProjektovanjeSoftvera
 {
     public partial class Form1 : Form
     {
 
-        //Ekarta_ServisService servis = new Ekarta_ServisService();
-       // Ekarta_karta karta = new Ekarta_karta();
+        Ekarta_ServisPortClient servis = new Ekarta_ServisPortClient();
+       
 
         public Form1()
         {
@@ -27,9 +27,12 @@ namespace ProjektovanjeSoftvera
            //string[] arr = servis.popusti().Split('#');
             //comboBoxVrstaPopust.DataSource = servis.popusti();
 
+            stanicaUlaznaRequest zahtev = new stanicaUlaznaRequest();
+            stanicaUlaznaResponse odgovor;// = new stanicaUlaznaResponse();
            
-           // myStrings = servis.popusti();
-
+           odgovor = servis.stanicaUlazna(zahtev);
+           MessageBox.Show(odgovor.@return+"aaa");
+          // comboBoxDolaznaStanica.DataSource = odgovor.@return;
             //ComboBox ddl = new ComboBox();
 
             //ddl = (ComboBox)Form1. Row.FindControl("ddlMyStrings");

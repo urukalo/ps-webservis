@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ps" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns="http://schemas.xmlsoap.org/wsdl/" name="Ekarta_Servis" targetNamespace="http://ps" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://ps" />
+  </wsdl:types>
+  <wsdl:message name="Ekarta_ServisIn" />
+  <wsdl:message name="stanicaUlaznaIn" />
+  <wsdl:message name="stanicaUlaznaOut">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:portType name="Ekarta_ServisPort">
+    <wsdl:operation name="Ekarta_Servis">
+      <documentation>Ekarta_Servis</documentation>
+      <wsdl:input message="tns:Ekarta_ServisIn" />
+    </wsdl:operation>
+    <wsdl:operation name="stanicaUlazna">
+      <wsdl:input message="tns:stanicaUlaznaIn" />
+      <wsdl:output message="tns:stanicaUlaznaOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Ekarta_ServisBinding" type="tns:Ekarta_ServisPort">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="Ekarta_Servis">
+      <soap:operation soapAction="http://ps#Ekarta_Servis" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://ps" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="stanicaUlazna">
+      <soap:operation soapAction="http://ps#stanicaUlazna" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://ps" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://ps" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Ekarta_ServisService">
+    <wsdl:port name="Ekarta_ServisPort" binding="tns:Ekarta_ServisBinding">
+      <soap:address location="http://ps" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
