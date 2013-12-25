@@ -23,9 +23,9 @@ class Application_Model_RedvoznjeMapper
     public function save(Application_Model_Redvoznje $object){
         $data=array(
                   'idRedVoznje'=>$object->getId(),
-                  'idTrase'=>$object->getTrasa(),
+                  'idTrasa'=>$object->getTrasa(),
                   'dan'=>$object->getDan(),
-                  'vreme'=>$object->getVreme()
+                  'vremePolaska'=>$object->getVremePolaska()
         ); 
         
         if(null===($idRedVoznje=$object->getId())){
@@ -40,7 +40,7 @@ class Application_Model_RedvoznjeMapper
         $Items=array();
         foreach ($resultSet as $row){
             $object=new Application_Model_Redvoznje();
-            $object->setId($row->idRedVoznje)->setTrasa($row->idTrase)->setDan($row->dan)->setVreme($row->vreme);
+            $object->setId($row->idRedVoznje)->setTrasa($row->idTrasa)->setDan($row->dan)->setVremePolaska($row->vremePolaska);
             $Items[]=$object;
         }
         return $Items;
@@ -50,7 +50,7 @@ class Application_Model_RedvoznjeMapper
         $Item=array();
         foreach ($resultSet as $row){
             $object=new Application_Model_Redvoznje();
-            $object->setId($row->idRedVoznje)->setTrasa($row->idTrase)->setDan($row->dan)->setVreme($row->vreme);
+            $object->setId($row->idRedVoznje)->setTrasa($row->idTrasa)->setDan($row->dan)->setVremePolaska($row->vremePolaska);
             $Item[]=$object;
         }
         return $Item;
