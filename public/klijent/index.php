@@ -7,14 +7,18 @@ $opcije = array(
     'location' => 'http://ps/Index/soap',
     'uri' => 'http://ps/Index/soap'
 );
+$opcije_admin = array(
+    'location' => 'http://ps/Admin/soap',
+    'uri' => 'http://ps/Admin/soap'
+);
 try {
     $klijent = new Zend_Soap_Client(null, $opcije);
-
-    echo "<br/> uzmi kartu ";
+    $admin= new Zend_Soap_Client(null, $opcije_admin);
+    echo "<br/><br/> uzmi kartu ";
     $karta = $klijent->getKarta();
     print_r($karta);
 
-    echo "<br/> ulazne stanice ";
+    echo "<br/><br/> ulazne stanice ";
     var_dump($klijent->stanicaUlazna());
 
     
@@ -40,6 +44,9 @@ try {
     
     echo "<br/> daj popuste: ";
     print_r($klijent->popusti());
+    
+    echo "<br/> red voznje: ";
+    print_r($admin->getRedVoznje());
 } catch (SoapFault $s) {
     die('Error[' . $s->faultcode . ']' . $s->faultstring);
 } catch (Exception $e) {
