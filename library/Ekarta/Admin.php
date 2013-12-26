@@ -119,24 +119,26 @@ class Ekarta_Admin {
     /**
      * 
      * @param string $object
+     * @return int laste inserted id
      */
     public function setStanica($object) {
         $array= explode('_', $object);
-        //$this->_stanica->setId($object->idStanica);
         $this->_stanica->setNaziv($array[0]);
+        if($array[1]!=0){
+            $this->_stanica->setId($array[1]);
+        }
         $mapper = new Application_Model_StanicaMapper();
         $lastId=$mapper->save($this->_stanica);
-        $object->idStanica=$lastId;
-        //$this->setTrasaStanica($array);
+        return $lastId;
     }
 
     /**
      * Dohvata sve stanice
-     * @return Application_Model_Stanica[]
+     * @return string
      */
     public function getStanice() {
         $mapper = new Application_Model_StanicaMapper();
-        return json_encode($mapper->dohvatiSve());
+        return $mapper->dohvatiSveAdmin();
     }
     /**
      * 
@@ -150,12 +152,11 @@ class Ekarta_Admin {
     
     /**
      * 
-     * @param Application_Model_Stanica $object
+     * @param int $id
      */
-    public function unsetStanica($object) {
+    public function unsetStanica($id) {
         $mapper = new Application_Model_StanicaMapper();
-        $mapper->delete($object->idStanica);
-        $this->unsetStanica($object);
+        $mapper->delete($id);
     }
 
     #---------------------------- Trasa ----------------------------#
@@ -166,39 +167,43 @@ class Ekarta_Admin {
      */
     public function setTrasa($object) {
         $array= explode("_", $object);
-        $this->_trasa->setId($object->idTrasa);
-        $this->_trasa->setStanicaPolaska($object->stanicaPolaska);
-        $this->_trasa->setStanicaDolaska($object->stanicaDolaska);
-        $this->_trasa->setUkupnoKm($object->ukupnoKm);
+        if(!empty($array[3])){
+            $this->_trasa->setId($array[3]);
+        }
+        $this->_trasa->setStanicaPolaska($array[0]);
+        $this->_trasa->setStanicaDolaska($array[1]);
+        $this->_trasa->setUkupnoKm($array[2]);
         $mapper = new Application_Model_TrasaMapper();
         $mapper->save($this->_trasa);
     }
     /**
      * 
-     * @return Application_Model_Trasa[]
+     * @return string
      */
     public function getTrase() {
         $mapper = new Application_Model_TrasaMapper();
-        return json_encode($mapper->dohvatiSve());
+        return $mapper->dohvatiSveAdmin();
     }
     
     /**
      * 
      * @param int $id
-     * @return Application_Model_Trasa
+     * @return string
      */
     public function getTrasu($id) {
         $mapper = new Application_Model_TrasaMapper();
-        return json_encode($mapper->dohvatiJedan($id));
+        return $mapper->dohvatiJedanAdmin($id);
     }
     
     /**
      * 
-     * @param Application_Model_Trasa $object
+     * @param int $id
      */
-    public function unsetTrasa($object) {
+    public function unsetTrasa($id) {
         $mapper = new Application_Model_TrasaMapper();
-        $mapper->delete($object->idTrasa);
+        $mapper->delete($id);
+        $mapperTrasaStanica= new Application_Model_TrasastanicaMapper();
+        $mapperTrasaStanica->delete($id);
     }
 
     #---------------------------- Red voznje ----------------------------#
@@ -222,20 +227,20 @@ class Ekarta_Admin {
     }
     /**
      * 
-     * @return Application_Model_Redvoznje[]
+     * @return string
      */
     public function getRedVoznje() {
         $mapper = new Application_Model_RedvoznjeMapper();
-        return json_encode($mapper->dohvatiSve());
+        return $mapper->dohvatiSveAdmin();
     }
     /**
      * 
      * @param int $id
-     * @return Application_Model_Redvoznje
+     * @return string
      */
     public function getJedanRedVoznje($id) {
         $mapper = new Application_Model_RedvoznjeMapper();
-        return json_encode($mapper->dohvatiJedan($id));
+        return $mapper->dohvatiJedanAdmin($id);
     }
     /**
      * 
@@ -250,11 +255,11 @@ class Ekarta_Admin {
     }
     /**
      * 
-     * @param Application_Model_Redvoznje $object
+     * @param int $id
      */
-    public function unsetRedVoznje($object) {
+    public function unsetRedVoznje($id) {
         $mapper = new Application_Model_RedvoznjeMapper();
-        $mapper->delete($object->idRedVoznje);
+        $mapper->delete($id);
     }
 
     #---------------------------- Otkazana voznja ----------------------------#
@@ -304,41 +309,41 @@ class Ekarta_Admin {
      * 
      * @param string $object
      */
-    private function setTrasaStanica($object) {
+    public function setTrasaStanica($object) {
         $array= explode("_", $object);
-        $this->_trasaStanica->setId($object->idTrasastanica);
-        $this->_trasaStanica->setTrasa($object->idTrasa);
-        $this->_trasaStanica->setStanica($object->idStanica);
-        $this->_trasaStanica->setKmOd($object->kmOd);
-        $this->_trasaStanica->setKmDo($object->kmDo);
+        $idStanica=$this->setStanica($array[0]."_".$array[4]);
+        $this->_trasaStanica->setTrasa($array[1]);
+        $this->_trasaStanica->setStanica($idStanica);
+        $this->_trasaStanica->setKmOd($array[2]);
+        $this->_trasaStanica->setKmDo($array[3]);
+        $this->_trasaStanica->setId($array[5]);
         $mapper = new Application_Model_TrasastanicaMapper();
         $mapper->save($this->_trasaStanica);
     }
     /**
      * 
-     * @return Application_Model_Trasastanica[]
+     * @return string
      */
     public function getTrasaStanice() {
         $mapper = new Application_Model_TrasastanicaMapper();
-        return json_encode($mapper->dohvatiSve());
+        return $mapper->dohvatiSveAdmin();
     }
-    
     /**
      * 
      * @param int $id
-     * @return Application_Model_Trasastanica
+     * @return string
      */
     public function getTrasaStanica($id) {
         $mapper = new Application_Model_TrasastanicaMapper();
-        return json_encode($mapper->dohvatiJedan($id));
+        return $mapper->dohvatiJedanAdmin($id);
     }
     /**
      * 
-     * @param Application_Model_Trasastanica $object
+     * @param int $id
      */
-    public function unsetTrasaStanica($object) {
+    public function unsetTrasaStanica($id) {
         $mapper = new Application_Model_TrasastanicaMapper();
-        $mapper->delete($object->idTrasaStanica);
+        $mapper->delete($id);
     }
 
 }
