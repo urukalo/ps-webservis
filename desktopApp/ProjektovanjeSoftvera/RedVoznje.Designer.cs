@@ -147,14 +147,9 @@
             // comboBoxDan
             // 
             this.comboBoxDan.FormattingEnabled = true;
-            this.comboBoxDan.Items.AddRange(new object[] {
-            "Izaberite...",
-            "Radni dani",
-            "Subota",
-            "Nedelja"});
             this.comboBoxDan.Location = new System.Drawing.Point(99, 111);
             this.comboBoxDan.Name = "comboBoxDan";
-            this.comboBoxDan.Size = new System.Drawing.Size(131, 21);
+            this.comboBoxDan.Size = new System.Drawing.Size(223, 21);
             this.comboBoxDan.TabIndex = 7;
             this.comboBoxDan.Text = "Izaberite...";
             // 
@@ -182,7 +177,7 @@
             this.comboBoxTrasa.FormattingEnabled = true;
             this.comboBoxTrasa.Location = new System.Drawing.Point(99, 77);
             this.comboBoxTrasa.Name = "comboBoxTrasa";
-            this.comboBoxTrasa.Size = new System.Drawing.Size(131, 21);
+            this.comboBoxTrasa.Size = new System.Drawing.Size(223, 21);
             this.comboBoxTrasa.TabIndex = 4;
             this.comboBoxTrasa.Text = "Izaberite...";
             // 

@@ -39,14 +39,15 @@ namespace ProjektovanjeSoftvera.AdminService {
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
         void deactivate(int id);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://ps/Admin#setStanica")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://ps/Admin#setStanica", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
-        void setStanica(string @object);
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        int setStanica(string @object);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://ps/Admin#getStanice", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        Application_Model_Stanica[] getStanice();
+        string getStanice();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://ps/Admin#getStanicu", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
@@ -55,7 +56,7 @@ namespace ProjektovanjeSoftvera.AdminService {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://ps/Admin#unsetStanica")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
-        void unsetStanica(ProjektovanjeSoftvera.AdminService.Application_Model_Stanica @object);
+        void unsetStanica(int id);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://ps/Admin#setTrasa")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
@@ -64,16 +65,16 @@ namespace ProjektovanjeSoftvera.AdminService {
         [System.ServiceModel.OperationContractAttribute(Action="http://ps/Admin#getTrase", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        Application_Model_Trasa[] getTrase();
+        string getTrase();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://ps/Admin#getTrasu", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ProjektovanjeSoftvera.AdminService.Application_Model_Trasa getTrasu(int id);
+        string getTrasu(int id);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://ps/Admin#unsetTrasa")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
-        void unsetTrasa(ProjektovanjeSoftvera.AdminService.Application_Model_Trasa @object);
+        void unsetTrasa(int id);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://ps/Admin#setRedVoznje")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
@@ -82,12 +83,12 @@ namespace ProjektovanjeSoftvera.AdminService {
         [System.ServiceModel.OperationContractAttribute(Action="http://ps/Admin#getRedVoznje", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        Application_Model_Redvoznje[] getRedVoznje();
+        string getRedVoznje();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://ps/Admin#getJedanRedVoznje", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ProjektovanjeSoftvera.AdminService.Application_Model_Redvoznje getJedanRedVoznje(int id);
+        string getJedanRedVoznje(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://ps/Admin#proveraDaLiPostoji", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
@@ -96,7 +97,7 @@ namespace ProjektovanjeSoftvera.AdminService {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://ps/Admin#unsetRedVoznje")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
-        void unsetRedVoznje(ProjektovanjeSoftvera.AdminService.Application_Model_Redvoznje @object);
+        void unsetRedVoznje(int id);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://ps/Admin#setOtkazanaVoznja")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
@@ -105,7 +106,7 @@ namespace ProjektovanjeSoftvera.AdminService {
         [System.ServiceModel.OperationContractAttribute(Action="http://ps/Admin#getOtkazaneVoznje", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        Application_Model_Otkazanavoznja[] getOtkazaneVoznje();
+        Application_Model_Otkazanavoznja[] getOtkazaneVoznje(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://ps/Admin#getOtkazanaVoznja", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
@@ -116,19 +117,23 @@ namespace ProjektovanjeSoftvera.AdminService {
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
         void unsetOtkazanaVoznja(ProjektovanjeSoftvera.AdminService.Application_Model_Otkazanavoznja @object);
         
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://ps/Admin#setTrasaStanica")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
+        void setTrasaStanica(string @object);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://ps/Admin#getTrasaStanice", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        Application_Model_Trasastanica[] getTrasaStanice();
+        string getTrasaStanice();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://ps/Admin#getTrasaStanica", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ProjektovanjeSoftvera.AdminService.Application_Model_Trasastanica getTrasaStanica(int id);
+        string getTrasaStanica(int id);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://ps/Admin#unsetTrasaStanica")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
-        void unsetTrasaStanica(ProjektovanjeSoftvera.AdminService.Application_Model_Trasastanica @object);
+        void unsetTrasaStanica(int id);
     }
     
     /// <remarks/>
@@ -155,61 +160,7 @@ namespace ProjektovanjeSoftvera.AdminService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.SoapTypeAttribute(Namespace="http://ps/Admin")]
-    public partial class Application_Model_Trasastanica : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.1015")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.SoapTypeAttribute(Namespace="http://ps/Admin")]
     public partial class Application_Model_Otkazanavoznja : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.1015")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.SoapTypeAttribute(Namespace="http://ps/Admin")]
-    public partial class Application_Model_Redvoznje : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.1015")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.SoapTypeAttribute(Namespace="http://ps/Admin")]
-    public partial class Application_Model_Trasa : object, System.ComponentModel.INotifyPropertyChanged {
         
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
@@ -308,11 +259,11 @@ namespace ProjektovanjeSoftvera.AdminService {
             base.Channel.deactivate(id);
         }
         
-        public void setStanica(string @object) {
-            base.Channel.setStanica(@object);
+        public int setStanica(string @object) {
+            return base.Channel.setStanica(@object);
         }
         
-        public Application_Model_Stanica[] getStanice() {
+        public string getStanice() {
             return base.Channel.getStanice();
         }
         
@@ -320,35 +271,35 @@ namespace ProjektovanjeSoftvera.AdminService {
             return base.Channel.getStanicu(id);
         }
         
-        public void unsetStanica(ProjektovanjeSoftvera.AdminService.Application_Model_Stanica @object) {
-            base.Channel.unsetStanica(@object);
+        public void unsetStanica(int id) {
+            base.Channel.unsetStanica(id);
         }
         
         public void setTrasa(string @object) {
             base.Channel.setTrasa(@object);
         }
         
-        public Application_Model_Trasa[] getTrase() {
+        public string getTrase() {
             return base.Channel.getTrase();
         }
         
-        public ProjektovanjeSoftvera.AdminService.Application_Model_Trasa getTrasu(int id) {
+        public string getTrasu(int id) {
             return base.Channel.getTrasu(id);
         }
         
-        public void unsetTrasa(ProjektovanjeSoftvera.AdminService.Application_Model_Trasa @object) {
-            base.Channel.unsetTrasa(@object);
+        public void unsetTrasa(int id) {
+            base.Channel.unsetTrasa(id);
         }
         
         public void setRedVoznje(string @object) {
             base.Channel.setRedVoznje(@object);
         }
         
-        public Application_Model_Redvoznje[] getRedVoznje() {
+        public string getRedVoznje() {
             return base.Channel.getRedVoznje();
         }
         
-        public ProjektovanjeSoftvera.AdminService.Application_Model_Redvoznje getJedanRedVoznje(int id) {
+        public string getJedanRedVoznje(int id) {
             return base.Channel.getJedanRedVoznje(id);
         }
         
@@ -356,16 +307,16 @@ namespace ProjektovanjeSoftvera.AdminService {
             return base.Channel.proveraDaLiPostoji(idTrasa, dan, vreme);
         }
         
-        public void unsetRedVoznje(ProjektovanjeSoftvera.AdminService.Application_Model_Redvoznje @object) {
-            base.Channel.unsetRedVoznje(@object);
+        public void unsetRedVoznje(int id) {
+            base.Channel.unsetRedVoznje(id);
         }
         
         public void setOtkazanaVoznja(string @object) {
             base.Channel.setOtkazanaVoznja(@object);
         }
         
-        public Application_Model_Otkazanavoznja[] getOtkazaneVoznje() {
-            return base.Channel.getOtkazaneVoznje();
+        public Application_Model_Otkazanavoznja[] getOtkazaneVoznje(int id) {
+            return base.Channel.getOtkazaneVoznje(id);
         }
         
         public ProjektovanjeSoftvera.AdminService.Application_Model_Otkazanavoznja getOtkazanaVoznja() {
@@ -376,16 +327,20 @@ namespace ProjektovanjeSoftvera.AdminService {
             base.Channel.unsetOtkazanaVoznja(@object);
         }
         
-        public Application_Model_Trasastanica[] getTrasaStanice() {
+        public void setTrasaStanica(string @object) {
+            base.Channel.setTrasaStanica(@object);
+        }
+        
+        public string getTrasaStanice() {
             return base.Channel.getTrasaStanice();
         }
         
-        public ProjektovanjeSoftvera.AdminService.Application_Model_Trasastanica getTrasaStanica(int id) {
+        public string getTrasaStanica(int id) {
             return base.Channel.getTrasaStanica(id);
         }
         
-        public void unsetTrasaStanica(ProjektovanjeSoftvera.AdminService.Application_Model_Trasastanica @object) {
-            base.Channel.unsetTrasaStanica(@object);
+        public void unsetTrasaStanica(int id) {
+            base.Channel.unsetTrasaStanica(id);
         }
     }
 }

@@ -34,10 +34,6 @@ namespace ProjektovanjeSoftvera
             stanicaUlaznaResponse odgovor;// = new stanicaUlaznaResponse();
            
            odgovor = servis.stanicaUlazna(zahtev);
-           DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(RedVoznjeClass));
-           MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(odgovor.@return));
-           RedVoznjeClass obj = (RedVoznjeClass)ser.ReadObject(ms);
-           MessageBox.Show(obj.IdTrasa.ToString());
           // comboBoxDolaznaStanica.DataSource = odgovor.@return;
             //ComboBox ddl = new ComboBox();
 

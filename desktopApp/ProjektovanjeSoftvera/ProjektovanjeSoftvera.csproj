@@ -130,12 +130,6 @@
     <None Include="Service References\AdminService\ProjektovanjeSoftvera.AdminService.Application_Model_Stanica.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\AdminService\ProjektovanjeSoftvera.AdminService.Application_Model_Trasa.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\AdminService\ProjektovanjeSoftvera.AdminService.Application_Model_Trasastanica.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Service References\EkartaService\Ekarta_Servis.wsdl" />
   </ItemGroup>
   <ItemGroup>
@@ -152,9 +146,6 @@
     <None Include="Service References\AdminService\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\AdminService\ProjektovanjeSoftvera.AdminService.Application_Model_Redvoznje.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Service References\AdminService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
