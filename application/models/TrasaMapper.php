@@ -23,8 +23,8 @@ class Application_Model_TrasaMapper
     public function save(Application_Model_Trasa $object){
         $data=array(
                   'idTrasa'=>$object->getId(),
-                  'idStanicaPolaska'=>$object->getStanicaPolaska(),
-                  'idStanicaDolaska'=>$object->getStanicaDolaska(),
+                  'polazak'=>$object->getStanicaPolaska(),
+                  'dolazak'=>$object->getStanicaDolaska(),
                   'ukupnoKm'=>$object->getUkupnoKm()
         ); 
         
@@ -45,6 +45,17 @@ class Application_Model_TrasaMapper
         }
         return $Items;
     }
+    public function dohvatiSveAdmin(){
+        $statement = "SELECT * FROM trasa";
+        $db = Zend_Db_Table::getDefaultAdapter();
+        $resultSet = $db->query($statement);
+        $Items="";
+        foreach ($resultSet as $row){
+            $object=$row['idTrasa']."_".$row['polazak']."-".$row['dolazak']."_".$row['ukupnoKm']." km";
+            $Items.=$object."#";
+        }
+        return $Items;
+    }
     public function dohvatiJedan($id){
         $resultSet=$this->getDbTable()->fetchAll("idTrasa=$id");
         $Item=array();
@@ -54,6 +65,23 @@ class Application_Model_TrasaMapper
             $Item[]=$object;
         }
         return $Item;
+    }
+    public function dohvatiJedanAdmin($id){
+        $statement = "SELECT * FROM trasa WHERE idTrasa=$id";
+        $db = Zend_Db_Table::getDefaultAdapter();
+        $resultSet = $db->query($statement);
+        foreach ($resultSet as $row){
+            $ukupnoKm=$row['ukupnoKm'];
+            $polazak=$row['polazak'];
+            $dolazak=$row['dolazak'];
+        }
+        $statement1="SELECT * FROM stanica WHERE ime='$polazak' OR ime='$dolazak';";
+        $db1 = Zend_Db_Table::getDefaultAdapter();
+        $resultSet1 = $db1->query($statement1);
+        foreach ($resultSet1 as $row){
+            $object.=$row['idStanica']."_";
+        }
+        return $object.$ukupnoKm;
     }
     public function delete($id){
         $this->getDbTable()->delete("idTrasa=$id");

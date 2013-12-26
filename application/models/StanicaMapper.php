@@ -23,9 +23,8 @@ class Application_Model_StanicaMapper
     public function save(Application_Model_Stanica $object){
         $data=array(
                   'idStanica'=>$object->getId(),
-                  'naziv'=>$object->getNaziv()
+                  'ime'=>$object->getNaziv()
         ); 
-        
         if(null===($idStanica=$object->getId())){
             unset($data['idStanica']);
             return $this->getDbTable()->insert($data);
@@ -41,6 +40,17 @@ class Application_Model_StanicaMapper
             $object=new Application_Model_Stanica();
             $object->setId($row->idStanica)->setNaziv($row->ime);
             $Items[]=$object;
+        }
+        return $Items;
+    }
+    public function dohvatiSveAdmin(){
+        $statement = "SELECT * FROM stanica GROUP BY ime";
+        $db = Zend_Db_Table::getDefaultAdapter();
+        $resultSet = $db->query($statement);
+        $Items="";
+        foreach ($resultSet as $row){
+            $object=$row['idStanica']."_".$row['ime'];
+            $Items.=$object."#";
         }
         return $Items;
     }

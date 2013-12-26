@@ -23,7 +23,7 @@ class Application_Model_TrasastanicaMapper
     public function save(Application_Model_Trasastanica $object){
         $data=array(
                   'idTrasaStanica'=>$object->getId(),
-                  'idTrase'=>$object->getTrasa(),
+                  'idTrasa'=>$object->getTrasa(),
                   'idStanica'=>$object->getStanica(),
                   'kmOd'=>$object->getKmOd(),
                   'kmDo'=>$object->getKmDo()
@@ -46,6 +46,17 @@ class Application_Model_TrasastanicaMapper
         }
         return $Items;
     }
+    public function dohvatiSveAdmin(){
+        $statement = "SELECT * FROM stanica s INNER JOIN trasastanica ts ON s.idStanica = ts.idStanica INNER JOIN trasa t ON ts.idTrasa = t.idTrasa";
+        $db = Zend_Db_Table::getDefaultAdapter();
+        $resultSet = $db->query($statement)->fetchAll();
+        $Items="";
+        foreach ($resultSet as $row){
+            $object=$row['ime']." ".$row['polazak']."-".$row['dolazak']."_".$row['idTrasaStanica']."_".$row['ime']."_".$row['kmOd']."_".$row['kmDo'];
+            $Items.=$object."#";
+        }
+        return $Items;
+    }
     public function dohvatiJedan($id){
         $resultSet=$this->getDbTable()->fetchAll("idTrasaStanica=$id");
         $Item=array();
@@ -57,6 +68,16 @@ class Application_Model_TrasastanicaMapper
         return $Item;
     }
     
+    public function dohvatiJedanAdmin($id){
+        $statement = "SELECT * FROM stanica s INNER JOIN trasastanica ts ON s.idStanica = ts.idStanica INNER JOIN trasa t ON ts.idTrasa = t.idTrasa WHERE ts.idTrasaStanica=$id";
+        $db = Zend_Db_Table::getDefaultAdapter();
+        $resultSet = $db->query($statement)->fetchAll();
+        $Items="";
+        foreach ($resultSet as $row){
+            $object=$row['ime']."@".$row['polazak']."-".$row['dolazak']."_".$row['idTrasaStanica']."_".$row['ime']."_".$row['kmOd']."_".$row['kmDo']."_".$row['idTrasa']."_".$row['idStanica'];
+            return $object;
+        }
+    }
     public function dohvatiSveNaTrasi($id){
         $resultSet=$this->getDbTable()->fetchAll("idTrasa=$id");
         $Item=array();
@@ -73,7 +94,7 @@ class Application_Model_TrasastanicaMapper
         return $resultSet[0]->idTrase;
     }
     public function delete($id){
-        $this->getDbTable()->delete("idTrasaStanica=$id");
+        $this->getDbTable()->delete("idTrasa=$id");
     }
 }
 

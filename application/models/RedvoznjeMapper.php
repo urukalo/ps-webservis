@@ -45,6 +45,18 @@ class Application_Model_RedvoznjeMapper
         }
         return $Items;
     }
+    
+    public function dohvatiSveAdmin(){
+        $statement = "SELECT rv.idRedVoznje,rv.dan,rv.vremePolaska,rv.idTrasa,t.polazak,t.dolazak,t.ukupnoKm FROM redvoznje rv INNER JOIN  trasa t ON rv.idTrasa=t.idTrasa";
+        $db = Zend_Db_Table::getDefaultAdapter();
+        $resultSet = $db->query($statement);
+        $Items="";
+        foreach ($resultSet as $row){
+            $object=$row['idRedVoznje']."_".$row['idTrasa']."_".$row['dan']."_".$row['vremePolaska']."_".$row['polazak']."-".$row['dolazak'];
+            $Items.=$object."#";
+        }
+        return $Items;
+    }
     public function dohvatiJedan($id){
         $resultSet=$this->getDbTable()->fetchAll("idRedVoznje=$id");
         $Item=array();
@@ -54,6 +66,16 @@ class Application_Model_RedvoznjeMapper
             $Item[]=$object;
         }
         return $Item;
+    }
+    public function dohvatiJedanAdmin($id){
+        $resultSet=$this->getDbTable()->fetchAll("idRedVoznje=$id");
+        $Item="";
+        foreach ($resultSet as $row){
+            $object=new Application_Model_Redvoznje();
+            $object=$row->idRedVoznje."_".$row->idTrasa."_".$row->dan."_".$row->vremePolaska;
+            return $object;
+        }
+        
     }
      public function dajVoznjeNaTrasi($idTrase, $dan){
         $resultSet=$this->getDbTable()->fetchAll("idTrase=$idTrase AND dan = $dan");
