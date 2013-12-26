@@ -13,7 +13,22 @@ $opcije_admin = array(
 );
 try {
     $klijent = new Zend_Soap_Client(null, $opcije);
-    $admin= new Zend_Soap_Client(null, $opcije_admin);
+    $admin = new Zend_Soap_Client(null, $opcije_admin);
+
+    $result = $klijent->stanicaIzlazna(1);
+    var_dump($result);
+    foreach ($result as $stanica) {
+        $izlazneStanice[$stanica->_idStanica] = $stanica->_naziv;
+    }
+    echo"<br>";
+    var_dump($izlazneStanice);
+    
+    
+    echo"<br> === voznje -===<br/>";
+    $trase = $klijent->pronadjiRutu(1,2,"28/12/2013");
+    var_dump($trase);
+    
+
 //    echo "<br/><br/> uzmi kartu ";
 //    $karta = $klijent->getKarta();
 //    print_r($karta);
@@ -44,10 +59,9 @@ try {
 //    
 //    echo "<br/> daj popuste: ";
 //    print_r($klijent->popusti());
-    
-    echo "<br/> red voznje: ";
-    $r=$admin->getOtkazanaVoznja(1);
-    print_r($r);
+//    echo "<br/> red voznje: ";
+//    $r=$admin->getOtkazanaVoznja(1);
+//    print_r($r);
 } catch (SoapFault $s) {
     die('Error[' . $s->faultcode . ']' . $s->faultstring);
 } catch (Exception $e) {
