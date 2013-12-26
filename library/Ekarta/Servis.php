@@ -109,8 +109,10 @@ class Ekarta_Servis {
      * 
      * @return Application_Model_Redvoznje
      */
-    public function getRedVoznje() {
-        return $this->redVoznje;
+    public function getRedVoznje($id) {
+        $maper = new Application_Model_RedvoznjeMapper();
+        
+        return $maper->dohvatiJedan($id);
     }
 
     /**
@@ -198,7 +200,7 @@ throw new Ekarta_Exception(print_r( $redVoznje, true));
         }
 
        
-
+        
 
         return $redVoznje;
     }

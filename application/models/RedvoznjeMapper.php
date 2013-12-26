@@ -63,13 +63,13 @@ class Application_Model_RedvoznjeMapper {
 
     public function dohvatiJedan($id) {
         $resultSet = $this->getDbTable()->fetchAll("idRedVoznje=$id");
-        $Item = array();
-        foreach ($resultSet as $row) {
+       $row = $resultSet[0];
+        //foreach ($resultSet as ) {
             $object = new Application_Model_Redvoznje();
             $object->setId($row->idRedVoznje)->setTrasa($row->idTrasa)->setDan($row->dan)->setVremePolaska($row->vremePolaska);
-            $Item[] = $object;
-        }
-        return $Item;
+            
+        
+        return $object;
     }
 
     public function dohvatiJedanAdmin($id) {
