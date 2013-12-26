@@ -155,6 +155,27 @@
     <None Include="Service References\EkartaService\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Service References\EkartaService\ProjektovanjeSoftvera.EkartaService.getKartaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\EkartaService\ProjektovanjeSoftvera.EkartaService.getRedVoznjeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\EkartaService\ProjektovanjeSoftvera.EkartaService.popustiResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\EkartaService\ProjektovanjeSoftvera.EkartaService.pronadjiKartuResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\EkartaService\ProjektovanjeSoftvera.EkartaService.pronadjiRutuResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\EkartaService\ProjektovanjeSoftvera.EkartaService.proveriVoznjuResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\EkartaService\ProjektovanjeSoftvera.EkartaService.stanicaIzlaznaResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\EkartaService\ProjektovanjeSoftvera.EkartaService.stanicaUlaznaResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

@@ -2,6 +2,22 @@
 <wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ps" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns="http://schemas.xmlsoap.org/wsdl/" name="Ekarta_Servis" targetNamespace="http://ps" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <xsd:schema targetNamespace="http://ps">
+      <xsd:complexType name="Application_Model_Karta">
+        <xsd:all />
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOfApplication_Model_Popust">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soap-enc:Array">
+            <xsd:attribute wsdl:arrayType="tns:Application_Model_Popust[]" ref="soap-enc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="Application_Model_Popust">
+        <xsd:all />
+      </xsd:complexType>
+      <xsd:complexType name="Application_Model_Redvoznje">
+        <xsd:all />
+      </xsd:complexType>
       <xsd:complexType name="ArrayOfApplication_Model_Stanica">
         <xsd:complexContent mixed="false">
           <xsd:restriction base="soap-enc:Array">
@@ -11,8 +27,8 @@
       </xsd:complexType>
       <xsd:complexType name="Application_Model_Stanica">
         <xsd:all>
-          <xsd:element name="idStanica" nillable="true" type="xsd:int" />
-          <xsd:element name="naziv" nillable="true" type="xsd:string" />
+          <xsd:element name="_idStanica" nillable="true" type="xsd:int" />
+          <xsd:element name="_naziv" nillable="true" type="xsd:string" />
         </xsd:all>
       </xsd:complexType>
       <xsd:complexType name="ArrayOfApplication_Model_Redvoznje">
@@ -22,12 +38,39 @@
           </xsd:restriction>
         </xsd:complexContent>
       </xsd:complexType>
-      <xsd:complexType name="Application_Model_Redvoznje">
-        <xsd:all />
-      </xsd:complexType>
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="Ekarta_ServisIn" />
+  <wsdl:message name="getKartaIn" />
+  <wsdl:message name="getKartaOut">
+    <wsdl:part name="return" type="tns:Application_Model_Karta" />
+  </wsdl:message>
+  <wsdl:message name="sacuvajKartuIn">
+    <wsdl:part name="object" type="tns:Application_Model_Karta" />
+  </wsdl:message>
+  <wsdl:message name="pronadjiKartuIn">
+    <wsdl:part name="id" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="pronadjiKartuOut">
+    <wsdl:part name="return" type="tns:Application_Model_Karta" />
+  </wsdl:message>
+  <wsdl:message name="otkaziKartuIn">
+    <wsdl:part name="id" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="popustiIn" />
+  <wsdl:message name="popustiOut">
+    <wsdl:part name="return" type="tns:ArrayOfApplication_Model_Popust" />
+  </wsdl:message>
+  <wsdl:message name="getRedVoznjeIn" />
+  <wsdl:message name="getRedVoznjeOut">
+    <wsdl:part name="return" type="tns:Application_Model_Redvoznje" />
+  </wsdl:message>
+  <wsdl:message name="proveriVoznjuIn">
+    <wsdl:part name="string" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="proveriVoznjuOut">
+    <wsdl:part name="return" type="xsd:boolean" />
+  </wsdl:message>
   <wsdl:message name="stanicaUlaznaIn" />
   <wsdl:message name="stanicaUlaznaOut">
     <wsdl:part name="return" type="tns:ArrayOfApplication_Model_Stanica" />
@@ -51,6 +94,36 @@
       <documentation>Ekarta_Servis</documentation>
       <wsdl:input message="tns:Ekarta_ServisIn" />
     </wsdl:operation>
+    <wsdl:operation name="getKarta">
+      <documentation>Vraca objekat karte</documentation>
+      <wsdl:input message="tns:getKartaIn" />
+      <wsdl:output message="tns:getKartaOut" />
+    </wsdl:operation>
+    <wsdl:operation name="sacuvajKartu">
+      <wsdl:input message="tns:sacuvajKartuIn" />
+    </wsdl:operation>
+    <wsdl:operation name="pronadjiKartu">
+      <documentation>Pronalazi kartu za dati idKarte i vraca objekat iste</documentation>
+      <wsdl:input message="tns:pronadjiKartuIn" />
+      <wsdl:output message="tns:pronadjiKartuOut" />
+    </wsdl:operation>
+    <wsdl:operation name="otkaziKartu">
+      <documentation>Proglasava kartu neaktivnom</documentation>
+      <wsdl:input message="tns:otkaziKartuIn" />
+    </wsdl:operation>
+    <wsdl:operation name="popusti">
+      <documentation>vraca niz sa svim popustima</documentation>
+      <wsdl:input message="tns:popustiIn" />
+      <wsdl:output message="tns:popustiOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getRedVoznje">
+      <wsdl:input message="tns:getRedVoznjeIn" />
+      <wsdl:output message="tns:getRedVoznjeOut" />
+    </wsdl:operation>
+    <wsdl:operation name="proveriVoznju">
+      <wsdl:input message="tns:proveriVoznjuIn" />
+      <wsdl:output message="tns:proveriVoznjuOut" />
+    </wsdl:operation>
     <wsdl:operation name="stanicaUlazna">
       <wsdl:input message="tns:stanicaUlaznaIn" />
       <wsdl:output message="tns:stanicaUlaznaOut" />
@@ -73,6 +146,63 @@
       <wsdl:input>
         <soap:body use="encoded" namespace="http://ps" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
       </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="getKarta">
+      <soap:operation soapAction="http://ps#getKarta" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://ps" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://ps" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sacuvajKartu">
+      <soap:operation soapAction="http://ps#sacuvajKartu" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://ps" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="pronadjiKartu">
+      <soap:operation soapAction="http://ps#pronadjiKartu" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://ps" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://ps" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="otkaziKartu">
+      <soap:operation soapAction="http://ps#otkaziKartu" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://ps" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="popusti">
+      <soap:operation soapAction="http://ps#popusti" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://ps" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://ps" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRedVoznje">
+      <soap:operation soapAction="http://ps#getRedVoznje" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://ps" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://ps" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="proveriVoznju">
+      <soap:operation soapAction="http://ps#proveriVoznju" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://ps" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://ps" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="stanicaUlazna">
       <soap:operation soapAction="http://ps#stanicaUlazna" />

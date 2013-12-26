@@ -149,14 +149,25 @@ class Ekarta_Servis {
      * @return Application_Model_Stanica[]
      */
     public function stanicaIzlazna($ulaznaId) {
-        $maper = new Application_Model_StanicaMapper();
+        $stanicaMaper = new Application_Model_StanicaMapper();
         $trasastanicaMaper = new Application_Model_TrasastanicaMapper();
-        $idTrasa = $trasastanicaMaper->dohvatiIdTrase($ulaznaId);
-        $stanice = $trasastanicaMaper->dohvatiSveNaTrasi($idTrasa);
+        
+        try {
 
+        $idTrase = $trasastanicaMaper->dohvatiIdTrase($ulaznaId);
+        
+        $staniceNiz = array();
+        foreach ($idTrase as $idTrasa){
+        $stanice = $trasastanicaMaper->dohvatiSveNaTrasi($idTrasa->idTrasa);
+       
+        $staniceNiz = array_merge($stanice);
+        }
 
         //$stanice = $this->stanicaUlazna(); //privremeno  
-        return $stanice;
+         } catch (Exception $ex) {
+            throw new Ekarta_Exception("Ne mogu da pokupim listu stanica ($idTrasa)" . $ex->getMessage());
+        }
+        return $staniceNiz;
     }
 
     /**
