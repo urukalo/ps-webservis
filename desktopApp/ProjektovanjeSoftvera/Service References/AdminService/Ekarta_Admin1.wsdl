@@ -11,16 +11,6 @@
       <xsd:complexType name="Application_Model_Stanica">
         <xsd:all />
       </xsd:complexType>
-      <xsd:complexType name="ArrayOfApplication_Model_Otkazanavoznja">
-        <xsd:complexContent mixed="false">
-          <xsd:restriction base="soap-enc:Array">
-            <xsd:attribute wsdl:arrayType="tns:Application_Model_Otkazanavoznja[]" ref="soap-enc:arrayType" />
-          </xsd:restriction>
-        </xsd:complexContent>
-      </xsd:complexType>
-      <xsd:complexType name="Application_Model_Otkazanavoznja">
-        <xsd:all />
-      </xsd:complexType>
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="Ekarta_AdminIn" />
@@ -101,18 +91,18 @@
   <wsdl:message name="setOtkazanaVoznjaIn">
     <wsdl:part name="object" type="xsd:string" />
   </wsdl:message>
-  <wsdl:message name="getOtkazaneVoznjeIn">
+  <wsdl:message name="getOtkazaneVoznjeIn" />
+  <wsdl:message name="getOtkazaneVoznjeOut">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getOtkazanaVoznjaIn">
     <wsdl:part name="id" type="xsd:int" />
   </wsdl:message>
-  <wsdl:message name="getOtkazaneVoznjeOut">
-    <wsdl:part name="return" type="tns:ArrayOfApplication_Model_Otkazanavoznja" />
-  </wsdl:message>
-  <wsdl:message name="getOtkazanaVoznjaIn" />
   <wsdl:message name="getOtkazanaVoznjaOut">
-    <wsdl:part name="return" type="tns:Application_Model_Otkazanavoznja" />
+    <wsdl:part name="return" type="xsd:string" />
   </wsdl:message>
   <wsdl:message name="unsetOtkazanaVoznjaIn">
-    <wsdl:part name="object" type="tns:Application_Model_Otkazanavoznja" />
+    <wsdl:part name="id" type="xsd:int" />
   </wsdl:message>
   <wsdl:message name="setTrasaStanicaIn">
     <wsdl:part name="object" type="xsd:string" />

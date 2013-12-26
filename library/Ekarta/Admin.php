@@ -270,37 +270,39 @@ class Ekarta_Admin {
      */
     public function setOtkazanaVoznja($object) {
         $array= explode("_", $object);
-        $this->_otkazanaVoznja->setId($object->idOtkazanaVoznja);
-        $this->_otkazanaVoznja->setTrasa($object->idTrasa);
-        $this->_otkazanaVoznja->setDatum($object->datum);
-        $this->_otkazanaVoznja->setVreme($object->vreme);
+        if(!empty($array[6])){
+            $this->_otkazanaVoznja->setId($array[6]);
+        }
+        $this->_otkazanaVoznja->setTrasa($array[0]);
+        $this->_otkazanaVoznja->setDatum(mktime(0, 0, 0, $array[2], $array[1], $array[3]));
+        $this->_otkazanaVoznja->setVreme($array[4].":".$array[5]);
         $mapper = new Application_Model_OtkazanavoznjaMapper();
         $mapper->save($this->_otkazanaVoznja);
     }
     /**
-     * 
-     * @param int $id  
-     * @return Application_Model_Otkazanavoznja[]
+     *  
+     * @return string
      */
-    public function getOtkazaneVoznje($id) {
+    public function getOtkazaneVoznje() {
         $mapper = new Application_Model_OtkazanavoznjaMapper();
-        return json_encode($mapper->dohvatiSve());
+        return $mapper->dohvatiSveAdmin();
     }
     /**
      * 
-     * @return Application_Model_Otkazanavoznja
+     * @param int $id
+     * @return string
      */
-    public function getOtkazanaVoznja() {
+    public function getOtkazanaVoznja($id) {
         $mapper = new Application_Model_OtkazanavoznjaMapper();
-        return json_encode($mapper->dohvatiJedan($id));
+        return $mapper->dohvatiJedanAdmin($id);
     }
     /**
      * 
-     * @param Application_Model_Otkazanavoznja $object
+     * @param int $id
      */
-    public function unsetOtkazanaVoznja($object) {
+    public function unsetOtkazanaVoznja($id) {
         $mapper = new Application_Model_OtkazanavoznjaMapper();
-        $mapper->delete($object->idOtkazanaVoznja);
+        $mapper->delete($id);
     }
 
     #---------------------------- Trasa stanica ----------------------------#

@@ -105,7 +105,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new System.Drawing.Point(324, 106);
+            label4.Location = new System.Drawing.Point(272, 106);
             label4.Name = "label4";
             label4.Size = new System.Drawing.Size(40, 13);
             label4.TabIndex = 6;
@@ -192,7 +192,7 @@
             // comboBoxVremePolaska
             // 
             this.comboBoxVremePolaska.FormattingEnabled = true;
-            this.comboBoxVremePolaska.Location = new System.Drawing.Point(370, 103);
+            this.comboBoxVremePolaska.Location = new System.Drawing.Point(318, 103);
             this.comboBoxVremePolaska.Name = "comboBoxVremePolaska";
             this.comboBoxVremePolaska.Size = new System.Drawing.Size(121, 21);
             this.comboBoxVremePolaska.TabIndex = 9;

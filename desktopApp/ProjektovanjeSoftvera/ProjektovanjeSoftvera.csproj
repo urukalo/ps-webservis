@@ -124,9 +124,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <None Include="Service References\AdminService\Ekarta_Admin1.wsdl" />
-    <None Include="Service References\AdminService\ProjektovanjeSoftvera.AdminService.Application_Model_Otkazanavoznja.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Service References\AdminService\ProjektovanjeSoftvera.AdminService.Application_Model_Stanica.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

@@ -48,12 +48,12 @@
             this.comboBoxTrasaIzmeni = new System.Windows.Forms.ComboBox();
             this.comboBoxTrasa = new System.Windows.Forms.ComboBox();
             this.buttonIzbrisiOtkazanaVoznja = new System.Windows.Forms.Button();
-            this.comboBoxOtkazaneVoznje = new System.Windows.Forms.ComboBox();
             this.dateTimePickerDatum = new System.Windows.Forms.DateTimePicker();
             this.buttonSacuvajOtkazaneVoznje = new System.Windows.Forms.Button();
             this.textBoxMinutOtkazi = new System.Windows.Forms.TextBox();
             this.textBoxSatOtkazi = new System.Windows.Forms.TextBox();
             this.comboBoxTrasaOtkazi = new System.Windows.Forms.ComboBox();
+            this.comboBoxOtkazaneVoznje = new System.Windows.Forms.ComboBox();
             groupBox5 = new System.Windows.Forms.GroupBox();
             label3 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
@@ -201,8 +201,8 @@
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(this.buttonIzbrisiOtkazanaVoznja);
             groupBox2.Controls.Add(this.comboBoxOtkazaneVoznje);
+            groupBox2.Controls.Add(this.buttonIzbrisiOtkazanaVoznja);
             groupBox2.Controls.Add(label5);
             groupBox2.Controls.Add(this.dateTimePickerDatum);
             groupBox2.Controls.Add(this.buttonSacuvajOtkazaneVoznje);
@@ -229,16 +229,6 @@
             this.buttonIzbrisiOtkazanaVoznja.Text = "Izbriši";
             this.buttonIzbrisiOtkazanaVoznja.UseVisualStyleBackColor = true;
             this.buttonIzbrisiOtkazanaVoznja.Click += new System.EventHandler(this.buttonIzbrisiOtkazanaVoznja_Click);
-            // 
-            // comboBoxOtkazaneVoznje
-            // 
-            this.comboBoxOtkazaneVoznje.FormattingEnabled = true;
-            this.comboBoxOtkazaneVoznje.Location = new System.Drawing.Point(99, 33);
-            this.comboBoxOtkazaneVoznje.Name = "comboBoxOtkazaneVoznje";
-            this.comboBoxOtkazaneVoznje.Size = new System.Drawing.Size(223, 21);
-            this.comboBoxOtkazaneVoznje.TabIndex = 16;
-            this.comboBoxOtkazaneVoznje.Text = "Izaberite...";
-            this.comboBoxOtkazaneVoznje.SelectedIndexChanged += new System.EventHandler(this.comboBoxOtkazaneVoznje_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -325,6 +315,15 @@
             label12.TabIndex = 1;
             label12.Text = "Izaberite trasu:";
             // 
+            // comboBoxOtkazaneVoznje
+            // 
+            this.comboBoxOtkazaneVoznje.FormattingEnabled = true;
+            this.comboBoxOtkazaneVoznje.Location = new System.Drawing.Point(99, 33);
+            this.comboBoxOtkazaneVoznje.Name = "comboBoxOtkazaneVoznje";
+            this.comboBoxOtkazaneVoznje.Size = new System.Drawing.Size(223, 21);
+            this.comboBoxOtkazaneVoznje.TabIndex = 18;
+            this.comboBoxOtkazaneVoznje.SelectedIndexChanged += new System.EventHandler(this.comboBoxOtkazaneVoznje_SelectedIndexChanged_1);
+            // 
             // RedVoznje
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -357,8 +356,8 @@
         private System.Windows.Forms.TextBox textBoxSatOtkazi;
         private System.Windows.Forms.ComboBox comboBoxTrasaOtkazi;
         private System.Windows.Forms.DateTimePicker dateTimePickerDatum;
-        private System.Windows.Forms.ComboBox comboBoxOtkazaneVoznje;
         private System.Windows.Forms.Button buttonIzbrisiRedVoznje;
         private System.Windows.Forms.Button buttonIzbrisiOtkazanaVoznja;
+        private System.Windows.Forms.ComboBox comboBoxOtkazaneVoznje;
     }
 }

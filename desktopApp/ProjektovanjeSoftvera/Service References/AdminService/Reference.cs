@@ -106,16 +106,16 @@ namespace ProjektovanjeSoftvera.AdminService {
         [System.ServiceModel.OperationContractAttribute(Action="http://ps/Admin#getOtkazaneVoznje", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        Application_Model_Otkazanavoznja[] getOtkazaneVoznje(int id);
+        string getOtkazaneVoznje();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://ps/Admin#getOtkazanaVoznja", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ProjektovanjeSoftvera.AdminService.Application_Model_Otkazanavoznja getOtkazanaVoznja();
+        string getOtkazanaVoznja(int id);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://ps/Admin#unsetOtkazanaVoznja")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
-        void unsetOtkazanaVoznja(ProjektovanjeSoftvera.AdminService.Application_Model_Otkazanavoznja @object);
+        void unsetOtkazanaVoznja(int id);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://ps/Admin#setTrasaStanica")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
@@ -143,24 +143,6 @@ namespace ProjektovanjeSoftvera.AdminService {
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.SoapTypeAttribute(Namespace="http://ps/Admin")]
     public partial class Application_Model_Popust : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.1015")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.SoapTypeAttribute(Namespace="http://ps/Admin")]
-    public partial class Application_Model_Otkazanavoznja : object, System.ComponentModel.INotifyPropertyChanged {
         
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
@@ -315,16 +297,16 @@ namespace ProjektovanjeSoftvera.AdminService {
             base.Channel.setOtkazanaVoznja(@object);
         }
         
-        public Application_Model_Otkazanavoznja[] getOtkazaneVoznje(int id) {
-            return base.Channel.getOtkazaneVoznje(id);
+        public string getOtkazaneVoznje() {
+            return base.Channel.getOtkazaneVoznje();
         }
         
-        public ProjektovanjeSoftvera.AdminService.Application_Model_Otkazanavoznja getOtkazanaVoznja() {
-            return base.Channel.getOtkazanaVoznja();
+        public string getOtkazanaVoznja(int id) {
+            return base.Channel.getOtkazanaVoznja(id);
         }
         
-        public void unsetOtkazanaVoznja(ProjektovanjeSoftvera.AdminService.Application_Model_Otkazanavoznja @object) {
-            base.Channel.unsetOtkazanaVoznja(@object);
+        public void unsetOtkazanaVoznja(int id) {
+            base.Channel.unsetOtkazanaVoznja(id);
         }
         
         public void setTrasaStanica(string @object) {

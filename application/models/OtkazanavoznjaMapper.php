@@ -23,7 +23,7 @@ class Application_Model_OtkazanavoznjaMapper
     public function save(Application_Model_Otkazanavoznja $object){
         $data=array(
                   'idOtkazanaVoznja'=>$object->getId(),
-                  'idTrase'=>$object->getTrasa(),
+                  'idTrasa'=>$object->getTrasa(),
                   'datum'=>$object->getDatum(),
                   'vreme'=>$object->getVreme()
         ); 
@@ -45,6 +45,17 @@ class Application_Model_OtkazanavoznjaMapper
         }
         return $Items;
     }
+    public function dohvatiSveAdmin(){
+        $statement = "SELECT * FROM otkazanaVoznja ov INNER JOIN trasa t ON ov.idTrasa = t.idTrasa";
+        $db = Zend_Db_Table::getDefaultAdapter();
+        $resultSet = $db->query($statement)->fetchAll();
+        $Items="";
+        foreach ($resultSet as $row){
+            $object=$row['idOtkazanaVoznja']."_".$row['polazak']."-".$row['dolazak']."_".date("d:m:Y",$row['datum'])."_".$row['vreme'];
+            $Items.=$object."#";
+        }
+        return $Items;
+    }
     public function dohvatiJedan($id){
         $resultSet=$this->getDbTable()->fetchAll("idOtkazanaVoznja=$id");
         $Item=array();
@@ -54,6 +65,15 @@ class Application_Model_OtkazanavoznjaMapper
             $Item[]=$object;
         }
         return $Item;
+    }
+    public function dohvatiJedanAdmin($id){
+        $statement = "SELECT * FROM otkazanavoznja WHERE idOtkazanaVoznja=$id;";
+        $db = Zend_Db_Table::getDefaultAdapter();
+        $resultSet = $db->query($statement)->fetchAll();
+        foreach ($resultSet as $row){
+            $object=$row['idTrasa']."_".date("d_m_Y",$row['datum'])."_".$row['vreme'];
+            return $object;
+        }
     }
     public function delete($id){
         $this->getDbTable()->delete("idOtkazanaVoznja=$id");
