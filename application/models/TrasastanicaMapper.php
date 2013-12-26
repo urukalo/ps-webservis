@@ -97,7 +97,7 @@ class Application_Model_TrasastanicaMapper {
             $object->setId($row['idStanica'])->setNaziv($row['ime']);
             $Item[] = $object;
         }
-        //throw new Ekarta_Exception(print_r($Item, true));
+//throw new Ekarta_Exception(print_r($Item, true));
         return $Item;
     }
 

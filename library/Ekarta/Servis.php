@@ -151,27 +151,22 @@ class Ekarta_Servis {
     public function stanicaIzlazna($ulaznaId) {
         $stanicaMaper = new Application_Model_StanicaMapper();
         $trasastanicaMaper = new Application_Model_TrasastanicaMapper();
-        
-        
-try {
-        $idTrase = $trasastanicaMaper->dohvatiIdTrase($ulaznaId);
+
+        try {
+            $idTrase = $trasastanicaMaper->dohvatiIdTrase($ulaznaId);
         } catch (Exception $ex) {
-            throw new Ekarta_Exception("Ne mogu da pokupim trasu ($idTrase)" . $ex->getMessage());
+            throw new Ekarta_Exception("Ne mogu da pokupim trasu" . $ex->getMessage());
         }
         $staniceNiz = array();
-        
-        
-        
-        try {
-            foreach ($idTrase as $idTrasa){
-        $stanice = $trasastanicaMaper->dohvatiSveNaTrasi($idTrasa->idTrasa);
-       //throw new Ekarta_Exception("imam ovo ($idTrase)" . var_dump($stanice));
-        $staniceNiz = array_merge($stanice);
-        }
 
-        //$stanice = $this->stanicaUlazna(); //privremeno  
-         } catch (Exception $ex) {
-            throw new Ekarta_Exception("Ne mogu da pokupim listu stanica $idTrase(".var_dump($stanice).")" . $ex->getMessage());
+        try {
+            foreach ($idTrase as $idTrasa) {
+                $stanice = $trasastanicaMaper->dohvatiSveNaTrasi($idTrasa->idTrasa);
+
+                $staniceNiz = array_merge($stanice);
+            }
+        } catch (Exception $ex) {
+            throw new Ekarta_Exception("Ne mogu da pokupim listu stanica" . $ex->getMessage());
         }
         return $staniceNiz;
     }
@@ -180,12 +175,32 @@ try {
      * Vraca niz ruta za odabrane stanice i datum
      * @param int $idUlazna
      * @param int $idIzlazna
-     * @param int $datum
+     * @param string $datum
      * @return Application_Model_Redvoznje[]
      */
-    public function pronadjiRutu($idUlazna, $idIzlazna, $datum){
-        $idTrasa = $trasastanicaMaper->dohvatiIdTrase($ulaznaId);
-        $dan = date("d", $datum);
-        return dajVoznjeNaTrasi($idTrasa, $dan);
+    public function pronadjiRutu($idUlazna, $idIzlazna, $datum) {
+        $trasastanicaMaper = new Application_Model_TrasastanicaMapper();
+        $redVoznjeMaper = new Application_Model_RedvoznjeMapper();
+        try {
+            $dtm = explode("/", $datum);
+            $dan = date("N", mktime(0, 0, 0, $dtm[1], $dtm[0], $dtm[3]));
+
+            $idTrase = $trasastanicaMaper->dohvatiIdTrase($idIzlazna);
+        } catch (Exception $ex) {
+            throw new Ekarta_Exception("Ne mogu da pokupim idtrase za listu ruta" . $ex->getMessage());
+        }
+
+        try {
+            $redVoznje = $redVoznjeMaper->dajVoznjeNaTrasi($idTrase[0]->idTrasa, $dan);
+throw new Ekarta_Exception(print_r( $redVoznje, true));
+        } catch (Exception $ex) {
+            throw new Ekarta_Exception("Ne mogu da pokupim listu ruta " . $ex->getMessage());
+        }
+
+       
+
+
+        return $redVoznje;
     }
+
 }
