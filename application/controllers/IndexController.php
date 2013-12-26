@@ -20,7 +20,7 @@ class IndexController extends Zend_Controller_Action {
 
         $server->setClass('Ekarta_Servis');
         $server->registerFaultException(array('Ekarta_Exception'));
-
+        $server->setWsdl("http://ps/Index/wsdl");
         $server->handle();
     }
 

@@ -1,12 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ps" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns="http://schemas.xmlsoap.org/wsdl/" name="Ekarta_Servis" targetNamespace="http://ps" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
-    <xsd:schema targetNamespace="http://ps" />
+    <xsd:schema targetNamespace="http://ps">
+      <xsd:complexType name="ArrayOfApplication_Model_Stanica">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soap-enc:Array">
+            <xsd:attribute wsdl:arrayType="tns:Application_Model_Stanica[]" ref="soap-enc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="Application_Model_Stanica">
+        <xsd:all>
+          <xsd:element name="idStanica" nillable="true" type="xsd:int" />
+          <xsd:element name="naziv" nillable="true" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOfApplication_Model_Redvoznje">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soap-enc:Array">
+            <xsd:attribute wsdl:arrayType="tns:Application_Model_Redvoznje[]" ref="soap-enc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="Application_Model_Redvoznje">
+        <xsd:all />
+      </xsd:complexType>
+    </xsd:schema>
   </wsdl:types>
   <wsdl:message name="Ekarta_ServisIn" />
   <wsdl:message name="stanicaUlaznaIn" />
   <wsdl:message name="stanicaUlaznaOut">
-    <wsdl:part name="return" type="xsd:string" />
+    <wsdl:part name="return" type="tns:ArrayOfApplication_Model_Stanica" />
+  </wsdl:message>
+  <wsdl:message name="stanicaIzlaznaIn">
+    <wsdl:part name="ulaznaId" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="stanicaIzlaznaOut">
+    <wsdl:part name="return" type="tns:ArrayOfApplication_Model_Stanica" />
+  </wsdl:message>
+  <wsdl:message name="pronadjiRutuIn">
+    <wsdl:part name="idUlazna" type="xsd:int" />
+    <wsdl:part name="idIzlazna" type="xsd:int" />
+    <wsdl:part name="datum" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="pronadjiRutuOut">
+    <wsdl:part name="return" type="tns:ArrayOfApplication_Model_Redvoznje" />
   </wsdl:message>
   <wsdl:portType name="Ekarta_ServisPort">
     <wsdl:operation name="Ekarta_Servis">
@@ -16,6 +54,16 @@
     <wsdl:operation name="stanicaUlazna">
       <wsdl:input message="tns:stanicaUlaznaIn" />
       <wsdl:output message="tns:stanicaUlaznaOut" />
+    </wsdl:operation>
+    <wsdl:operation name="stanicaIzlazna">
+      <documentation>@param int $ulaznaId</documentation>
+      <wsdl:input message="tns:stanicaIzlaznaIn" />
+      <wsdl:output message="tns:stanicaIzlaznaOut" />
+    </wsdl:operation>
+    <wsdl:operation name="pronadjiRutu">
+      <documentation>Vraca niz ruta za odabrane stanice i datum</documentation>
+      <wsdl:input message="tns:pronadjiRutuIn" />
+      <wsdl:output message="tns:pronadjiRutuOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="Ekarta_ServisBinding" type="tns:Ekarta_ServisPort">
@@ -28,6 +76,24 @@
     </wsdl:operation>
     <wsdl:operation name="stanicaUlazna">
       <soap:operation soapAction="http://ps#stanicaUlazna" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://ps" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://ps" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="stanicaIzlazna">
+      <soap:operation soapAction="http://ps#stanicaIzlazna" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://ps" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://ps" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pronadjiRutu">
+      <soap:operation soapAction="http://ps#pronadjiRutu" />
       <wsdl:input>
         <soap:body use="encoded" namespace="http://ps" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
       </wsdl:input>

@@ -2,22 +2,30 @@
 
 class Application_Model_Stanica
 {
-    protected $_idStanica;
-    protected $_naziv;
+    /**
+     *
+     * @var int
+     */
+    public $idStanica;
+    /**
+     *
+     * @var string
+     */
+    public $naziv;
     
     public function getId() {
-        return $this->_idStanica;
+        return $this->idStanica;
     }
     public function setId($data) {
-        $this->_idStanica=$data;
+        $this->idStanica=$data;
         return $this;
     }
 	
     public function getNaziv() {
-        return $this->_naziv;
+        return $this->naziv;
     }
     public function setNaziv($data) {
-        $this->_naziv=$data;
+        $this->naziv=$data;
         return $this;
     }
 }

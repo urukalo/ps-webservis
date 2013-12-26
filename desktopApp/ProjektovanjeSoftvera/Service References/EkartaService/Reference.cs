@@ -21,7 +21,21 @@ namespace ProjektovanjeSoftvera.EkartaService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://ps#stanicaUlazna", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Application_Model_Redvoznje))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Application_Model_Stanica))]
         ProjektovanjeSoftvera.EkartaService.stanicaUlaznaResponse stanicaUlazna(ProjektovanjeSoftvera.EkartaService.stanicaUlaznaRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://ps#stanicaIzlazna", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Application_Model_Redvoznje))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Application_Model_Stanica))]
+        ProjektovanjeSoftvera.EkartaService.stanicaIzlaznaResponse stanicaIzlazna(ProjektovanjeSoftvera.EkartaService.stanicaIzlaznaRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://ps#pronadjiRutu", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Application_Model_Redvoznje))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Application_Model_Stanica))]
+        ProjektovanjeSoftvera.EkartaService.pronadjiRutuResponse pronadjiRutu(ProjektovanjeSoftvera.EkartaService.pronadjiRutuRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -30,6 +44,70 @@ namespace ProjektovanjeSoftvera.EkartaService {
     public partial class Ekarta_Servis {
         
         public Ekarta_Servis() {
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.SoapTypeAttribute(Namespace="http://ps")]
+    public partial class Application_Model_Stanica : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private System.Nullable<int> idStanicaField;
+        
+        private string nazivField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.SoapElementAttribute(IsNullable=true)]
+        public System.Nullable<int> idStanica {
+            get {
+                return this.idStanicaField;
+            }
+            set {
+                this.idStanicaField = value;
+                this.RaisePropertyChanged("idStanica");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.SoapElementAttribute(IsNullable=true)]
+        public string naziv {
+            get {
+                return this.nazivField;
+            }
+            set {
+                this.nazivField = value;
+                this.RaisePropertyChanged("naziv");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.SoapTypeAttribute(Namespace="http://ps")]
+    public partial class Application_Model_Redvoznje : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
         }
     }
     
@@ -48,12 +126,84 @@ namespace ProjektovanjeSoftvera.EkartaService {
     public partial class stanicaUlaznaResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
-        public string @return;
+        public ProjektovanjeSoftvera.EkartaService.Application_Model_Stanica[] @return;
         
         public stanicaUlaznaResponse() {
         }
         
-        public stanicaUlaznaResponse(string @return) {
+        public stanicaUlaznaResponse(ProjektovanjeSoftvera.EkartaService.Application_Model_Stanica[] @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="stanicaIzlazna", WrapperNamespace="http://ps", IsWrapped=true)]
+    public partial class stanicaIzlaznaRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
+        public int ulaznaId;
+        
+        public stanicaIzlaznaRequest() {
+        }
+        
+        public stanicaIzlaznaRequest(int ulaznaId) {
+            this.ulaznaId = ulaznaId;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="stanicaIzlaznaResponse", WrapperNamespace="http://ps", IsWrapped=true)]
+    public partial class stanicaIzlaznaResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
+        public ProjektovanjeSoftvera.EkartaService.Application_Model_Stanica[] @return;
+        
+        public stanicaIzlaznaResponse() {
+        }
+        
+        public stanicaIzlaznaResponse(ProjektovanjeSoftvera.EkartaService.Application_Model_Stanica[] @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="pronadjiRutu", WrapperNamespace="http://ps", IsWrapped=true)]
+    public partial class pronadjiRutuRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
+        public int idUlazna;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=1)]
+        public int idIzlazna;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=2)]
+        public int datum;
+        
+        public pronadjiRutuRequest() {
+        }
+        
+        public pronadjiRutuRequest(int idUlazna, int idIzlazna, int datum) {
+            this.idUlazna = idUlazna;
+            this.idIzlazna = idIzlazna;
+            this.datum = datum;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="pronadjiRutuResponse", WrapperNamespace="http://ps", IsWrapped=true)]
+    public partial class pronadjiRutuResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
+        public ProjektovanjeSoftvera.EkartaService.Application_Model_Redvoznje[] @return;
+        
+        public pronadjiRutuResponse() {
+        }
+        
+        public pronadjiRutuResponse(ProjektovanjeSoftvera.EkartaService.Application_Model_Redvoznje[] @return) {
             this.@return = @return;
         }
     }
@@ -91,6 +241,14 @@ namespace ProjektovanjeSoftvera.EkartaService {
         
         public ProjektovanjeSoftvera.EkartaService.stanicaUlaznaResponse stanicaUlazna(ProjektovanjeSoftvera.EkartaService.stanicaUlaznaRequest request) {
             return base.Channel.stanicaUlazna(request);
+        }
+        
+        public ProjektovanjeSoftvera.EkartaService.stanicaIzlaznaResponse stanicaIzlazna(ProjektovanjeSoftvera.EkartaService.stanicaIzlaznaRequest request) {
+            return base.Channel.stanicaIzlazna(request);
+        }
+        
+        public ProjektovanjeSoftvera.EkartaService.pronadjiRutuResponse pronadjiRutu(ProjektovanjeSoftvera.EkartaService.pronadjiRutuRequest request) {
+            return base.Channel.pronadjiRutu(request);
         }
     }
 }
