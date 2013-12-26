@@ -152,20 +152,26 @@ class Ekarta_Servis {
         $stanicaMaper = new Application_Model_StanicaMapper();
         $trasastanicaMaper = new Application_Model_TrasastanicaMapper();
         
-        try {
-
-        $idTrase = $trasastanicaMaper->dohvatiIdTrase($ulaznaId);
         
+try {
+        $idTrase = $trasastanicaMaper->dohvatiIdTrase($ulaznaId);
+        } catch (Exception $ex) {
+            throw new Ekarta_Exception("Ne mogu da pokupim trasu ($idTrase)" . $ex->getMessage());
+        }
         $staniceNiz = array();
-        foreach ($idTrase as $idTrasa){
+        
+        
+        
+        try {
+            foreach ($idTrase as $idTrasa){
         $stanice = $trasastanicaMaper->dohvatiSveNaTrasi($idTrasa->idTrasa);
-       
+       //throw new Ekarta_Exception("imam ovo ($idTrase)" . var_dump($stanice));
         $staniceNiz = array_merge($stanice);
         }
 
         //$stanice = $this->stanicaUlazna(); //privremeno  
          } catch (Exception $ex) {
-            throw new Ekarta_Exception("Ne mogu da pokupim listu stanica ($idTrasa)" . $ex->getMessage());
+            throw new Ekarta_Exception("Ne mogu da pokupim listu stanica $idTrase(".var_dump($stanice).")" . $ex->getMessage());
         }
         return $staniceNiz;
     }

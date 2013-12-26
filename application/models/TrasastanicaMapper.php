@@ -86,14 +86,18 @@ class Application_Model_TrasastanicaMapper {
 
     public function dohvatiSveNaTrasi($id) {
         $statement = "SELECT * FROM stanica s INNER JOIN trasastanica ts ON s.idStanica = ts.idStanica INNER JOIN trasa t ON ts.idTrasa = t.idTrasa WHERE ts.idTrasa=$id";
+
         $db = Zend_Db_Table::getDefaultAdapter();
+
         $resultSet = $db->query($statement)->fetchAll();
+        //throw new Ekarta_Exception(print_r($resultSet, true));
         $Item = array();
         foreach ($resultSet as $row) {
             $object = new Application_Model_Stanica();
-            $object->setId($row->idStanica)->setNaziv($row->ime);
+            $object->setId($row['idStanica'])->setNaziv($row['ime']);
             $Item[] = $object;
         }
+        //throw new Ekarta_Exception(print_r($Item, true));
         return $Item;
     }
 
