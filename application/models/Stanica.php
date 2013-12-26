@@ -6,26 +6,26 @@ class Application_Model_Stanica
      *
      * @var int
      */
-    public $idStanica;
+    public $_idStanica;
     /**
      *
      * @var string
      */
-    public $naziv;
+    public $_naziv;
     
     public function getId() {
-        return $this->idStanica;
+        return $this->_idStanica;
     }
     public function setId($data) {
-        $this->idStanica=$data;
+        $this->_idStanica=$data;
         return $this;
     }
 	
     public function getNaziv() {
-        return $this->naziv;
+        return $this->_naziv;
     }
     public function setNaziv($data) {
-        $this->naziv=$data;
+        $this->_naziv=$data;
         return $this;
     }
 }
