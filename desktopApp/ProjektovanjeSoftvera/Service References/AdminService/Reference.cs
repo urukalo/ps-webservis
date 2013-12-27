@@ -23,21 +23,41 @@ namespace ProjektovanjeSoftvera.AdminService {
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
         void setPopust(string @object);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://ps/Admin#getPopust", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        string getPopust(int id);
+        
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://ps/Admin#unsetPopust")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
         void unsetPopust(ProjektovanjeSoftvera.AdminService.Application_Model_Popust @object);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://ps/Admin#setKarta")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://ps/Admin#setKarta", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
-        void setKarta(ProjektovanjeSoftvera.AdminService.Application_Model_Karta @object);
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        string setKarta(string @object);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://ps/Admin#getKarta", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        string getKarta(int id);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://ps/Admin#unsetKarta")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
-        void unsetKarta(ProjektovanjeSoftvera.AdminService.Application_Model_Karta @object);
+        void unsetKarta(int idKarta);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://ps/Admin#deactivate")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
         void deactivate(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://ps/Admin#activate")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
+        void activate(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://ps/Admin#izracunajCenuKarte", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        string izracunajCenuKarte(int idTrasa, int idPolazneStanice, int idDolazneStanice, int idPopust, int povratna);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://ps/Admin#setStanica", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
@@ -134,6 +154,21 @@ namespace ProjektovanjeSoftvera.AdminService {
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://ps/Admin#unsetTrasaStanica")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
         void unsetTrasaStanica(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://ps/Admin#getStaniceZaTrasu", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        string getStaniceZaTrasu(int idTrasa);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://ps/Admin#getStaniceZaTrasuPosle", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        string getStaniceZaTrasuPosle(int idTrasa, int idStanica);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://ps/Admin#getVremeZaDatum", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        string getVremeZaDatum(string @object);
     }
     
     /// <remarks/>
@@ -162,23 +197,33 @@ namespace ProjektovanjeSoftvera.AdminService {
     [System.Xml.Serialization.SoapTypeAttribute(Namespace="http://ps/Admin")]
     public partial class Application_Model_Stanica : object, System.ComponentModel.INotifyPropertyChanged {
         
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        private System.Nullable<int> _idStanicaField;
         
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+        private string _nazivField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.SoapElementAttribute(IsNullable=true)]
+        public System.Nullable<int> _idStanica {
+            get {
+                return this._idStanicaField;
+            }
+            set {
+                this._idStanicaField = value;
+                this.RaisePropertyChanged("_idStanica");
             }
         }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.1015")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.SoapTypeAttribute(Namespace="http://ps/Admin")]
-    public partial class Application_Model_Karta : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        /// <remarks/>
+        [System.Xml.Serialization.SoapElementAttribute(IsNullable=true)]
+        public string _naziv {
+            get {
+                return this._nazivField;
+            }
+            set {
+                this._nazivField = value;
+                this.RaisePropertyChanged("_naziv");
+            }
+        }
         
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
@@ -225,20 +270,36 @@ namespace ProjektovanjeSoftvera.AdminService {
             base.Channel.setPopust(@object);
         }
         
+        public string getPopust(int id) {
+            return base.Channel.getPopust(id);
+        }
+        
         public void unsetPopust(ProjektovanjeSoftvera.AdminService.Application_Model_Popust @object) {
             base.Channel.unsetPopust(@object);
         }
         
-        public void setKarta(ProjektovanjeSoftvera.AdminService.Application_Model_Karta @object) {
-            base.Channel.setKarta(@object);
+        public string setKarta(string @object) {
+            return base.Channel.setKarta(@object);
         }
         
-        public void unsetKarta(ProjektovanjeSoftvera.AdminService.Application_Model_Karta @object) {
-            base.Channel.unsetKarta(@object);
+        public string getKarta(int id) {
+            return base.Channel.getKarta(id);
+        }
+        
+        public void unsetKarta(int idKarta) {
+            base.Channel.unsetKarta(idKarta);
         }
         
         public void deactivate(int id) {
             base.Channel.deactivate(id);
+        }
+        
+        public void activate(int id) {
+            base.Channel.activate(id);
+        }
+        
+        public string izracunajCenuKarte(int idTrasa, int idPolazneStanice, int idDolazneStanice, int idPopust, int povratna) {
+            return base.Channel.izracunajCenuKarte(idTrasa, idPolazneStanice, idDolazneStanice, idPopust, povratna);
         }
         
         public int setStanica(string @object) {
@@ -323,6 +384,18 @@ namespace ProjektovanjeSoftvera.AdminService {
         
         public void unsetTrasaStanica(int id) {
             base.Channel.unsetTrasaStanica(id);
+        }
+        
+        public string getStaniceZaTrasu(int idTrasa) {
+            return base.Channel.getStaniceZaTrasu(idTrasa);
+        }
+        
+        public string getStaniceZaTrasuPosle(int idTrasa, int idStanica) {
+            return base.Channel.getStaniceZaTrasuPosle(idTrasa, idStanica);
+        }
+        
+        public string getVremeZaDatum(string @object) {
+            return base.Channel.getVremeZaDatum(@object);
         }
     }
 }

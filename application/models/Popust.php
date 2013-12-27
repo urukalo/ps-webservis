@@ -2,21 +2,9 @@
 
 class Application_Model_Popust
 {
-    /**
-     *
-     * @var int 
-     */
-    public $_idPopust;
-    /**
-     *
-     * @var string 
-     */
-    public $_naziv;
-    /**
-     *
-     * @var int 
-     */
-    public $_procenat;
+    protected $_idPopust;
+    protected $_naziv;
+    protected $_procenat;
     
     public function getId() {
         return $this->_idPopust;

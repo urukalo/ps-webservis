@@ -5,11 +5,11 @@
       <xsd:complexType name="Application_Model_Popust">
         <xsd:all />
       </xsd:complexType>
-      <xsd:complexType name="Application_Model_Karta">
-        <xsd:all />
-      </xsd:complexType>
       <xsd:complexType name="Application_Model_Stanica">
-        <xsd:all />
+        <xsd:all>
+          <xsd:element name="_idStanica" nillable="true" type="xsd:int" />
+          <xsd:element name="_naziv" nillable="true" type="xsd:string" />
+        </xsd:all>
       </xsd:complexType>
     </xsd:schema>
   </wsdl:types>
@@ -17,17 +17,45 @@
   <wsdl:message name="setPopustIn">
     <wsdl:part name="object" type="xsd:string" />
   </wsdl:message>
+  <wsdl:message name="getPopustIn">
+    <wsdl:part name="id" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="getPopustOut">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
   <wsdl:message name="unsetPopustIn">
     <wsdl:part name="object" type="tns:Application_Model_Popust" />
   </wsdl:message>
   <wsdl:message name="setKartaIn">
-    <wsdl:part name="object" type="tns:Application_Model_Karta" />
+    <wsdl:part name="object" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="setKartaOut">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getKartaIn">
+    <wsdl:part name="id" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="getKartaOut">
+    <wsdl:part name="return" type="xsd:string" />
   </wsdl:message>
   <wsdl:message name="unsetKartaIn">
-    <wsdl:part name="object" type="tns:Application_Model_Karta" />
+    <wsdl:part name="idKarta" type="xsd:int" />
   </wsdl:message>
   <wsdl:message name="deactivateIn">
     <wsdl:part name="id" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="activateIn">
+    <wsdl:part name="id" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="izracunajCenuKarteIn">
+    <wsdl:part name="idTrasa" type="xsd:int" />
+    <wsdl:part name="idPolazneStanice" type="xsd:int" />
+    <wsdl:part name="idDolazneStanice" type="xsd:int" />
+    <wsdl:part name="idPopust" type="xsd:int" />
+    <wsdl:part name="povratna" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="izracunajCenuKarteOut">
+    <wsdl:part name="return" type="xsd:string" />
   </wsdl:message>
   <wsdl:message name="setStanicaIn">
     <wsdl:part name="object" type="xsd:string" />
@@ -120,6 +148,25 @@
   <wsdl:message name="unsetTrasaStanicaIn">
     <wsdl:part name="id" type="xsd:int" />
   </wsdl:message>
+  <wsdl:message name="getStaniceZaTrasuIn">
+    <wsdl:part name="idTrasa" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="getStaniceZaTrasuOut">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getStaniceZaTrasuPosleIn">
+    <wsdl:part name="idTrasa" type="xsd:int" />
+    <wsdl:part name="idStanica" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="getStaniceZaTrasuPosleOut">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getVremeZaDatumIn">
+    <wsdl:part name="object" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getVremeZaDatumOut">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
   <wsdl:portType name="Ekarta_AdminPort">
     <wsdl:operation name="Ekarta_Admin">
       <wsdl:input message="tns:Ekarta_AdminIn" />
@@ -127,17 +174,33 @@
     <wsdl:operation name="setPopust">
       <wsdl:input message="tns:setPopustIn" />
     </wsdl:operation>
+    <wsdl:operation name="getPopust">
+      <wsdl:input message="tns:getPopustIn" />
+      <wsdl:output message="tns:getPopustOut" />
+    </wsdl:operation>
     <wsdl:operation name="unsetPopust">
       <wsdl:input message="tns:unsetPopustIn" />
     </wsdl:operation>
     <wsdl:operation name="setKarta">
       <wsdl:input message="tns:setKartaIn" />
+      <wsdl:output message="tns:setKartaOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getKarta">
+      <wsdl:input message="tns:getKartaIn" />
+      <wsdl:output message="tns:getKartaOut" />
     </wsdl:operation>
     <wsdl:operation name="unsetKarta">
       <wsdl:input message="tns:unsetKartaIn" />
     </wsdl:operation>
     <wsdl:operation name="deactivate">
       <wsdl:input message="tns:deactivateIn" />
+    </wsdl:operation>
+    <wsdl:operation name="activate">
+      <wsdl:input message="tns:activateIn" />
+    </wsdl:operation>
+    <wsdl:operation name="izracunajCenuKarte">
+      <wsdl:input message="tns:izracunajCenuKarteIn" />
+      <wsdl:output message="tns:izracunajCenuKarteOut" />
     </wsdl:operation>
     <wsdl:operation name="setStanica">
       <wsdl:input message="tns:setStanicaIn" />
@@ -215,6 +278,18 @@
     <wsdl:operation name="unsetTrasaStanica">
       <wsdl:input message="tns:unsetTrasaStanicaIn" />
     </wsdl:operation>
+    <wsdl:operation name="getStaniceZaTrasu">
+      <wsdl:input message="tns:getStaniceZaTrasuIn" />
+      <wsdl:output message="tns:getStaniceZaTrasuOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getStaniceZaTrasuPosle">
+      <wsdl:input message="tns:getStaniceZaTrasuPosleIn" />
+      <wsdl:output message="tns:getStaniceZaTrasuPosleOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getVremeZaDatum">
+      <wsdl:input message="tns:getVremeZaDatumIn" />
+      <wsdl:output message="tns:getVremeZaDatumOut" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="Ekarta_AdminBinding" type="tns:Ekarta_AdminPort">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
@@ -230,6 +305,15 @@
         <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
       </wsdl:input>
     </wsdl:operation>
+    <wsdl:operation name="getPopust">
+      <soap:operation soapAction="http://ps/Admin#getPopust" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="unsetPopust">
       <soap:operation soapAction="http://ps/Admin#unsetPopust" />
       <wsdl:input>
@@ -241,6 +325,18 @@
       <wsdl:input>
         <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
       </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getKarta">
+      <soap:operation soapAction="http://ps/Admin#getKarta" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="unsetKarta">
       <soap:operation soapAction="http://ps/Admin#unsetKarta" />
@@ -253,6 +349,21 @@
       <wsdl:input>
         <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
       </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="activate">
+      <soap:operation soapAction="http://ps/Admin#activate" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="izracunajCenuKarte">
+      <soap:operation soapAction="http://ps/Admin#izracunajCenuKarte" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="setStanica">
       <soap:operation soapAction="http://ps/Admin#setStanica" />
@@ -415,6 +526,33 @@
       <wsdl:input>
         <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
       </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="getStaniceZaTrasu">
+      <soap:operation soapAction="http://ps/Admin#getStaniceZaTrasu" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStaniceZaTrasuPosle">
+      <soap:operation soapAction="http://ps/Admin#getStaniceZaTrasuPosle" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVremeZaDatum">
+      <soap:operation soapAction="http://ps/Admin#getVremeZaDatum" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="Ekarta_AdminService">

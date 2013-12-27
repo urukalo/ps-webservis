@@ -15,6 +15,22 @@ namespace ProjektovanjeSoftvera
         {
             InitializeComponent();
         }
+        public string User
+        {
+            get
+            {
+                return textBoxUsername.Text;
+            }
+        }
+
+        public string Pass
+        {
+            get
+            {
+                return textBoxPassword.Text;
+            }
+        }
+
 
     }
 }

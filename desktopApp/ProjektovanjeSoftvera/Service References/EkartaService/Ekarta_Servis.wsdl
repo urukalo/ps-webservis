@@ -61,7 +61,9 @@
   <wsdl:message name="popustiOut">
     <wsdl:part name="return" type="tns:ArrayOfApplication_Model_Popust" />
   </wsdl:message>
-  <wsdl:message name="getRedVoznjeIn" />
+  <wsdl:message name="getRedVoznjeIn">
+    <wsdl:part name="id" type="xsd:anyType" />
+  </wsdl:message>
   <wsdl:message name="getRedVoznjeOut">
     <wsdl:part name="return" type="tns:Application_Model_Redvoznje" />
   </wsdl:message>
@@ -84,7 +86,7 @@
   <wsdl:message name="pronadjiRutuIn">
     <wsdl:part name="idUlazna" type="xsd:int" />
     <wsdl:part name="idIzlazna" type="xsd:int" />
-    <wsdl:part name="datum" type="xsd:int" />
+    <wsdl:part name="datum" type="xsd:string" />
   </wsdl:message>
   <wsdl:message name="pronadjiRutuOut">
     <wsdl:part name="return" type="tns:ArrayOfApplication_Model_Redvoznje" />

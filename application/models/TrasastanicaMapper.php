@@ -83,24 +83,41 @@ class Application_Model_TrasastanicaMapper {
             return $object;
         }
     }
-
-    public function dohvatiSveNaTrasi($id) {
-        $statement = "SELECT * FROM stanica s INNER JOIN trasastanica ts ON s.idStanica = ts.idStanica INNER JOIN trasa t ON ts.idTrasa = t.idTrasa WHERE ts.idTrasa=$id";
-
+    public function dohvatiSveNaTrasiPosle($idTrasa,$idStanica) {
+        $statement = "SELECT kmOd FROM stanica s INNER JOIN trasastanica ts ON s.idStanica = ts.idStanica WHERE ts.idStanica=$idStanica AND ts.idTrasa=$idTrasa";
         $db = Zend_Db_Table::getDefaultAdapter();
-
         $resultSet = $db->query($statement)->fetchAll();
-        //throw new Ekarta_Exception(print_r($resultSet, true));
-        $Item = array();
-        foreach ($resultSet as $row) {
-            $object = new Application_Model_Stanica();
-            $object->setId($row['idStanica'])->setNaziv($row['ime']);
-            $Item[] = $object;
+        $kmOd="";
+        foreach ($resultSet as $row){
+            $kmOd=$row['kmOd'];
         }
-//throw new Ekarta_Exception(print_r($Item, true));
-        return $Item;
+        
+        $statement = "SELECT * FROM stanica s INNER JOIN trasastanica ts ON s.idStanica = ts.idStanica WHERE ts.idTrasa=$idTrasa AND ts.kmOd>$kmOd ORDER BY ts.kmOd";
+        $db = Zend_Db_Table::getDefaultAdapter();
+        $resultSet = $db->query($statement)->fetchAll();
+        $Items="";
+        foreach ($resultSet as $row){
+            $object=$row['ime']."_".$row['idStanica'];
+            $Items.=$object."#";
+        }
+        return $Items;
     }
 
+    public function dohvatiSveNaTrasi($id) {
+        $statement = "SELECT * FROM stanica s INNER JOIN trasastanica ts ON s.idStanica = ts.idStanica WHERE ts.idTrasa=$id ORDER BY ts.kmOd";
+        
+        $db = Zend_Db_Table::getDefaultAdapter();
+        
+        $resultSet = $db->query($statement)->fetchAll();
+        $Item = "";
+        foreach ($resultSet as $row) {
+            $object=$row['ime']."_".$row['idStanica'];
+            $Item.=$object."#";
+        }
+        return $Item;
+        
+    }
+    
     public function dohvatiIdTrase($idStanice) {
         $resultSet = $this->getDbTable()->fetchAll("idStanica=$idStanice");
 
