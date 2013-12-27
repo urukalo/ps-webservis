@@ -43,6 +43,16 @@ class Application_Model_PopustMapper
         }
         return $Items;
     }
+     public function dohvatiSveWeb(){
+        $resultSet=$this->getDbTable()->fetchAll('true');
+        $Items=array();
+        foreach ($resultSet as $row){
+            $object=new Application_Model_Popust();
+            $object->setId($row->idPopust)->setNaziv($row->naziv)->setProcenat($row->procenat);
+            $Items[]=$object;
+        }
+        return $Items;
+    }
     public function dohvatiJedan($id){
         $resultSet=$this->getDbTable()->fetchAll("idPopust=$id");
         $Item=array();

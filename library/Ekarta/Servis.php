@@ -98,7 +98,7 @@ class Ekarta_Servis {
     public function popusti() {
         $maper = new Application_Model_PopustMapper();
         try {
-            $popusti = $maper->dohvatiSve();
+            $popusti = $maper->dohvatiSveWeb();
 //            throw new Ekarta_Exception(print_r($popusti, true));
         } catch (Exception $exc) {
             throw new Ekarta_Exception("Ne mogu da pokupim listu popusta" . $exc->getMessage());
