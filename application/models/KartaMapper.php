@@ -26,9 +26,11 @@ class Application_Model_KartaMapper {
         $data = array(
             'idKarta' => $object->getId(),
             'idTrasa' => $object->getTrasa(),
+            'idPopust' => $object->getPopust(),
             'idStanicaPolaska' => $object->getStanicaPolaska(),
             'idStanicaDolaska' => $object->getStanicaDolaska(),
             'vremePolaska' => $object->getVremePolaska(),
+            'povratna' => $object->getPovratna(),
             'cena' => $object->getCena(),
             'aktivnost' => $object->getAktivnost(),
             'idPopust' => $object->getPopust(),

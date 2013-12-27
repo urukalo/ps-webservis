@@ -23,13 +23,18 @@ namespace ProjektovanjeSoftvera.AdminService {
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
         void setPopust(string @object);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://ps/Admin#getPopust", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        string getPopust(int id);
+        
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://ps/Admin#unsetPopust")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
         void unsetPopust(ProjektovanjeSoftvera.AdminService.Application_Model_Popust @object);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://ps/Admin#setKarta")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
-        void setKarta(ProjektovanjeSoftvera.AdminService.Application_Model_Karta @object);
+        void setKarta(string @object);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://ps/Admin#unsetKarta")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
@@ -134,6 +139,21 @@ namespace ProjektovanjeSoftvera.AdminService {
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://ps/Admin#unsetTrasaStanica")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
         void unsetTrasaStanica(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://ps/Admin#getStaniceZaTrasu", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        string getStaniceZaTrasu(int idTrasa);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://ps/Admin#getStaniceZaTrasuPosle", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        string getStaniceZaTrasuPosle(int idTrasa, int idStanica);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://ps/Admin#getVremeZaDatum", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        string getVremeZaDatum(string @object);
     }
     
     /// <remarks/>
@@ -225,11 +245,15 @@ namespace ProjektovanjeSoftvera.AdminService {
             base.Channel.setPopust(@object);
         }
         
+        public string getPopust(int id) {
+            return base.Channel.getPopust(id);
+        }
+        
         public void unsetPopust(ProjektovanjeSoftvera.AdminService.Application_Model_Popust @object) {
             base.Channel.unsetPopust(@object);
         }
         
-        public void setKarta(ProjektovanjeSoftvera.AdminService.Application_Model_Karta @object) {
+        public void setKarta(string @object) {
             base.Channel.setKarta(@object);
         }
         
@@ -323,6 +347,18 @@ namespace ProjektovanjeSoftvera.AdminService {
         
         public void unsetTrasaStanica(int id) {
             base.Channel.unsetTrasaStanica(id);
+        }
+        
+        public string getStaniceZaTrasu(int idTrasa) {
+            return base.Channel.getStaniceZaTrasu(idTrasa);
+        }
+        
+        public string getStaniceZaTrasuPosle(int idTrasa, int idStanica) {
+            return base.Channel.getStaniceZaTrasuPosle(idTrasa, idStanica);
+        }
+        
+        public string getVremeZaDatum(string @object) {
+            return base.Channel.getVremeZaDatum(@object);
         }
     }
 }
