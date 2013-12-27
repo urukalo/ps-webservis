@@ -17,11 +17,17 @@
   <wsdl:message name="setPopustIn">
     <wsdl:part name="object" type="xsd:string" />
   </wsdl:message>
+  <wsdl:message name="getPopustIn">
+    <wsdl:part name="id" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="getPopustOut">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
   <wsdl:message name="unsetPopustIn">
     <wsdl:part name="object" type="tns:Application_Model_Popust" />
   </wsdl:message>
   <wsdl:message name="setKartaIn">
-    <wsdl:part name="object" type="tns:Application_Model_Karta" />
+    <wsdl:part name="object" type="xsd:string" />
   </wsdl:message>
   <wsdl:message name="unsetKartaIn">
     <wsdl:part name="object" type="tns:Application_Model_Karta" />
@@ -120,12 +126,35 @@
   <wsdl:message name="unsetTrasaStanicaIn">
     <wsdl:part name="id" type="xsd:int" />
   </wsdl:message>
+  <wsdl:message name="getStaniceZaTrasuIn">
+    <wsdl:part name="idTrasa" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="getStaniceZaTrasuOut">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getStaniceZaTrasuPosleIn">
+    <wsdl:part name="idTrasa" type="xsd:int" />
+    <wsdl:part name="idStanica" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="getStaniceZaTrasuPosleOut">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getVremeZaDatumIn">
+    <wsdl:part name="object" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getVremeZaDatumOut">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
   <wsdl:portType name="Ekarta_AdminPort">
     <wsdl:operation name="Ekarta_Admin">
       <wsdl:input message="tns:Ekarta_AdminIn" />
     </wsdl:operation>
     <wsdl:operation name="setPopust">
       <wsdl:input message="tns:setPopustIn" />
+    </wsdl:operation>
+    <wsdl:operation name="getPopust">
+      <wsdl:input message="tns:getPopustIn" />
+      <wsdl:output message="tns:getPopustOut" />
     </wsdl:operation>
     <wsdl:operation name="unsetPopust">
       <wsdl:input message="tns:unsetPopustIn" />
@@ -215,6 +244,18 @@
     <wsdl:operation name="unsetTrasaStanica">
       <wsdl:input message="tns:unsetTrasaStanicaIn" />
     </wsdl:operation>
+    <wsdl:operation name="getStaniceZaTrasu">
+      <wsdl:input message="tns:getStaniceZaTrasuIn" />
+      <wsdl:output message="tns:getStaniceZaTrasuOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getStaniceZaTrasuPosle">
+      <wsdl:input message="tns:getStaniceZaTrasuPosleIn" />
+      <wsdl:output message="tns:getStaniceZaTrasuPosleOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getVremeZaDatum">
+      <wsdl:input message="tns:getVremeZaDatumIn" />
+      <wsdl:output message="tns:getVremeZaDatumOut" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="Ekarta_AdminBinding" type="tns:Ekarta_AdminPort">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
@@ -229,6 +270,15 @@
       <wsdl:input>
         <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
       </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="getPopust">
+      <soap:operation soapAction="http://ps/Admin#getPopust" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="unsetPopust">
       <soap:operation soapAction="http://ps/Admin#unsetPopust" />
@@ -415,6 +465,33 @@
       <wsdl:input>
         <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
       </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="getStaniceZaTrasu">
+      <soap:operation soapAction="http://ps/Admin#getStaniceZaTrasu" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStaniceZaTrasuPosle">
+      <soap:operation soapAction="http://ps/Admin#getStaniceZaTrasuPosle" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVremeZaDatum">
+      <soap:operation soapAction="http://ps/Admin#getVremeZaDatum" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://ps/Admin" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="Ekarta_AdminService">

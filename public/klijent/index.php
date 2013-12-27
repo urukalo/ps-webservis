@@ -59,9 +59,10 @@ try {
 //    
 //    echo "<br/> daj popuste: ";
 //    print_r($klijent->popusti());
-//    echo "<br/> red voznje: ";
-//    $r=$admin->getOtkazanaVoznja(1);
-//    print_r($r);
+    
+    echo "<br/> red voznje: ";
+    $r=$admin->getPopust(0);
+    print_r($r);
 } catch (SoapFault $s) {
     die('Error[' . $s->faultcode . ']' . $s->faultstring);
 } catch (Exception $e) {

@@ -45,15 +45,15 @@ class Ekarta_Admin {
     /**
      * 
      * @param int $id
-     * @return Application_Model_Popust[]
+     * @return string
      */
-//    public function getPopust($id = 0) {
-//        $mapper = new Application_Model_PopustMapper();
-//        if ($id === 0) {
-//            return $mapper->dohvatiSve();
-//        }
-//        return array($mapper->dohvatiJedan($id));
-//    }
+    public function getPopust($id) {
+        $mapper = new Application_Model_PopustMapper();
+        if ($id == 0) {
+            return $mapper->dohvatiSve();
+        }
+        return $mapper->dohvatiJedan($id);
+    }
     /**
      * 
      * @param Application_Model_Popust $object
@@ -67,18 +67,20 @@ class Ekarta_Admin {
 
     /**
      * 
-     * @param Application_Model_Karta $object
+     * @param string $object
      */
     public function setKarta($object) {
-        $this->_karta->setId($object->idKarta)
-                ->setTrasa($object->idTrasa)
-                ->setStanicaPolaska($object->idStanicaPolaska)
-                ->setStanicaDolaska($object->idStanicaDolaska)
-                ->setVremePolaska($object->vremePolaska)
-                ->setCena($object->cena)
-                ->setPopust($object->idPopust)
-                ->setNaznakaPopust($object->naznakaPopusta)
-                ->setAktivnost($object->aktivnost);
+        $array= explode('_', $object);
+        $vreme= explode('-', $array[4]);
+        $vremePolaska=  mktime($vreme[3], $vreme[4], 0, $vreme[1], $vreme[0], $vreme[2]);
+        $this->_karta->setTrasa($array[0])
+                ->setPopust($array[1])
+                ->setStanicaPolaska($array[2])
+                ->setStanicaDolaska($array[3])
+                ->setVremePolaska($vremePolaska)
+                ->setPovratna($array[5])
+                ->setAktivnost(1)
+                ->setCena($array[6]);
         $mapper = new Application_Model_KartaMapper();
         $mapper->save($this->_karta);
     }
@@ -347,5 +349,33 @@ class Ekarta_Admin {
         $mapper = new Application_Model_TrasastanicaMapper();
         $mapper->delete($id);
     }
-
+    /**
+     * 
+     * @param int $idTrasa
+     * @return string
+     */
+    public function getStaniceZaTrasu($idTrasa){
+        $mapper= new Application_Model_TrasastanicaMapper();
+        return $mapper->dohvatiSveNaTrasi($idTrasa);
+    }
+    /**
+     * 
+     * @param int $idTrasa
+     * @param int $idStanica
+     * @return string
+     */
+    public function getStaniceZaTrasuPosle($idTrasa,$idStanica){
+        $mapper= new Application_Model_TrasastanicaMapper();
+        return $mapper->dohvatiSveNaTrasiPosle($idTrasa,$idStanica);
+    }
+    /**
+     * 
+     * @param string $object
+     * @return string
+     */
+    public function getVremeZaDatum($object) {
+        $array= explode('_', $object);
+        $mapper= new Application_Model_RedvoznjeMapper();
+        return $mapper->dohvatiZaStanice($array[0],$array[1],$array[2],$array[3]);
+    }
 }

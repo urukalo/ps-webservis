@@ -34,9 +34,6 @@
             System.Windows.Forms.Label label3;
             System.Windows.Forms.Label label4;
             System.Windows.Forms.Label label5;
-            System.Windows.Forms.Label label6;
-            System.Windows.Forms.Label label8;
-            System.Windows.Forms.Label label7;
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.comboBoxVrstaPopust = new System.Windows.Forms.ComboBox();
             this.ekartaKartaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
@@ -47,12 +44,8 @@
             this.comboBoxPolaznaStanica = new System.Windows.Forms.ComboBox();
             this.comboBoxTrasa = new System.Windows.Forms.ComboBox();
             this.ekartaKartaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBoxPopust = new System.Windows.Forms.TextBox();
-            this.textBoxKontaktTelefon = new System.Windows.Forms.TextBox();
-            this.textBoxImePrezime = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.buttonRezervisi = new System.Windows.Forms.Button();
+            this.buttonPonisti = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.administracijaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,18 +53,15 @@
             this.traseIStaniceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.redVoznjeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pronadjiKartuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.checkBoxPovratna = new System.Windows.Forms.CheckBox();
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
             label5 = new System.Windows.Forms.Label();
-            label6 = new System.Windows.Forms.Label();
-            label8 = new System.Windows.Forms.Label();
-            label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ekartaKartaBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ekartaKartaBindingSource)).BeginInit();
-            this.groupBox2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -105,7 +95,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new System.Drawing.Point(272, 106);
+            label4.Location = new System.Drawing.Point(341, 106);
             label4.Name = "label4";
             label4.Size = new System.Drawing.Size(40, 13);
             label4.TabIndex = 6;
@@ -120,35 +110,9 @@
             label5.TabIndex = 7;
             label5.Text = "Dolazna stanica:";
             // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new System.Drawing.Point(16, 29);
-            label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(71, 13);
-            label6.TabIndex = 2;
-            label6.Text = "Ime i prezime:";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new System.Drawing.Point(16, 95);
-            label8.Name = "label8";
-            label8.Size = new System.Drawing.Size(43, 13);
-            label8.TabIndex = 4;
-            label8.Text = "Popust:";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new System.Drawing.Point(16, 61);
-            label7.Name = "label7";
-            label7.Size = new System.Drawing.Size(82, 13);
-            label7.TabIndex = 5;
-            label7.Text = "Kontakt telefon:";
-            // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.checkBoxPovratna);
             this.groupBox1.Controls.Add(this.comboBoxVrstaPopust);
             this.groupBox1.Controls.Add(this.checkBoxPopust);
             this.groupBox1.Controls.Add(this.comboBoxVremePolaska);
@@ -163,7 +127,7 @@
             this.groupBox1.Controls.Add(this.comboBoxTrasa);
             this.groupBox1.Location = new System.Drawing.Point(13, 41);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(537, 214);
+            this.groupBox1.Size = new System.Drawing.Size(537, 227);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Podaci o karti";
@@ -174,13 +138,14 @@
             this.comboBoxVrstaPopust.FormattingEnabled = true;
             this.comboBoxVrstaPopust.Location = new System.Drawing.Point(118, 165);
             this.comboBoxVrstaPopust.Name = "comboBoxVrstaPopust";
-            this.comboBoxVrstaPopust.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxVrstaPopust.Size = new System.Drawing.Size(194, 21);
             this.comboBoxVrstaPopust.TabIndex = 11;
             this.comboBoxVrstaPopust.Visible = false;
             // 
             // checkBoxPopust
             // 
             this.checkBoxPopust.AutoSize = true;
+            this.checkBoxPopust.Enabled = false;
             this.checkBoxPopust.Location = new System.Drawing.Point(19, 169);
             this.checkBoxPopust.Name = "checkBoxPopust";
             this.checkBoxPopust.Size = new System.Drawing.Size(59, 17);
@@ -191,98 +156,72 @@
             // 
             // comboBoxVremePolaska
             // 
+            this.comboBoxVremePolaska.Enabled = false;
             this.comboBoxVremePolaska.FormattingEnabled = true;
-            this.comboBoxVremePolaska.Location = new System.Drawing.Point(318, 103);
+            this.comboBoxVremePolaska.Location = new System.Drawing.Point(387, 103);
             this.comboBoxVremePolaska.Name = "comboBoxVremePolaska";
             this.comboBoxVremePolaska.Size = new System.Drawing.Size(121, 21);
             this.comboBoxVremePolaska.TabIndex = 9;
             // 
             // comboBoxDolaznaStanica
             // 
+            this.comboBoxDolaznaStanica.Enabled = false;
             this.comboBoxDolaznaStanica.FormattingEnabled = true;
             this.comboBoxDolaznaStanica.Location = new System.Drawing.Point(118, 133);
             this.comboBoxDolaznaStanica.Name = "comboBoxDolaznaStanica";
-            this.comboBoxDolaznaStanica.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxDolaznaStanica.Size = new System.Drawing.Size(194, 21);
             this.comboBoxDolaznaStanica.TabIndex = 8;
+            this.comboBoxDolaznaStanica.SelectedIndexChanged += new System.EventHandler(this.comboBoxDolaznaStanica_SelectedIndexChanged);
             // 
             // dateTimePickerDatumPutovanja
             // 
             this.dateTimePickerDatumPutovanja.CustomFormat = "d.M.yyyy";
+            this.dateTimePickerDatumPutovanja.Enabled = false;
             this.dateTimePickerDatumPutovanja.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePickerDatumPutovanja.Location = new System.Drawing.Point(118, 100);
             this.dateTimePickerDatumPutovanja.Name = "dateTimePickerDatumPutovanja";
-            this.dateTimePickerDatumPutovanja.Size = new System.Drawing.Size(121, 20);
+            this.dateTimePickerDatumPutovanja.Size = new System.Drawing.Size(194, 20);
             this.dateTimePickerDatumPutovanja.TabIndex = 4;
+            this.dateTimePickerDatumPutovanja.ValueChanged += new System.EventHandler(this.dateTimePickerDatumPutovanja_ValueChanged);
             // 
             // comboBoxPolaznaStanica
             // 
+            this.comboBoxPolaznaStanica.Enabled = false;
             this.comboBoxPolaznaStanica.FormattingEnabled = true;
             this.comboBoxPolaznaStanica.Location = new System.Drawing.Point(118, 63);
             this.comboBoxPolaznaStanica.Name = "comboBoxPolaznaStanica";
-            this.comboBoxPolaznaStanica.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxPolaznaStanica.Size = new System.Drawing.Size(194, 21);
             this.comboBoxPolaznaStanica.TabIndex = 3;
+            this.comboBoxPolaznaStanica.SelectedIndexChanged += new System.EventHandler(this.comboBoxPolaznaStanica_SelectedIndexChanged);
             // 
             // comboBoxTrasa
             // 
             this.comboBoxTrasa.FormattingEnabled = true;
             this.comboBoxTrasa.Location = new System.Drawing.Point(118, 31);
             this.comboBoxTrasa.Name = "comboBoxTrasa";
-            this.comboBoxTrasa.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxTrasa.Size = new System.Drawing.Size(194, 21);
             this.comboBoxTrasa.TabIndex = 0;
+            this.comboBoxTrasa.SelectedIndexChanged += new System.EventHandler(this.comboBoxTrasa_SelectedIndexChanged);
             // 
-            // groupBox2
+            // buttonRezervisi
             // 
-            this.groupBox2.Controls.Add(this.textBoxPopust);
-            this.groupBox2.Controls.Add(this.textBoxKontaktTelefon);
-            this.groupBox2.Controls.Add(this.textBoxImePrezime);
-            this.groupBox2.Controls.Add(label7);
-            this.groupBox2.Controls.Add(label8);
-            this.groupBox2.Controls.Add(label6);
-            this.groupBox2.Location = new System.Drawing.Point(13, 261);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(537, 135);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Usluge o korisniku";
+            this.buttonRezervisi.Location = new System.Drawing.Point(32, 283);
+            this.buttonRezervisi.Name = "buttonRezervisi";
+            this.buttonRezervisi.Size = new System.Drawing.Size(75, 23);
+            this.buttonRezervisi.TabIndex = 2;
+            this.buttonRezervisi.Text = "Rezerviši";
+            this.buttonRezervisi.UseVisualStyleBackColor = true;
+            this.buttonRezervisi.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBoxPopust
+            // buttonPonisti
             // 
-            this.textBoxPopust.Location = new System.Drawing.Point(118, 92);
-            this.textBoxPopust.Name = "textBoxPopust";
-            this.textBoxPopust.Size = new System.Drawing.Size(172, 20);
-            this.textBoxPopust.TabIndex = 8;
-            // 
-            // textBoxKontaktTelefon
-            // 
-            this.textBoxKontaktTelefon.Location = new System.Drawing.Point(118, 58);
-            this.textBoxKontaktTelefon.Name = "textBoxKontaktTelefon";
-            this.textBoxKontaktTelefon.Size = new System.Drawing.Size(172, 20);
-            this.textBoxKontaktTelefon.TabIndex = 7;
-            // 
-            // textBoxImePrezime
-            // 
-            this.textBoxImePrezime.Location = new System.Drawing.Point(118, 22);
-            this.textBoxImePrezime.Name = "textBoxImePrezime";
-            this.textBoxImePrezime.Size = new System.Drawing.Size(172, 20);
-            this.textBoxImePrezime.TabIndex = 6;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(13, 402);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Rezerviši";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(131, 402);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Poništi";
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttonPonisti.Location = new System.Drawing.Point(150, 283);
+            this.buttonPonisti.Name = "buttonPonisti";
+            this.buttonPonisti.Size = new System.Drawing.Size(75, 23);
+            this.buttonPonisti.TabIndex = 3;
+            this.buttonPonisti.Text = "Poništi";
+            this.buttonPonisti.UseVisualStyleBackColor = true;
+            this.buttonPonisti.Click += new System.EventHandler(this.button2_Click);
             // 
             // menuStrip1
             // 
@@ -290,7 +229,7 @@
             this.administracijaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(641, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(568, 24);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -307,7 +246,7 @@
             // loginToolStripMenuItem
             // 
             this.loginToolStripMenuItem.Name = "loginToolStripMenuItem";
-            this.loginToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.loginToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.loginToolStripMenuItem.Text = "Login";
             this.loginToolStripMenuItem.Click += new System.EventHandler(this.loginToolStripMenuItem_Click);
             // 
@@ -317,7 +256,7 @@
             this.traseIStaniceToolStripMenuItem,
             this.redVoznjeToolStripMenuItem});
             this.administracijaToolStripMenuItem1.Name = "administracijaToolStripMenuItem1";
-            this.administracijaToolStripMenuItem1.Size = new System.Drawing.Size(150, 22);
+            this.administracijaToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.administracijaToolStripMenuItem1.Text = "Administracija";
             this.administracijaToolStripMenuItem1.Click += new System.EventHandler(this.administracijaToolStripMenuItem1_Click);
             // 
@@ -338,17 +277,26 @@
             // pronadjiKartuToolStripMenuItem
             // 
             this.pronadjiKartuToolStripMenuItem.Name = "pronadjiKartuToolStripMenuItem";
-            this.pronadjiKartuToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.pronadjiKartuToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.pronadjiKartuToolStripMenuItem.Text = "Pronadji kartu";
+            // 
+            // checkBoxPovratna
+            // 
+            this.checkBoxPovratna.AutoSize = true;
+            this.checkBoxPovratna.Location = new System.Drawing.Point(344, 167);
+            this.checkBoxPovratna.Name = "checkBoxPovratna";
+            this.checkBoxPovratna.Size = new System.Drawing.Size(69, 17);
+            this.checkBoxPovratna.TabIndex = 12;
+            this.checkBoxPovratna.Text = "Povratna";
+            this.checkBoxPovratna.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(641, 437);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.groupBox2);
+            this.ClientSize = new System.Drawing.Size(568, 322);
+            this.Controls.Add(this.buttonPonisti);
+            this.Controls.Add(this.buttonRezervisi);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
             this.Name = "Form1";
@@ -357,8 +305,6 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ekartaKartaBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ekartaKartaBindingSource)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -376,12 +322,8 @@
         private System.Windows.Forms.DateTimePicker dateTimePickerDatumPutovanja;
         private System.Windows.Forms.ComboBox comboBoxPolaznaStanica;
         private System.Windows.Forms.ComboBox comboBoxTrasa;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox textBoxPopust;
-        private System.Windows.Forms.TextBox textBoxKontaktTelefon;
-        private System.Windows.Forms.TextBox textBoxImePrezime;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button buttonRezervisi;
+        private System.Windows.Forms.Button buttonPonisti;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem administracijaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem administracijaToolStripMenuItem1;
@@ -391,6 +333,7 @@
         private System.Windows.Forms.ToolStripMenuItem pronadjiKartuToolStripMenuItem;
         private System.Windows.Forms.BindingSource ekartaKartaBindingSource;
         private System.Windows.Forms.BindingSource ekartaKartaBindingSource1;
+        private System.Windows.Forms.CheckBox checkBoxPovratna;
     }
 }
 
