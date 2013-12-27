@@ -88,23 +88,20 @@ class Ekarta_Admin {
     /**
      * 
      * @param int $id
-     * @return Application_Model_Karta[]
+     * @return string
      */
-//    public function getKarta($id = 0) {
-//        $mapper = new Application_Model_KartaMapper();
-//        if ($id === 0) {
-//            return $mapper->dohvatiSve();
-//        }
-//        return array($mapper->dohvatiJedan($id));
-//    }
+    public function getKarta($id) {
+        $mapper = new Application_Model_KartaMapper();
+        return $mapper->dohvatiJedan($id);
+    }
 
     /**
      * 
-     * @param Application_Model_Karta $object
+     * @param int $idKarta
      */
-    public function unsetKarta($object) {
+    public function unsetKarta($idKarta) {
         $mapper = new Application_Model_KartaMapper();
-        $mapper->delete($object->idKarta);
+        $mapper->delete($idKarta);
     }
 
     /**
@@ -114,6 +111,27 @@ class Ekarta_Admin {
     public function deactivate($id) {
         $mapper = new Application_Model_KartaMapper();
         $mapper->deaktiviraj($id);
+    }
+    /**
+     * 
+     * @param int $id
+     */
+    public function activate($id) {
+        $mapper = new Application_Model_KartaMapper();
+        $mapper->aktiviraj($id);
+    }
+    /**
+     * 
+     * @param int $idTrasa
+     * @param int $idPolazneStanice
+     * @param int $idDolazneStanice
+     * @param int $idPopust
+     * @param int $povratna
+     * @return string
+     */
+    public function izracunajCenuKarte($idTrasa,$idPolazneStanice,$idDolazneStanice,$idPopust,$povratna){
+        $mapper = new Application_Model_KartaMapper();
+        return (string)$mapper->izracunajCenu($idTrasa,$idPolazneStanice,$idDolazneStanice,$idPopust,$povratna);
     }
 
     #---------------------------- Stanica ----------------------------#

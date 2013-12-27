@@ -9,8 +9,6 @@ using System.Text;
 using System.Windows.Forms;
 using ProjektovanjeSoftvera.EkartaService;
 using ProjektovanjeSoftvera.AdminService;
-using System.Runtime.Serialization.Json;
-using System.IO;
 
 namespace ProjektovanjeSoftvera
 {
@@ -38,16 +36,11 @@ namespace ProjektovanjeSoftvera
             this.comboBoxTrasa.DataSource = new BindingSource(trase, null);
             this.comboBoxTrasa.DisplayMember = "Value";
             this.comboBoxTrasa.ValueMember = "Key";
+            popuniPopuste();
         }
 
-        private void checkBoxPopust_CheckedChanged(object sender, EventArgs e)
-        {
-            popuniPopuste();
-            if(this.checkBoxPopust.Checked)
-                comboBoxVrstaPopust.Visible = true;
-            else
-                comboBoxVrstaPopust.Visible = false;
-        }
+
+        #region stavke menija
 
         private void loginToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -72,6 +65,16 @@ namespace ProjektovanjeSoftvera
             
         }
 
+        private void pronadjiKartuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PronadjiKartu dijalog = new PronadjiKartu();
+            dijalog.ShowDialog();
+        }
+
+        #endregion
+
+        #region comboBox dogadjaji
+
         private void comboBoxTrasa_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (this.comboBoxTrasa.SelectedIndex != 0)
@@ -93,6 +96,15 @@ namespace ProjektovanjeSoftvera
             }
         }
 
+        private void comboBoxDolaznaStanica_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.dateTimePickerDatumPutovanja.Enabled = true;
+        }
+
+        #endregion
+
+        #region dateTimePicker dogadjaj
+
         private void dateTimePickerDatumPutovanja_ValueChanged(object sender, EventArgs e)
         {
             if (this.comboBoxTrasa.SelectedIndex > 0)
@@ -111,7 +123,7 @@ namespace ProjektovanjeSoftvera
                 for (int i = 0; i < count - 1; i++)
                 {
                     string[] elements = array[i].Split('_');
-                    trase.Add(Convert.ToInt32(elements[1]), elements[0]);
+                    trase.Add(Convert.ToInt32(elements[0]), elements[1]);
                 }
                 this.comboBoxVremePolaska.DataSource = new BindingSource(trase, null);
                 this.comboBoxVremePolaska.DisplayMember = "Value";
@@ -119,10 +131,9 @@ namespace ProjektovanjeSoftvera
             }
         }
 
-        private void comboBoxDolaznaStanica_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            this.dateTimePickerDatumPutovanja.Enabled = true;
-        }
+        #endregion
+
+        #region button dogadjaji
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -139,15 +150,34 @@ namespace ProjektovanjeSoftvera
             string vreme = comboBoxVremePolaska.Text;
             string vremePolaska = dateTimePickerDatumPutovanja.Value.Day + "-" + dateTimePickerDatumPutovanja.Value.Month + "-" + dateTimePickerDatumPutovanja.Value.Year + "-" + vreme.Split(':')[0] + "-" + vreme.Split(':')[1];
             string povratna = this.checkBoxPovratna.Checked ? "1" : "0";
-            string cena = "300";
-            string zaSlanje = idTrasa + "_" + idPopust + "_" + idStanicaPolaska + "_" + idStanicaDolaska + "_" + vremePolaska + "_" + povratna + "_" + cena;
             Ekarta_AdminPortClient veza = new Ekarta_AdminPortClient();
+            string cena = "";
+            try
+            {
+                cena = veza.izracunajCenuKarte(Int32.Parse(idTrasa), Int32.Parse(idStanicaPolaska), Int32.Parse(idStanicaDolaska), Int32.Parse(idPopust), Int32.Parse(povratna));
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }   
+            string zaSlanje = idTrasa + "_" + idPopust + "_" + idStanicaPolaska + "_" + idStanicaDolaska + "_" + vremePolaska + "_" + povratna + "_" + cena;
             try { veza.setKarta(zaSlanje); }
             catch (Exception ex) { }
             ponistiSve();
-            MessageBox.Show("Karta rezervisana","Obavestenje",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            MessageBox.Show("Karta uspesno rezervisana","Obavestenje",MessageBoxButtons.OK,MessageBoxIcon.Information);
         
         }
+
+        #endregion
+
+        #region checkBox dogadjaji
+
+        private void checkBoxPopust_CheckedChanged(object sender, EventArgs e)
+        {
+            if(this.checkBoxPopust.Checked)
+                comboBoxVrstaPopust.Visible = true;
+            else
+                comboBoxVrstaPopust.Visible = false;
+        }
+
+        #endregion
 
         #region Dodatne funkcije
 
@@ -206,11 +236,13 @@ namespace ProjektovanjeSoftvera
             comboBoxVremePolaska.Enabled = false;
 
             dateTimePickerDatumPutovanja.Enabled = false;
+            dateTimePickerDatumPutovanja.Value = DateTime.Now;
             checkBoxPopust.Checked = false;
             checkBoxPovratna.Checked = false;
         }
 
         #endregion
+
 
 
 

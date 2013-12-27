@@ -63,3 +63,4 @@ G:\www\ps-webservis\desktopApp\ProjektovanjeSoftvera\obj\x86\Debug\Projektovanje
 G:\www\ps-webservis\desktopApp\ProjektovanjeSoftvera\obj\x86\Debug\ProjektovanjeSoftvera.LoginDijalog.resources
 G:\www\ps-webservis\desktopApp\ProjektovanjeSoftvera\obj\x86\Debug\ProjektovanjeSoftvera.Properties.Resources.resources
 G:\www\ps-webservis\desktopApp\ProjektovanjeSoftvera\obj\x86\Debug\ProjektovanjeSoftvera.csproj.GenerateResource.Cache
+C:\xampp\htdocs\ps-webservis\desktopApp\ProjektovanjeSoftvera\obj\x86\Debug\ProjektovanjeSoftvera.PronadjiKartu.resources
