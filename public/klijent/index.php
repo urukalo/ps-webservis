@@ -14,7 +14,7 @@ $opcije_admin = array(
 try {
     $klijent = new Zend_Soap_Client(null, $opcije);
     $klijent->setWsdlCache(false);
-    //$admin = new Zend_Soap_Client(null, $opcije_admin);
+    $admin = new Zend_Soap_Client(null, $opcije_admin);
 
     $stanicaIzlazna = $klijent->stanicaIzlazna(1);
     //  print_r("<br/><pre>".$klijent->getLastResponse()."</pre><br/>");
@@ -29,8 +29,8 @@ try {
     echo"<br> === voznje -===<br/>";
     $idUlazna = 1;
     $idIzlazna = 2;
-    $datum = "26/12/2013";
-    $trase = $klijent->pronadjiRutu($idUlazna, $idIzlazna, $datum);
+    $dan = 1; //radni dan
+    $trase = $klijent->pronadjiRutu($idUlazna, $idIzlazna, $dan);
     //print_r("<br/><pre>".$klijent->getLastResponse()."</pre><br/>");
     var_dump($trase);
 
@@ -50,11 +50,12 @@ try {
     var_dump($popusti);
 
     echo"<br> === cuvanje karte -===<br/>";
- $date = date_parse_from_format('d/m/Y', $datum);
-            $vremePolaska = mktime(0, 0, 0, $date['month'], $date['day'], $date['year']);
+    $datum = "26/12/2013";
+    $date = date_parse_from_format('d/m/Y', $datum);
+    $vremePolaska = mktime(0, 0, 0, $date['month'], $date['day'], $date['year']);
 
     $data = array(
-       // 'idKarta' => 1,
+        // 'idKarta' => 1,
         'idTrasa' => $idVoznje,
         'idPopust' => $popusti[0]->_idPopust,
         'idStanicaPolaska' => 1,
@@ -107,9 +108,9 @@ try {
 //    
 //    echo "<br/> daj popuste: ";
 //    print_r($klijent->popusti());
-    
+
     echo "<br/> red voznje: ";
-    $r=$admin->deactivate(16);
+    $r = $admin->deactivate(16);
     print_r($r);
 } catch (SoapFault $s) {
     die('Error[' . $s->faultcode . ']' . $s->faultstring);

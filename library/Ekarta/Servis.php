@@ -180,8 +180,8 @@ class Ekarta_Servis {
         $redVoznjeMaper = new Application_Model_RedvoznjeMapper();
         try {
             
-            $date = date_parse_from_format('d/m/Y', $datum);
-            $dan = date("N", mktime(0, 0, 0, $date['month'], $date['day'], $date['year']));
+            //$date = date_parse_from_format('d/m/Y', $datum);
+            //$dan = date("N", mktime(0, 0, 0, $date['month'], $date['day'], $date['year']));
 
             $idTrase = $trasastanicaMaper->dohvatiIdTrase($idIzlazna);
             //throw new Ekarta_Exception(print_r($idTrase[0]->idTrasa."dan: ".$dan, true));
@@ -190,7 +190,7 @@ class Ekarta_Servis {
         }
 
         try {
-            $redVoznje = $redVoznjeMaper->dajVoznjeNaTrasi($idTrase[0]->idTrasa, $dan);
+            $redVoznje = $redVoznjeMaper->dajVoznjeNaTrasi($idTrase[0]->idTrasa, $datum);
            // throw new Ekarta_Exception(print_r($redVoznje, true));
         } catch (Exception $ex) {
             throw new Ekarta_Exception("Ne mogu da pokupim listu ruta " . $ex->getMessage());
