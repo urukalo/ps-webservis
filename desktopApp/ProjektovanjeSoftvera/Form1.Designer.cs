@@ -35,6 +35,7 @@
             System.Windows.Forms.Label label4;
             System.Windows.Forms.Label label5;
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkBoxPovratna = new System.Windows.Forms.CheckBox();
             this.comboBoxVrstaPopust = new System.Windows.Forms.ComboBox();
             this.ekartaKartaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.checkBoxPopust = new System.Windows.Forms.CheckBox();
@@ -53,7 +54,6 @@
             this.traseIStaniceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.redVoznjeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pronadjiKartuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.checkBoxPovratna = new System.Windows.Forms.CheckBox();
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
@@ -131,6 +131,16 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Podaci o karti";
+            // 
+            // checkBoxPovratna
+            // 
+            this.checkBoxPovratna.AutoSize = true;
+            this.checkBoxPovratna.Location = new System.Drawing.Point(344, 167);
+            this.checkBoxPovratna.Name = "checkBoxPovratna";
+            this.checkBoxPovratna.Size = new System.Drawing.Size(69, 17);
+            this.checkBoxPovratna.TabIndex = 12;
+            this.checkBoxPovratna.Text = "Povratna";
+            this.checkBoxPovratna.UseVisualStyleBackColor = true;
             // 
             // comboBoxVrstaPopust
             // 
@@ -279,16 +289,7 @@
             this.pronadjiKartuToolStripMenuItem.Name = "pronadjiKartuToolStripMenuItem";
             this.pronadjiKartuToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.pronadjiKartuToolStripMenuItem.Text = "Pronadji kartu";
-            // 
-            // checkBoxPovratna
-            // 
-            this.checkBoxPovratna.AutoSize = true;
-            this.checkBoxPovratna.Location = new System.Drawing.Point(344, 167);
-            this.checkBoxPovratna.Name = "checkBoxPovratna";
-            this.checkBoxPovratna.Size = new System.Drawing.Size(69, 17);
-            this.checkBoxPovratna.TabIndex = 12;
-            this.checkBoxPovratna.Text = "Povratna";
-            this.checkBoxPovratna.UseVisualStyleBackColor = true;
+            this.pronadjiKartuToolStripMenuItem.Click += new System.EventHandler(this.pronadjiKartuToolStripMenuItem_Click);
             // 
             // Form1
             // 

@@ -109,7 +109,7 @@ try {
 //    print_r($klijent->popusti());
     
     echo "<br/> red voznje: ";
-    $r=$admin->getPopust(0);
+    $r=$admin->deactivate(16);
     print_r($r);
 } catch (SoapFault $s) {
     die('Error[' . $s->faultcode . ']' . $s->faultstring);

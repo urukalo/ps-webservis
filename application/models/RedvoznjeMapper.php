@@ -84,7 +84,6 @@ class Application_Model_RedvoznjeMapper {
 
     public function dajVoznjeNaTrasi($idTrase, $dan) {
         $resultSet = $this->getDbTable()->fetchAll("idTrasa='$idTrase' AND dan = '$dan'");
-//throw new Ekarta_Exception(print_r( $resultSet, true));
         $Item = array();
         foreach ($resultSet as $row) {
 
@@ -92,12 +91,27 @@ class Application_Model_RedvoznjeMapper {
             $object->setId($row->idRedVoznje)->setTrasa($row->idTrasa)->setDan($row->dan)->setVremePolaska($row->vremePolaska);
             $Item[] = $object;
         }
-//throw new Ekarta_Exception(print_r( $Item, true));
         return $Item;
     }
 
-    public function dohvatiZaStanice() {
-        
+    public function dohvatiZaStanice($idTrasa,$dan,$mesec,$godina) {
+        $vreme=  date("N",mktime(0, 0, 0, $mesec, $dan, $godina));
+        switch ($vreme) {
+            case 1:case 2:case 3:case 4:case 5: $vreme=1; break;
+            case 6:$vreme=2; break;
+            case 7:$vreme=3; break;
+            default:
+                break;
+        }
+        $statement = "SELECT idRedVoznje,vremePolaska FROM redvoznje WHERE idTrasa=$idTrasa AND dan=$vreme";
+        $db = Zend_Db_Table::getDefaultAdapter();
+        $resultSet = $db->query($statement);
+        $Items = "";
+        foreach ($resultSet as $row) {
+        $object = $row['idRedVoznje'] . "_" . $row['vremePolaska'];
+            $Items.=$object . "#";
+        }
+        return $Items;
     }
 
     public function proveriDaLiPostoji($idTrase, $dan, $vreme) {
