@@ -45,6 +45,7 @@ class Ekarta_Servis {
     /**
      * 
      * @param Application_Model_Karta $object
+     * @return string tip operacije
      */
     public function sacuvajKartu($object) {
         $this->_karta = new Application_Model_Karta();
@@ -57,7 +58,8 @@ class Ekarta_Servis {
                 ->setCena($object->cena)
                 ->setPopust($object->idPopust)
                 ->setNaznakaPopust($object->naznakaPopusta)
-                ->setAktivnost($object->aktivnost);
+                ->setAktivnost($object->aktivnost)
+                ->setPovratna($object->povratna);
         $mapper = new Application_Model_KartaMapper();
 
         try {
@@ -97,6 +99,7 @@ class Ekarta_Servis {
         $maper = new Application_Model_PopustMapper();
         try {
             $popusti = $maper->dohvatiSve();
+//            throw new Ekarta_Exception(print_r($popusti, true));
         } catch (Exception $exc) {
             throw new Ekarta_Exception("Ne mogu da pokupim listu popusta" . $exc->getMessage());
         }
@@ -105,15 +108,7 @@ class Ekarta_Servis {
         return $popusti;
     }
 
-    /**
-     * 
-     * @return Application_Model_Redvoznje
-     */
-    public function getRedVoznje($id) {
-        $maper = new Application_Model_RedvoznjeMapper();
-        
-        return $maper->dohvatiJedan($id);
-    }
+
 
     /**
      * 
@@ -184,25 +179,35 @@ class Ekarta_Servis {
         $trasastanicaMaper = new Application_Model_TrasastanicaMapper();
         $redVoznjeMaper = new Application_Model_RedvoznjeMapper();
         try {
-            $dtm = explode("/", $datum);
-            $dan = date("N", mktime(0, 0, 0, $dtm[1], $dtm[0], $dtm[3]));
+            
+            $date = date_parse_from_format('d/m/Y', $datum);
+            $dan = date("N", mktime(0, 0, 0, $date['month'], $date['day'], $date['year']));
 
             $idTrase = $trasastanicaMaper->dohvatiIdTrase($idIzlazna);
+            //throw new Ekarta_Exception(print_r($idTrase[0]->idTrasa."dan: ".$dan, true));
         } catch (Exception $ex) {
             throw new Ekarta_Exception("Ne mogu da pokupim idtrase za listu ruta" . $ex->getMessage());
         }
 
         try {
             $redVoznje = $redVoznjeMaper->dajVoznjeNaTrasi($idTrase[0]->idTrasa, $dan);
-throw new Ekarta_Exception(print_r( $redVoznje, true));
+           // throw new Ekarta_Exception(print_r($redVoznje, true));
         } catch (Exception $ex) {
             throw new Ekarta_Exception("Ne mogu da pokupim listu ruta " . $ex->getMessage());
         }
 
-       
-        
+
+
 
         return $redVoznje;
     }
+    /**
+     * 
+     * @return Application_Model_Redvoznje
+     */
+    public function getVoznja($id) {
+        $maper = new Application_Model_RedvoznjeMapper();
 
+        return $maper->dohvatiJedan($id);
+    }
 }

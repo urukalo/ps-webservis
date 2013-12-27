@@ -30,7 +30,10 @@ class Application_Model_KartaMapper {
             'idStanicaDolaska' => $object->getStanicaDolaska(),
             'vremePolaska' => $object->getVremePolaska(),
             'cena' => $object->getCena(),
-            'aktivnost' => $object->getAktivnost()
+            'aktivnost' => $object->getAktivnost(),
+            'idPopust' => $object->getPopust(),
+            'aktivnost' => $object->getAktivnost(),
+            'povratna' => $object->getPovratna()
         );
 
         if (null === ($idKarta = $object->getId())) {

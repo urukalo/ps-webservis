@@ -13,22 +13,70 @@ $opcije_admin = array(
 );
 try {
     $klijent = new Zend_Soap_Client(null, $opcije);
-    $admin = new Zend_Soap_Client(null, $opcije_admin);
+    $klijent->setWsdlCache(false);
+    //$admin = new Zend_Soap_Client(null, $opcije_admin);
 
-    $result = $klijent->stanicaIzlazna(1);
-    var_dump($result);
-    foreach ($result as $stanica) {
+    $stanicaIzlazna = $klijent->stanicaIzlazna(1);
+    //  print_r("<br/><pre>".$klijent->getLastResponse()."</pre><br/>");
+    var_dump($stanicaIzlazna);
+    foreach ($stanicaIzlazna as $stanica) {
         $izlazneStanice[$stanica->_idStanica] = $stanica->_naziv;
     }
     echo"<br>";
     var_dump($izlazneStanice);
-    
-    
-    echo"<br> === voznje -===<br/>";
-    $trase = $klijent->pronadjiRutu(1,2,"28/12/2013");
-    var_dump($trase);
-    
 
+
+    echo"<br> === voznje -===<br/>";
+    $idUlazna = 1;
+    $idIzlazna = 2;
+    $datum = "26/12/2013";
+    $trase = $klijent->pronadjiRutu($idUlazna, $idIzlazna, $datum);
+    //print_r("<br/><pre>".$klijent->getLastResponse()."</pre><br/>");
+    var_dump($trase);
+
+
+    echo"<br> === jedna voznja -===<br/>";
+    $idVoznje = 1;
+
+    $voznja = $klijent->getVoznja($idVoznje);
+
+    var_dump($voznja);
+
+    echo"<br> === popusti -===<br/>";
+
+
+    $popusti = $klijent->popusti();
+
+    var_dump($popusti);
+
+    echo"<br> === cuvanje karte -===<br/>";
+ $date = date_parse_from_format('d/m/Y', $datum);
+            $vremePolaska = mktime(0, 0, 0, $date['month'], $date['day'], $date['year']);
+
+    $data = array(
+       // 'idKarta' => 1,
+        'idTrasa' => $idVoznje,
+        'idPopust' => $popusti[0]->_idPopust,
+        'idStanicaPolaska' => 1,
+        'idStanicaDolaska' => $stanicaIzlazna[1]->_idStanica,
+        'vremePolaska' => $vremePolaska,
+        'cena' => 500,
+        'aktivnost' => 1,
+        'povratna' => 1
+    );
+    $karta = (object) $data;
+
+    echo "<br/> nova karta: ";
+    print_r($karta);
+
+    echo "<br/> sacuvaj kartu: ";
+    print_r($klijent->sacuvajKartu($karta));
+
+
+
+//    foreach ($trase as $value) {
+//        var_dump($value);
+//    }
 //    echo "<br/><br/> uzmi kartu ";
 //    $karta = $klijent->getKarta();
 //    print_r($karta);
