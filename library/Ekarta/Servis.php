@@ -79,7 +79,7 @@ class Ekarta_Servis {
             throw new Ekarta_Exception('Invalid input');
         }
         $this->karta = $this->kartaMaper->dohvatiJedanWeb($id);
-        throw new Ekarta_Exception(print_r($this->karta,true));
+       // throw new Ekarta_Exception(print_r($this->karta,true));
         return $this->karta;
     }
 
