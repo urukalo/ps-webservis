@@ -2,16 +2,56 @@
 
 class Application_Model_Karta
 {
-    protected $_idKarta;
-    protected $_idTrasa;
-    protected $_idStanicaPolaska;
-    protected $_idStanicaDolaska;
-    protected $_vremePolaska;
-    protected $_idPopust;
-    protected $_naznakaPopusta;
-    protected $_povratna;
-    protected $_cena;
-    protected $_aktivnost;
+    /**
+     *
+     * @var int
+     */
+    public $_idKarta;
+    /**
+     *
+     * @var int
+     */
+    public $_idTrasa;
+    /**
+     *
+     * @var int
+     */
+    public $_idStanicaPolaska;
+    /**
+     *
+     * @var int
+     */
+    public $_idStanicaDolaska;
+    /**
+     *
+     * @var int
+     */
+    public $_vremePolaska;
+    /**
+     *
+     * @var int
+     */
+    public $_idPopust;
+    /**
+     *
+     * @var string
+     */
+    public $_naznakaPopusta;
+    /**
+     *
+     * @var int
+     */
+    public $_povratna;
+    /**
+     *
+     * @var int
+     */
+    public $_cena;
+    /**
+     *
+     * @var int
+     */
+    public $_aktivnost;
     
     public function getId() {
         return $this->_idKarta;

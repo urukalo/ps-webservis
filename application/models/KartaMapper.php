@@ -77,6 +77,35 @@ class Application_Model_KartaMapper {
         }
         return $polaznaStanica."_".$ostatak;
     }
+        public function dohvatiJedanWeb($id) {
+        $db = Zend_Db_Table::getDefaultAdapter();
+        $resultSet = $db->query("SELECT s.ime FROM karta k INNEr JOIN stanica s ON k.idStanicaPolaska= s.idStanica WHERE k.idKarta=$id;");
+        foreach ($resultSet as $row) {
+            $polaznaStanica=$row['ime'];
+        }
+        $resultSet1 = $db->query("SELECT * "
+                . "FROM karta k "
+                . "INNER JOIN trasa t ON k.idTrasa=t.idTrasa "
+                . "LEFT OUTER JOIN popusti p ON k.idPopust=p.idPopust "
+                . "INNER JOIN stanica s ON k.idStanicaDolaska=s.idStanica "
+                . "WHERE k.idKarta=$id;");
+        foreach ($resultSet1 as $row) {
+            $row['naziv']===NULL?$popust="Nema popusta":$popust=$row['naziv'];
+       
+        
+        $karta = new Application_Model_Karta();
+        $karta->setId($row['idKarta'])
+                ->setTrasa($row['idTrasa'])
+                ->setStanicaPolaska($polaznaStanica)
+                ->setStanicaDolaska($row['ime'])
+                ->setVremePolaska(date("d.m.Y H:i",$row['vremePolaska']))
+                ->setCena($row['cena'])
+                ->setPopust($row['polazak'])
+                ->setNaznakaPopust($popust)
+                ->setAktivnost($row['aktivnost'])
+                ->setPovratna($row['povratna']); }
+        return $karta;
+    }
 
     public function deaktiviraj($id) {
         $statement = "UPDATE karta SET aktivnost=0 WHERE idKarta=$id";

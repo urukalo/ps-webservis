@@ -72,13 +72,15 @@ class Ekarta_Servis {
     /**
      * Pronalazi kartu za dati idKarte i vraca objekat iste
      * @param int $id
-     * @return Application_Model_Karta $karta
+     * @return Application_Model_Karta
      */
     public function pronadjiKartu($id) {
         if (!Zend_Validate::is($id, 'Int')) {
             throw new Ekarta_Exception('Invalid input');
         }
-        return $this->kartaMaper->dohvatiJedan($id);
+        $this->karta = $this->kartaMaper->dohvatiJedanWeb($id);
+        //throw new Ekarta_Exception(print_r($karta,true));
+        return $this->karta;
     }
 
     /**
