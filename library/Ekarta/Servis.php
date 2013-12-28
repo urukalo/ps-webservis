@@ -79,7 +79,7 @@ class Ekarta_Servis {
             throw new Ekarta_Exception('Invalid input');
         }
         $this->karta = $this->kartaMaper->dohvatiJedanWeb($id);
-        //throw new Ekarta_Exception(print_r($karta,true));
+        throw new Ekarta_Exception(print_r($this->karta,true));
         return $this->karta;
     }
 
@@ -110,7 +110,21 @@ class Ekarta_Servis {
         return $popusti;
     }
 
-
+    /**
+     * 
+     * @param int $id
+     * @return string
+     * @throws Ekarta_Exception
+     */
+    public function nazivStanice($id) {
+        $stanicaMaper = new Application_Model_StanicaMapper();
+        try {
+            $stanica = $stanicaMaper->dohvatiJedan($id);
+        } catch (Exception $ex) {
+            throw new Ekarta_Exception("Ne mogu da pronadjem kartu" . $exc->getMessage());
+        }
+        return $stanica->getNaziv();
+    }
 
     /**
      * 
@@ -181,7 +195,7 @@ class Ekarta_Servis {
         $trasastanicaMaper = new Application_Model_TrasastanicaMapper();
         $redVoznjeMaper = new Application_Model_RedvoznjeMapper();
         try {
-            
+
             //$date = date_parse_from_format('d/m/Y', $datum);
             //$dan = date("N", mktime(0, 0, 0, $date['month'], $date['day'], $date['year']));
 
@@ -193,7 +207,7 @@ class Ekarta_Servis {
 
         try {
             $redVoznje = $redVoznjeMaper->dajVoznjeNaTrasi($idTrase[0]->idTrasa, $datum);
-           // throw new Ekarta_Exception(print_r($redVoznje, true));
+            // throw new Ekarta_Exception(print_r($redVoznje, true));
         } catch (Exception $ex) {
             throw new Ekarta_Exception("Ne mogu da pokupim listu ruta " . $ex->getMessage());
         }
@@ -203,6 +217,7 @@ class Ekarta_Servis {
 
         return $redVoznje;
     }
+
     /**
      * 
      * @return Application_Model_Redvoznje
@@ -212,4 +227,5 @@ class Ekarta_Servis {
 
         return $maper->dohvatiJedan($id);
     }
+
 }

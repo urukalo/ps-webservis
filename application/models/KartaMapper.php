@@ -100,7 +100,7 @@ class Application_Model_KartaMapper {
                 ->setStanicaDolaska($row['ime'])
                 ->setVremePolaska(date("d.m.Y H:i",$row['vremePolaska']))
                 ->setCena($row['cena'])
-                ->setPopust($row['polazak'])
+                ->setPopust($row['idPopust'])
                 ->setNaznakaPopust($popust)
                 ->setAktivnost($row['aktivnost'])
                 ->setPovratna($row['povratna']); }

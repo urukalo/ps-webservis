@@ -14,12 +14,12 @@ class Application_Model_Karta
     public $_idTrasa;
     /**
      *
-     * @var int
+     * @var string
      */
     public $_idStanicaPolaska;
     /**
      *
-     * @var int
+     * @var string
      */
     public $_idStanicaDolaska;
     /**

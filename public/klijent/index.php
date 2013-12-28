@@ -74,6 +74,9 @@ try {
     print_r($klijent->sacuvajKartu($karta));
     echo "<br/> pronadji kartu: ";
     print_r($klijent->pronadjiKartu(1));
+    
+    
+    //print_r($klijent->nazivStanice(1));
 
 //    foreach ($trase as $value) {
 //        var_dump($value);
