@@ -74,8 +74,8 @@ try {
     print_r($klijent->sacuvajKartu($karta));
     echo "<br/> pronadji kartu: ";
     print_r($klijent->pronadjiKartu(1));
-    
-    
+     echo "<br/> cena karte: ";
+    print_r($klijent->izracunajCenuKarte(1, 1, 3, 1, 1));
     //print_r($klijent->nazivStanice(1));
 
 //    foreach ($trase as $value) {

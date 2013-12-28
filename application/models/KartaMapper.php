@@ -40,11 +40,11 @@ class Application_Model_KartaMapper {
 
         if (null === ($idKarta = $object->getId())) {
             unset($data['idKarta']);
-            $this->getDbTable()->insert($data);
-            return "insert";
+            return $this->getDbTable()->insert($data);
+             
         } else {
             $this->getDbTable()->update($data, array('idKarta=?' => $idKarta));
-            return "update";
+            return $idKarta;
         }
     }
 

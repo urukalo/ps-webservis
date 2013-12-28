@@ -45,7 +45,7 @@ class Ekarta_Servis {
     /**
      * 
      * @param Application_Model_Karta $object
-     * @return string tip operacije
+     * @return int id nove ili izmenjene karte
      */
     public function sacuvajKartu($object) {
         $this->_karta = new Application_Model_Karta();
@@ -79,7 +79,7 @@ class Ekarta_Servis {
             throw new Ekarta_Exception('Invalid input');
         }
         $this->karta = $this->kartaMaper->dohvatiJedanWeb($id);
-       // throw new Ekarta_Exception(print_r($this->karta,true));
+        // throw new Ekarta_Exception(print_r($this->karta,true));
         return $this->karta;
     }
 
@@ -226,6 +226,20 @@ class Ekarta_Servis {
         $maper = new Application_Model_RedvoznjeMapper();
 
         return $maper->dohvatiJedan($id);
+    }
+
+    /**
+     * 
+     * @param int $idTrasa
+     * @param int $idPolazneStanice
+     * @param int $idDolazneStanice
+     * @param int $idPopust
+     * @param int $povratna
+     * @return string
+     */
+    public function izracunajCenuKarte($idTrasa, $idPolazneStanice, $idDolazneStanice, $idPopust, $povratna) {
+        $mapper = new Application_Model_KartaMapper();
+        return (string) $mapper->izracunajCenu($idTrasa, $idPolazneStanice, $idDolazneStanice, $idPopust, $povratna);
     }
 
 }
